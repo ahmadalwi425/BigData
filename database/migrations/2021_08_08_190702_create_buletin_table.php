@@ -15,7 +15,10 @@ class CreateBuletinTable extends Migration
     {
         Schema::create('buletin', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('cover');
+            $table->string('judul');
+            $table->mediumText('konten');
+            $table->bigInteger('id_kategori_buletin');
         });
     }
 

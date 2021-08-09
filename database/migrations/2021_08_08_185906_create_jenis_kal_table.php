@@ -15,7 +15,7 @@ class CreateJenisKalTable extends Migration
     {
         Schema::create('jenis_kal', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nama_jenis_kal');
         });
     }
 

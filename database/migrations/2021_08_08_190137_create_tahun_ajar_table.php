@@ -15,7 +15,7 @@ class CreateTahunAjarTable extends Migration
     {
         Schema::create('tahun_ajar', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('tahun_ajar');
         });
     }
 
