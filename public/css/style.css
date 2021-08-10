@@ -50,3 +50,18 @@
 .dedikasi-milenial {
     margin-top: 150px;
 }
+
+/* HALAMAN BIGDATA */
+.jumbotron-bigdata {
+    background-color: white;
+    opacity: .5;
+    margin: 0;
+}
+
+
+@media screen and (min-width: 900px) {
+    .card-table {
+        margin-right: 200px;
+        margin-left: 200px;
+    }
+  }

@@ -8,14 +8,12 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
 @section('content')
 
 
-
-
 <div class="container-fluid row align-item-center">
-    <div class="p-2 py-5 jumbotron text-center" style="background-image: url(<?= $img_url ?>IMG_6877.JPG);">
+    <div class="p-2 py-5 jumbotron text-center row" style="background-image: url(<?= $img_url ?>IMG_6877.JPG);">
         <!-- <img src="<?= $img_url ?>IMG_6877.JPG" alt="" class="img-fluid mt-5"> -->
         <br><br><br><br>
         <br><br><br><br>
-        <h1>TENTANG DEDIKASI MILENIAL</h1>
+        <h1 class="align-self-center">TENTANG DEDIKASI MILENIAL</h1>
         <br><br><br><br>
         <br><br><br><br>
         <img src="" alt="">

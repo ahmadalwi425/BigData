@@ -12,9 +12,11 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     <div class="p-2 mt-5 jumbotron text-end" style="background-image: url(<?= $img_url ?>IMG_6877.JPG);">
         <!-- <img src="<?= $img_url ?>IMG_6877.JPG" alt="" class="img-fluid mt-5"> -->
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>WELCOME TO</h1>
-        <h3>MOBILE BEM</h3>
-        <h3>KBM IT PLN</h3>
+        <div class="jumbotron-text align-self-center">
+            <h1>WELCOME TO</h1>
+            <h3>MOBILE BEM</h3>
+            <h3>KBM IT PLN</h3>
+        </div>
     </div>
 </div>
 
