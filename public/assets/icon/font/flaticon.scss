@@ -1,0 +1,45 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?0c2763bd1656f9c1bd83edd1614495da") format("truetype"),
+url("./flaticon.woff?0c2763bd1656f9c1bd83edd1614495da") format("woff"),
+url("./flaticon.woff2?0c2763bd1656f9c1bd83edd1614495da") format("woff2"),
+url("./flaticon.eot?0c2763bd1656f9c1bd83edd1614495da#iefix") format("embedded-opentype"),
+url("./flaticon.svg?0c2763bd1656f9c1bd83edd1614495da#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "line": "\f101",
+    "instagram": "\f102",
+    "youtube": "\f103",
+    "facebook": "\f104",
+    "global": "\f105",
+);
+
+.flaticon-line:before {
+    content: map-get($flaticon-map, "line");
+}
+.flaticon-instagram:before {
+    content: map-get($flaticon-map, "instagram");
+}
+.flaticon-youtube:before {
+    content: map-get($flaticon-map, "youtube");
+}
+.flaticon-facebook:before {
+    content: map-get($flaticon-map, "facebook");
+}
+.flaticon-global:before {
+    content: map-get($flaticon-map, "global");
+}
