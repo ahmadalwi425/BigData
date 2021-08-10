@@ -1,6 +1,8 @@
 @php
+$base_url = 'http://127.0.0.1:8000/';  
 $img_url = 'http://127.0.0.1:8000/assets/img/';  
 @endphp
+
 @extends('layouts.template')
 
 @section('content')
@@ -27,7 +29,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
 
     <br><br>
 
-    <div class="container mx-auto rounded text-cemter row flex-row justify-content-center bg-dark py-4">
+    <div class="container mx-auto rounded text-cemter row flex-row justify-content-center my-bg py-4">
         <h1 class="title-content text-white">INFORMASI TERKINI</h1>
         <div class="row g-lg-4 g-2 card-group">
             <div class="col-sm-12 col-lg-4">
