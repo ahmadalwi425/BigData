@@ -108,61 +108,61 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
         Bigdata Kemnetrian merupakan data tentang kementrian yang ada di BEM KBM IT-PLN yang diperoleh dari Biro Kominfo
     </p>
         <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mx-5">
-            <div class="button-wrapper text-center col-lg-3 col-5 ">
+            <div class="button-wrapper text-center col-lg-3 col-6 ">
                 <button class="btn btn-danger btn-bigdata-2">
                     ADKESMA
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-2 col-5">
+            <div class="button-wrapper text-center col-lg-2 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     DEDMAS
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-4 col-5">
+            <div class="button-wrapper text-center col-lg-4 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     EKOKRAF
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-3 col-5">
+            <div class="button-wrapper text-center col-lg-3 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     HARMAWA
                 </button>
             </div>
         </div>
         <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mt-1 mx-5">
-            <div class="button-wrapper text-center col-lg-3 col-5 ">
+            <div class="button-wrapper text-center col-lg-3 col-6 ">
                 <button class="btn btn-danger btn-bigdata-2">
                     KASTRAT
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-2 col-5">
+            <div class="button-wrapper text-center col-lg-2 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     AGAMA
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-4 col-5">
+            <div class="button-wrapper text-center col-lg-4 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     PSDM
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-3 col-5">
+            <div class="button-wrapper text-center col-lg-3 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     KPP
                 </button>
             </div>
         </div>
         <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mt-1 mx-5">
-            <div class="button-wrapper text-center col-lg-3 col-5 ">
+            <div class="button-wrapper text-center col-lg-3 col-6 ">
                 <button class="btn btn-danger btn-bigdata-2">
                     ADKESMA
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-2 col-5">
+            <div class="button-wrapper text-center col-lg-2 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     DEDMAS
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-4 col-5">
+            <div class="button-wrapper text-center col-lg-4 col-6">
                 <button class="btn btn-danger btn-bigdata-2">
                     EKOKRAF
                 </button>
