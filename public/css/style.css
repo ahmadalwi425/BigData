@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+/* ROOT */
+.my-bg{
+    background-color:#0a2d35 !important;
+}
+
+.bg-secondary {
+    background-color: rgba(99,184,167,255)
+    ;
+}
+
+
 /* NAVBAR */
 .nav-second {
     color: white;
