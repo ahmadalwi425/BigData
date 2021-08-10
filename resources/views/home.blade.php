@@ -34,9 +34,10 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     <div class="container mx-auto rounded text-cemter row flex-row justify-content-center my-bg py-4">
         <h1 class="title-content text-white">INFORMASI TERKINI</h1>
         <div class="row g-lg-4 g-2 card-group">
+            @foreach($data as $row)
             <div class="col-sm-12 col-lg-4">
                 <div class="card">
-                    <img src="<?= $img_url ?>IMG_6877.JPG" alt="" class="card-img">
+                    <img src="<?= $img_url ?>{{$row->cover}}" alt="" class="card-img">
                     <div class="card-img-overlay">
                         <button class="btn btn-primary rounded float-end">
                             SELENGKAPNYA
@@ -44,26 +45,11 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-lg-4">
-                <div class="card">
-                    <img src="<?= $img_url ?>IMG_6877.JPG" alt="" class="card-img">
-                    <div class="card-img-overlay">
-                        <button class="btn btn-primary rounded float-end">
-                            SELENGKAPNYA
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-lg-4">
-                <div class="card">
-                    <img src="<?= $img_url ?>IMG_6877.JPG" alt="" class="card-img">
-                    <div class="card-img-overlay">
-                        <button class="btn btn-primary rounded float-end">
-                            SELENGKAPNYA
-                        </button>
-                    </div>
-                </div>
-            </div>
+            @if ($loop->iteration == 3)
+                @break
+            @endif
+            @endforeach
+            
         </div>
     </div>
 
