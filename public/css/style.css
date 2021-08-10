@@ -58,6 +58,14 @@
     margin: 0;
 }
 
+.btn-bigdata-2 {
+    width: 150px
+}
+
+.btn-bigdata-3 {
+    width: 220px
+}
+
 
 @media screen and (min-width: 900px) {
     .card-table {

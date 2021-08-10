@@ -73,7 +73,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     <p class="desc-bigdata mx-5">
         Bigdata organisasi mahasiswa merupakan data tentang organisasi mahasiswa di lingkungan Institut Teknologi PLN yang di peroleh dari Biro Kominfo BEM KBM IT-PLN
     </p>
-        <div class="row gx-lg-4 cols-lg-4 gx-2 cols-1 justify-content-center mx-5">
+        <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mx-5">
             <div class="button-wrapper text-center col-lg-3 col-10 ">
                 <button class="btn btn-danger btn-bigdata">
                     Bigdata BEM KBM IT-PLN
@@ -100,32 +100,71 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
 {{-- BIGDATA KEMENTRIAN BEM KBM IT-PLN --}}
 <hr>
 <h1 class="text-center title-bigdata">
-    BIGDATA ORGANISASI MAHASISWA
+    BIGDATA KEMENTRIAN BEM KBM IT-PLN
 </h1>
 <hr>
 <div class="container text-center mb-5">
     <p class="desc-bigdata mx-5">
-        Bigdata organisasi mahasiswa merupakan data tentang organisasi mahasiswa di lingkungan Institut Teknologi PLN yang di peroleh dari Biro Kominfo BEM KBM IT-PLN
+        Bigdata Kemnetrian merupakan data tentang kementrian yang ada di BEM KBM IT-PLN yang diperoleh dari Biro Kominfo
     </p>
-        <div class="row gx-lg-4 cols-lg-4 gx-2 cols-1 justify-content-center mx-5">
-            <div class="button-wrapper text-center col-lg-3 col-10 ">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata BEM KBM IT-PLN
+        <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mx-5">
+            <div class="button-wrapper text-center col-lg-3 col-5 ">
+                <button class="btn btn-danger btn-bigdata-2">
+                    ADKESMA
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-2 col-10">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata UKM
+            <div class="button-wrapper text-center col-lg-2 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    DEDMAS
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-4 col-10">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata Himpunan Mahasiswa
+            <div class="button-wrapper text-center col-lg-4 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    EKOKRAF
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-3 col-10">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata Himpunan Daerah
+            <div class="button-wrapper text-center col-lg-3 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    HARMAWA
+                </button>
+            </div>
+        </div>
+        <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mt-1 mx-5">
+            <div class="button-wrapper text-center col-lg-3 col-5 ">
+                <button class="btn btn-danger btn-bigdata-2">
+                    KASTRAT
+                </button>
+            </div>
+            <div class="button-wrapper text-center col-lg-2 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    AGAMA
+                </button>
+            </div>
+            <div class="button-wrapper text-center col-lg-4 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    PSDM
+                </button>
+            </div>
+            <div class="button-wrapper text-center col-lg-3 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    KPP
+                </button>
+            </div>
+        </div>
+        <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mt-1 mx-5">
+            <div class="button-wrapper text-center col-lg-3 col-5 ">
+                <button class="btn btn-danger btn-bigdata-2">
+                    ADKESMA
+                </button>
+            </div>
+            <div class="button-wrapper text-center col-lg-2 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    DEDMAS
+                </button>
+            </div>
+            <div class="button-wrapper text-center col-lg-4 col-5">
+                <button class="btn btn-danger btn-bigdata-2">
+                    EKOKRAF
                 </button>
             </div>
         </div>
@@ -134,32 +173,27 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
 {{-- BIGDATA BIRO BEM KBM IT-PLN --}}
 <hr>
 <h1 class="text-center title-bigdata">
-    BIGDATA ORGANISASI MAHASISWA
+    BIGDATA BIRO BEM KBM IT-PLN
 </h1>
 <hr>
 <div class="container text-center mb-5">
     <p class="desc-bigdata mx-5">
-        Bigdata organisasi mahasiswa merupakan data tentang organisasi mahasiswa di lingkungan Institut Teknologi PLN yang di peroleh dari Biro Kominfo BEM KBM IT-PLN
+        Bigdata Biro merupakan data tentang kebiroan yang ada di BEM KBM IT-PLN yang diperoleh dari Biro Kominfo
     </p>
-        <div class="row gx-lg-4 cols-lg-4 gx-2 cols-1 justify-content-center mx-5">
-            <div class="button-wrapper text-center col-lg-3 col-10 ">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata BEM KBM IT-PLN
-                </button>
-            </div>
-            <div class="button-wrapper text-center col-lg-2 col-10">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata UKM
+        <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mx-5">
+            <div class="button-wrapper text-center col-lg-4 col-10 ">
+                <button class="btn btn-danger btn-bigdata-3">
+                    KESEKRETARIATAN
                 </button>
             </div>
             <div class="button-wrapper text-center col-lg-4 col-10">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata Himpunan Mahasiswa
+                <button class="btn btn-danger btn-bigdata-3">
+                    INVENTARIS
                 </button>
             </div>
-            <div class="button-wrapper text-center col-lg-3 col-10">
-                <button class="btn btn-danger btn-bigdata">
-                    Bigdata Himpunan Daerah
+            <div class="button-wrapper text-center col-lg-4 col-10">
+                <button class="btn btn-danger btn-bigdata-3">
+                    KEUANGAN
                 </button>
             </div>
         </div>
