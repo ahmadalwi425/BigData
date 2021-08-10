@@ -7,6 +7,9 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
 
 @section('content')
 
+
+
+
 <div class="container-fluid row align-item-center">
     <div class="p-2 py-5 jumbotron text-center" style="background-image: url(<?= $img_url ?>IMG_6877.JPG);">
         <!-- <img src="<?= $img_url ?>IMG_6877.JPG" alt="" class="img-fluid mt-5"> -->
@@ -19,10 +22,23 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     </div>
 </div>
 
-<div class="container text-center">
-    <div class="dedikasi-milenial my-5">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="200px" style="margin-top: -50px; z-index: 10; position: absolute">
+    <defs>
+        <linearGradient id="lgrad" x1="50%" y1="0%" x2="50%" y2="100%" >
+         
+               <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.00" />
+               <stop offset="24%" style="stop-color:rgb(33,150,243);stop-opacity:1.00" />
+               <stop offset="100%" style="stop-color:rgb(1,19,255);stop-opacity:1.00" />
+     
+         </linearGradient>
+       </defs>
+       <rect x="0" y="0" width="100%" height="100%" fill="url(#lgrad)"/>
+  </svg>
 
-        <h1>DEDIKASI MILENIAL</h1>
+<div class="container-fluid text-center text-white" style="background-color:#0113FF;">
+    <div class="dedikasi-milenial">
+
+        <h1 class="title-dedikasi">DEDIKASI MILENIAL</h1>
         <div class="row cols-lg-2 justify-content-center">
             <div class="col-lg-3 col-12">
                 <p>Pengorbanan dan pengabdian tenaga-pikiran-waktu demi asa dan arsa bersama</p>
@@ -33,9 +49,9 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
         </div>
     </div>
         <div class="row">
-            <h2>VISI:</h2>
+            <h2 class="title-visi">VISI:</h2>
             <p>"BEM KBM IT-PLN SEBAGAI INISIATOR DEDIKASI TERHADAP KBM-IT-PLN"</p>
-            <h2>MISI:</h2>
+            <h2 class="title-misi">MISI:</h2>
             <ol>
                 <li>DEDIKASI PENGABDIAN</li>
                 <p>Lembaga yang Progresif dalamn membangun gerakan Pemberdayaan Masyarakat</p>
@@ -49,28 +65,28 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
         </div>
     <br><br><br><br>
     <div class="row justify-content-center">
-        <h1>BUDAYA ORGANISASI</h1>
-        <div class="row cols-2">
-            <div class="col-lg-4 col-12">
-                <div class="card">
+        <h1 class="title-budaya">BUDAYA ORGANISASI</h1>
+        <div class="row cols-2 g-lg-4 g-2 text-dark justify-content-center mb-5 px-5">
+            <div class="col-lg-6 col-10">
+                <div class="card bg-warning">
                     <div class="card-header">01. GOOD THINK</div>
                     <div class="card-body">Pemikiran tajam, kritis dan solutif layaknya teknokrat</div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12">
-                <div class="card">
+            <div class="col-lg-6 col-10">
+                <div class="card bg-warning">
                     <div class="card-header">03. GOOD ATITUDE</div>
                     <div class="card-body">Merepresentasikan budi pekerti yang luhur dengan kewibawaan</div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12">
-                <div class="card">
+            <div class="col-lg-6 col-10">
+                <div class="card bg-warning">
                     <div class="card-header">02. GOOD WORDS</div>
                     <div class="card-body">Mencerminkan pribadi yang cakap dalam berkomunikasi</div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12">
-                <div class="card">
+            <div class="col-lg-6 col-10">
+                <div class="card bg-warning">
                     <div class="card-header">04. GOOD WORKS</div>
                     <div class="card-body">Terampil mdan cekatan di dalam dinamika berorganisai</div>
                 </div>

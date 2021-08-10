@@ -56,7 +56,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
         </div>
     </nav>
 
-    <main class="py-4">
+    <main class="pt-4">
         @yield('content')
     </main>
 
