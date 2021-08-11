@@ -111,3 +111,9 @@
  .owl-dot:hover:before {
 	color:white;
 }
+
+/* MAP GOOGLE */
+#map {
+    height: 500px;
+    width: 100%;
+  }  

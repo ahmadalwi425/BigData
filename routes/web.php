@@ -25,6 +25,9 @@ Route::get('/bigdata', function () {
 Route::get('/buletin', function () {
     return view('buletin');
 });
+Route::get('/findus', function () {
+    return view('findus');
+});
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
