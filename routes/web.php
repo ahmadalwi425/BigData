@@ -22,6 +22,9 @@ Route::get('/about', function () {
 Route::get('/bigdata', function () {
     return view('bigdata');
 });
+Route::get('/buletin', function () {
+    return view('buletin');
+});
 
 Auth::routes();
 

@@ -27,7 +27,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     <!-- NAVBAR -->
     <!-- <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
     </nav> -->
-    <nav class="navbar navbar-dark fixed-top flex-column navbar-expand-lg nav-first">
+    <nav class="navbar navbar-dark fixed-top flex-column navbar-expand-lg nav-first p-0">
         <div class="container-fluid bg-white">
             <div class="col-12 p-1">
                 <a class="navbar-brand" href="#">
