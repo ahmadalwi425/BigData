@@ -15,7 +15,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                 </h1>
             </div>
             <div class="card-body bg-white">
-                <img src="" alt="">
+                <img src="<?= $img_url ?>{{$last->cover}}" alt="">
                 <br><br><br>
             </div>
             <div class="card-footer text-center">
@@ -27,19 +27,24 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     </div>
 
     <div class="container">
+        @foreach($kategori as $rowkat)
+
+
         <hr>
         <h1 class="title-content text-center">
-            KAJIAN BEM KBM IT-PLN
+            {{$rowkat->nama_kategori}}
         </h1>
         <hr>
 
         <div class="owl-carousel owl-theme my-5 row cols-lg-3 g-4 cols-1 justify-content center text-center">
+            @foreach($data as $row)
+            @if($rowkat->id == $row->id_kategori_buletin)
             <div class="card item align-self-center">
                 <div class="card-body">
                     tes
                 </div>
                 <div class="card-footer">
-                    <h3 class="title-card">KAJIAN ...</h3>
+                    <h3 class="title-card">{{$row->judul}}</h3>
                     <div class="text-center">
                         <button class="btn btn-danger btn-card">
                             SELENGKAPNYA
@@ -47,36 +52,14 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                     </div>
                 </div>
             </div>
-            <div class="card item align-self-center">
-                <div class="card-body">
-                    tes
-                </div>
-                <div class="card-footer">
-                    <h3 class="title-card">KAJIAN ...</h3>
-                    <div class="text-center">
-                        <button class="btn btn-danger btn-card">
-                            SELENGKAPNYA
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="card item align-self-center">
-                <div class="card-body">
-                    tes
-                </div>
-                <div class="card-footer">
-                    <h3 class="title-card">KAJIAN ...</h3>
-                    <div class="text-center">
-                        <button class="btn btn-danger btn-card">
-                            SELENGKAPNYA
-                        </button>
-                    </div>
-                </div>
-            </div>
+            @endif
+            @endforeach 
             <div id="navhere" style="background-color: red"></div>
         </div>
 
-        <hr>
+        @endforeach
+
+        <!-- <hr>
         <h1 class="title-content text-center">
             KAJIAN BEM KBM IT-PLN
         </h1>
@@ -123,7 +106,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                 </div>
             </div>
             <div id="navhere" style="background-color: red"></div>
-        </div>
+        </div> -->
         
     </div>
 

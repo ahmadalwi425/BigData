@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\buletin;
-use App\Models\kategori_buletin;
+use App\Models\divisi;
+use App\Models\subdivisi;
+use App\Models\data_kampus;
 
-class buletinController extends Controller
+class bigdataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,10 @@ class buletinController extends Controller
      */
     public function index()
     {
-        $last = buletin::orderBy('id','desc')->first();
-        $kategori = kategori_buletin::get();
-        $data = buletin::orderBy('id','desc')->get();
-        return view('buletin', compact('last','kategori','data'));
+        $datadiv = divisi::get();
+        $datasub = subdivisi::get();
+        $data = data_kampus::get();
+        return view('bigdata', compact('datadiv','datasub','data'));
     }
 
     /**

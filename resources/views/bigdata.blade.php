@@ -30,41 +30,41 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                 </tr>
             </thead>
             <tbody>
+                @foreach($data as $row)
                 <tr>
-                    <td>Fakultas</td>
-                    <td>10</td>
+                    <td>{{$row->kategori}}</td>
+                    <td>{{$row->total}}</td>
                 </tr>
-                <tr>
-                    <td>Program Studi</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>Dosen</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>Mahsiswa</td>
-                    <td>1000</td>
-                </tr>
-                <tr>
-                    <td>Himpunan Mahasiswa</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Unit Kegiatan Mahasiswa (UKM)</td>
-                    <td>90</td>
-                </tr>
-                <tr>
-                    <td>Himpunan Daerah</td>
-                    <td>8</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 </div>
-
-{{-- BIG DATA ORGANISASI --}}
+@foreach($datadiv as $rowdiv)
 <hr>
+<h1 class="text-center title-bigdata">
+    {{$rowdiv->nama_divisi}}
+</h1>
+<hr>
+<div class="container text-center mb-5">
+    <p class="desc-bigdata mx-5">
+        {{$rowdiv->deskripsi}}
+    </p>
+        <div class="row gx-lg-4 cols-lg-4 gy-2 cols-1 justify-content-center mx-5">
+            @foreach($datasub as $rowsub)
+            @if($rowsub->id_divisi == $rowdiv->id)
+            <div class="button-wrapper text-center col-lg-3 col-10 ">
+                <button class="btn btn-danger btn-bigdata">
+                    {{$rowsub->nama_subdivisi}}
+                </button>
+            </div>
+            @endif
+            @endforeach
+        </div>
+</div>
+@endforeach
+<!-- {{-- BIG DATA ORGANISASI --}} -->
+<!-- <hr>
 <h1 class="text-center title-bigdata">
     BIGDATA ORGANISASI MAHASISWA
 </h1>
@@ -95,8 +95,8 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                 </button>
             </div>
         </div>
-</div>
-
+</div> -->
+<!-- 
 {{-- BIGDATA KEMENTRIAN BEM KBM IT-PLN --}}
 <hr>
 <h1 class="text-center title-bigdata">
@@ -197,6 +197,6 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                 </button>
             </div>
         </div>
-</div>
+</div> -->
     
 @endsection
