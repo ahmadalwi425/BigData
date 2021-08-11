@@ -28,7 +28,8 @@ class HomeController extends Controller
         //nampilin konten buletin
         $data = buletin::with('kategori_buletin')->orderBy('id', 'DESC')->get();
         // dd($data);
-        return view('home', compact('data'));
+        $link = 'home';
+        return view('home', compact('data', 'link'));
     }
     
 }

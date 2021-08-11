@@ -1,6 +1,28 @@
 @php
 $base_url = 'http://127.0.0.1:8000/';  
-$img_url = 'http://127.0.0.1:8000/assets/img/';  
+$img_url = 'http://127.0.0.1:8000/storage/assets/img/';  
+
+if($link == "home") {
+    $navActive = "home";
+} 
+else if ($link == "about") {
+    $navActive = "about";
+}
+else if ($link == "bigdata") {
+    $navActive = "bigdata";
+}
+else if ($link == "buletin") {
+    $navActive = "buletin";
+}
+else if ($link == "findus") {
+    $navActive = "findus";
+}
+else if ($link == "calender") {
+    $navActive = "calender";
+}
+else if ($link == "shop") {
+    $navActive = "shop";
+}
 @endphp
 
 <!doctype html>
@@ -18,7 +40,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500&display=swap" rel="stylesheet">
 
     {{-- Owl Carousel --}}
-    <link rel="stylesheet" href="<?= $base_url ?>css/owl.carousel.min.css?version=3">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="<?= $base_url ?>css/owl.theme.default.min.css">
     
     <!-- My Style -->
@@ -53,13 +75,85 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                    <a class="nav-link active" href="#">HOME</a>
-                    <a class="nav-link" href="#">ABOUT</a>
-                    <a class="nav-link" href="#">BIG DATA</a>
-                    <a class="nav-link" href="#">BULETIN</a>
-                    <a class="nav-link" href="#">CALENDER</a>
-                    <a class="nav-link" href="#">SHOP</a>
-                    <a class="nav-link" href="#">FIND US</a>
+                        @php
+                            if($navActive == "home") {
+                                echo '
+                                <a class="nav-link active" href="home">HOME</a>
+                                <a class="nav-link" href="about">ABOUT</a>
+                                <a class="nav-link" href="bigdata">BIG DATA</a>
+                                <a class="nav-link" href="buletin">BULETIN</a>
+                                <a class="nav-link" href="calender">CALENDER</a>
+                                <a class="nav-link" href="shop">SHOP</a>
+                                <a class="nav-link" href="findus">FIND US</a>
+                                ';
+                            } 
+                            else if ($navActive == "about") {
+                                echo '
+                                <a class="nav-link" href="home">HOME</a>
+                                <a class="nav-link active" href="about">ABOUT</a>
+                                <a class="nav-link" href="bigdata">BIG DATA</a>
+                                <a class="nav-link" href="buletin">BULETIN</a>
+                                <a class="nav-link" href="calender">CALENDER</a>
+                                <a class="nav-link" href="shop">SHOP</a>
+                                <a class="nav-link" href="findus">FIND US</a>
+                                ';
+                            }
+                            else if ($navActive == "bigdata") {
+                                echo '
+                                <a class="nav-link" href="home">HOME</a>
+                                <a class="nav-link" href="about">ABOUT</a>
+                                <a class="nav-link active" href="bigdata">BIG DATA</a>
+                                <a class="nav-link" href="buletin">BULETIN</a>
+                                <a class="nav-link" href="calender">CALENDER</a>
+                                <a class="nav-link" href="shop">SHOP</a>
+                                <a class="nav-link" href="findus">FIND US</a>
+                                ';
+                            }
+                            else if ($navActive == "buletin") {
+                                echo '
+                                <a class="nav-link" href="home">HOME</a>
+                                <a class="nav-link" href="about">ABOUT</a>
+                                <a class="nav-link" href="bigdata">BIG DATA</a>
+                                <a class="nav-link active" href="buletin">BULETIN</a>
+                                <a class="nav-link" href="calender">CALENDER</a>
+                                <a class="nav-link" href="shop">SHOP</a>
+                                <a class="nav-link" href="findus">FIND US</a>
+                                ';
+                            }
+                            else if ($navActive == "findus") {
+                                echo '
+                                <a class="nav-link" href="home">HOME</a>
+                                <a class="nav-link" href="about">ABOUT</a>
+                                <a class="nav-link" href="bigdata">BIG DATA</a>
+                                <a class="nav-link" href="buletin">BULETIN</a>
+                                <a class="nav-link" href="calender">CALENDER</a>
+                                <a class="nav-link" href="shop">SHOP</a>
+                                <a class="nav-link active" href="findus">FIND US</a>
+                                ';
+                            }
+                            else if ($navActive == "calender") {
+                                echo '
+                                <a class="nav-link" href="<?= $base_url ?>home">HOME</a>
+                                <a class="nav-link" href="<?= $base_url ?>about">ABOUT</a>
+                                <a class="nav-link" href="<?= $base_url ?>bigdata">BIG DATA</a>
+                                <a class="nav-link" href="<?= $base_url ?>buletin">BULETIN</a>
+                                <a class="nav-link active" href="<?= $base_url ?>calender">CALENDER</a>
+                                <a class="nav-link" href="<?= $base_url ?>shop">SHOP</a>
+                                <a class="nav-link" href="<?= $base_url ?>findus">FIND US</a>
+                                ';
+                            }
+                            else if ($navActive == "shop") {
+                                echo '
+                                <a class="nav-link" href="<?= $base_url ?>home">HOME</a>
+                                <a class="nav-link" href="<?= $base_url ?>about">ABOUT</a>
+                                <a class="nav-link" href="<?= $base_url ?>bigdata">BIG DATA</a>
+                                <a class="nav-link" href="<?= $base_url ?>buletin">BULETIN</a>
+                                <a class="nav-link" href="<?= $base_url ?>calender">CALENDER</a>
+                                <a class="nav-link active" href="<?= $base_url ?>shop">SHOP</a>
+                                <a class="nav-link" href="<?= $base_url ?>findus">FIND US</a>
+                                ';
+                            }
+                        @endphp
                     </div>
                 </div>
             </div>
