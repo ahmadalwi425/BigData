@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\buletin;
+use App\Models\kategori_buletin;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //nampilin konten buletin
+        $data = buletin::with('kategori_buletin')->orderBy('id', 'DESC')->get();
+        // dd($data);
+        return view('home', compact('data'));
     }
+    
 }

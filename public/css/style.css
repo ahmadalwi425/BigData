@@ -73,3 +73,41 @@
         margin-left: 200px;
     }
   }
+
+
+  /* OWL CAROUSEL */
+  .owl-dots {
+      counter-reset:dots;
+    }
+    .owl-next, .owl-prev{
+        width: 20px;
+    }
+    .owl-dot:not(.active) {
+        color: black;
+        border-radius: 20%;
+        margin: 10px;
+    }
+    .owl-dot.active {
+        background-color: red;
+        color: white;
+        border-radius: 20%;
+        margin: 10px;
+    }
+    .owl-dot span {
+        color: white;
+    }
+ .owl-dot:before {
+	counter-increment:dots;
+	content:counter(dots);
+	margin:0px 5px;
+	padding:5px;
+	font-size:14px;
+	line-height:100%;
+}
+ .owl-dot span {
+	display:none !important;
+}
+ .active:before,
+ .owl-dot:hover:before {
+	color:white;
+}

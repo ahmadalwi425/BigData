@@ -17,8 +17,18 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500&display=swap" rel="stylesheet">
 
+    {{-- Owl Carousel --}}
+    <link rel="stylesheet" href="<?= $base_url ?>css/owl.carousel.min.css?version=3">
+    <link rel="stylesheet" href="<?= $base_url ?>css/owl.theme.default.min.css">
+    
     <!-- My Style -->
     <link rel="stylesheet" href="<?= $base_url ?>css/style.css">
+    
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    {{-- Owl Carousel --}}
+    <script src="<?= $base_url ?>js/owl.carousel.min.js"></script>
 
     <title>Big Data</title>
   </head>
@@ -56,7 +66,7 @@ $img_url = 'http://127.0.0.1:8000/assets/img/';
         </div>
     </nav>
 
-    <main class="pt-4">
+    <main class="pt-4 mt-5">
         @yield('content')
     </main>
 
