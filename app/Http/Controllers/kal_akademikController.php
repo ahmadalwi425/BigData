@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\kal_akademik;
+use App\Models\jenis_kal;
+use App\Models\tahun_ajar;
 
 class kal_akademikController extends Controller
 {
@@ -13,7 +16,9 @@ class kal_akademikController extends Controller
      */
     public function index()
     {
-        //
+        $data = kal_akademik::with('tahun_ajar','jenis_kal')->get();
+        $link = "Kalender";
+        return view('calender', compact('data','link'));
     }
 
     /**

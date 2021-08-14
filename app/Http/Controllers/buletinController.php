@@ -18,7 +18,17 @@ class buletinController extends Controller
         $last = buletin::orderBy('id','desc')->first();
         $kategori = kategori_buletin::get();
         $data = buletin::orderBy('id','desc')->get();
-        return view('buletin', compact('last','kategori','data'));
+        $link = "Buletin";
+        return view('buletin', compact('last','kategori','data','link'));
+    }
+
+    public function index2()
+    {
+        $last = buletin::orderBy('id','desc')->first();
+        $kategori = kategori_buletin::get();
+        $data = buletin::orderBy('id','desc')->get();
+        $link = "Buletin";
+        return view('buletin.index', compact('last','kategori','data','link'));
     }
 
     /**
