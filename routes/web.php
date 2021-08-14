@@ -34,3 +34,8 @@ Route::get('/calender', function () {
 Auth::routes();
 Route::get('/register2',  [App\Http\Controllers\Auth\RegisterController::class, 'tampilform']);
 
+
+// ADMIN
+Route::get('/admin/dashboard', function () {
+    return view('layouts.templateAdmin');
+});
