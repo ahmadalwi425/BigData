@@ -17,6 +17,7 @@ class buletinController extends Controller
     {
         $last = buletin::orderBy('id','desc')->first();
         $kategori = kategori_buletin::get();
+        $link = "buletin";
         $data = buletin::orderBy('id','desc')->get();
         $link = "Buletin";
         return view('buletin', compact('last','kategori','data','link'));

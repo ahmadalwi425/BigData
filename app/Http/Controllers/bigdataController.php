@@ -19,8 +19,8 @@ class bigdataController extends Controller
         $datadiv = divisi::get();
         $datasub = subdivisi::get();
         $data = data_kampus::get();
-        $link = "Big Data";
-        return view('bigdata', compact('datadiv','datasub','data','link'));
+        $link = "bigdata";
+        return view('bigdata', compact('datadiv','datasub','data'));
     }
 
     /**
