@@ -52,7 +52,23 @@ Route::get('/admin/ormawa', function () {
     $link = 'ormawa';
     return view('admin.ormawa', compact('link'));
 });
-Route::get('/admin/ormawa', function () {
-    $link = 'ormawa';
-    return view('admin.ormawa', compact('link'));
+Route::get('/admin/data_kampus', function () {
+    $link = 'data_kampus';
+    return view('admin.data_kampus', compact('link'));
+});
+Route::get('/admin/divisi', function () {
+    $link = 'divisi';
+    return view('admin.divisi', compact('link'));
+});
+Route::get('/admin/jurusan', function () {
+    $link = 'jurusan';
+    return view('admin.jurusan', compact('link'));
+});
+Route::get('/admin/kalender', function () {
+    $link = 'kalender';
+    return view('admin.kalender', compact('link'));
+});
+Route::get('/admin/peminjaman', function () {
+    $link = 'peminjaman';
+    return view('admin.peminjaman', compact('link'));
 });
