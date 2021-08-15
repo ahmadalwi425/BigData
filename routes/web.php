@@ -42,6 +42,18 @@ Route::get('/admin/buletin',  [App\Http\Controllers\Auth\buletinController::clas
 
 
 // ADMIN
-Route::get('/admin/dashboard', function () {
-    return view('layouts.templateAdmin');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+Route::get('/admin/user', function () {
+    return view('admin.user');
+});
+Route::get('/admin/buletin', function () {
+    return view('admin.buletin');
+});
+Route::get('/admin/ormawa', function () {
+    return view('admin.ormawa');
+});
+Route::get('/admin/ormawa', function () {
+    return view('admin.ormawa');
 });
