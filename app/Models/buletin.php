@@ -12,6 +12,6 @@ class buletin extends Model
     protected $table = 'buletin';
     protected $guarded = [];
     public function kategori_buletin(){
-        return $this->belongsTo(kategori_buletin::class, 'id_kategori_buketin');
+        return $this->belongsTo(kategori_buletin::class, 'id_kategori_buletin');
     }
 }

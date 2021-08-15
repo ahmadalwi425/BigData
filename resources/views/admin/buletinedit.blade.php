@@ -35,55 +35,30 @@
             <h3 class="mb-0">Table</h3>
           </div>
           <!-- Light table -->
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" class="sort" data-sort="name">No</th>
-                  <th scope="col" class="sort" data-sort="budget">Judul</th>
-                  <th scope="col" class="sort" data-sort="name">Cover</th>
-                  <th scope="col" class="sort" data-sort="budget">Kategori</th>
-                  <th scope="col" class="sort" data-sort="budget" colspan="2">Aksi</th>
-                </tr>
-              </thead>
-              <tbody class="list">
-                @foreach ($data as $row)
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    {{$row->judul}}
-                  </th>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      <img src="<?= $img_url ?>{{$row->cover}}" alt="" class="card-img">
-                    </span>
-                  </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      {{$row->kategori_buletin->nama_kategori}}
-                    </span>
-                  </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      <a class="btn btn-primary" href="{{ url('buletin/edit',$row->id) }}">Edit</a>
-                    </span>
-                  </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
-                    </span>
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
+          <form action="{{url('buletin/update',$data->id)}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="form-group">
+                                <label for="judul">judul</label>
+                                <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" value="{{ $data->judul }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="id_kategori">kategori</label>
+                                <select name="id_kategori_buletin" id="id_kategori" class="form-control">
+                                    @foreach($cat as $datacat)
+                                    <option value="{{$datacat->id}}">{{$datacat->nama_kategori}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="konten">Konten</label>
+                                <textarea name="konten" class="ckeditor" id="ckeditor">{!!$data->konten!!}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="cover">Foto cover</label>
+                                <input type="file" name="cover" class="form-control" id="cover" aria-describedby="cover buletin" >
+                            </div>
+          </form>
           <!-- Card footer -->
           <div class="card-footer py-4">
             <nav aria-label="...">
