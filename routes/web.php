@@ -36,11 +36,6 @@ Route::get('/calender', [App\Http\Controllers\kal_akademikController::class, 'in
 Auth::routes();
 Route::get('/register2',  [App\Http\Controllers\Auth\RegisterController::class, 'tampilform']);
 
-
-// route halaman admin
-Route::get('/admin/buletin',  [App\Http\Controllers\Auth\buletinController::class, 'index2']);
-
-
 // ADMIN
 Route::get('/admin', function () {
     return view('admin.dashboard');
@@ -48,9 +43,7 @@ Route::get('/admin', function () {
 Route::get('/admin/user', function () {
     return view('admin.user');
 });
-Route::get('/admin/buletin', function () {
-    return view('admin.buletin');
-});
+Route::get('/admin/buletin',  [App\Http\Controllers\buletinController::class, 'index2']);
 Route::get('/admin/ormawa', function () {
     return view('admin.ormawa');
 });

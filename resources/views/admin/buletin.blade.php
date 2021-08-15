@@ -1,7 +1,10 @@
 @extends('layouts.templateAdmin')
 
 @section('content')
-
+@php
+    $base_url = 'http://127.0.0.1:8000/admin'; 
+    $img_url = 'http://127.0.0.1:8000/storage/assets/img/';  
+@endphp
 
 <!-- Header -->
 <div class="header bg-primary pb-6">
@@ -37,80 +40,47 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
-                  <th scope="col" class="sort" data-sort="name">Cover</th>
                   <th scope="col" class="sort" data-sort="budget">Judul</th>
-                  <th scope="col"></th>
+                  <th scope="col" class="sort" data-sort="name">Cover</th>
+                  <th scope="col" class="sort" data-sort="budget">Kategori</th>
+                  <th scope="col" class="sort" data-sort="budget" colspan="2">Aksi</th>
                 </tr>
               </thead>
               <tbody class="list">
+                @foreach ($data as $row)
                 <tr>
                   <td scope="row">
                     <div class="media align-items-center">
                       <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
+                        <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
                       </div>
                     </div>
                   </td>
                   <th class="budget text-lg">
-                    Muchammad Rizal Ammar
+                    {{$row->judul}}
                   </th>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
+                      <img src="<?= $img_url ?>{{$row->cover}}" alt="" class="card-img">
                     </span>
                   </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Muchammad Rizal Ammar
-                  </th>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
+                      {{$row->kategori_buletin->nama_kategori}}
                     </span>
                   </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Muchammad Rizal Ammar
-                  </th>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
+                      <a class="btn btn-primary" href="{{ url('buletin/edit',$row->id) }}">Edit</a>
                     </span>
                   </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Muchammad Rizal Ammar
-                  </th>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
+                      <a class="btn btn-danger" href="{{ url('user/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
                     </span>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
