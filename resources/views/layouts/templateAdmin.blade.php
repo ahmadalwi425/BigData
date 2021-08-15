@@ -29,6 +29,9 @@
     else if ($link == "kalender") {
         $navActive = "Kalender";
     }
+    else if ($link == "peminjaman") {
+        $navActive = "Peminjaman";
+    }
 
 @endphp
 
@@ -339,8 +342,8 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Buletin</span>
     </a>
   </li>
-  <li class="nav-item active">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/ormawa">
       <i class="ni ni-circle-08 text-red"></i>
       <span class="nav-link-text text-dark">Ormawa</span>
     </a>
@@ -403,9 +406,9 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Ormawa</span>
     </a>
   </li>
-  <li class="nav-item active">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/data_kampus">
+      <i class="ni ni-hat-3 text-yellow"></i>
       <span class="nav-link-text text-dark">Data Kampus</span>
     </a>
   </li>
@@ -435,7 +438,7 @@ if($navActive == 'Dashboard') {
   </li>
     ';
   }
-  elseif ($navActive == 'Kalender Akademik') {
+  elseif ($navActive == 'Kalender') {
     echo '
   <li class="nav-item">
     <a class="nav-link" href=' . $base_url .'>
@@ -479,8 +482,8 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Jurusan</span>
     </a>
   </li>
-  <li class="nav-item active">
-    <a class="nav-link" href="' . $base_url .'/kalender">
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/kalender">
       <i class="ni ni-calendar-grid-58 text-green"></i>
       <span class="nav-link-text text-dark">Kalender</span>
     </a>
@@ -522,11 +525,11 @@ if($navActive == 'Dashboard') {
   <li class="nav-item">
     <a class="nav-link" href="' . $base_url .'/data_kampus">
       <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-textk">Data Kampus</span>
+      <span class="nav-link-text">Data Kampus</span>
     </a>
   </li>
-  <li class="nav-item active">
-    <a class="nav-link" href="' . $base_url .'/divisi">
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/divisi">
       <i class="ni ni-chart-pie-35 text-blue"></i>
       <span class="nav-link-text text-dark">Divisi</span>
     </a>
@@ -605,6 +608,64 @@ if($navActive == 'Dashboard') {
     <a class="nav-link" href="' . $base_url .'/peminjaman">
       <i class="ni ni-folder-17 text-primary"></i>
       <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+    ';
+  }
+  elseif ($navActive == 'Peminjaman') {
+    echo '
+  <li class="nav-item">
+    <a class="nav-link" href=' . $base_url .'>
+      <i class="ni ni-tv-2 text-primary"></i>
+      <span class="nav-link-text">Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/user">
+      <i class="ni ni-single-02 text-yellow"></i>
+      <span class="nav-link-text">User</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/buletin">
+      <i class="ni ni-books text-green"></i>
+      <span class="nav-link-text">Buletin</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/ormawa">
+      <i class="ni ni-circle-08 text-red"></i>
+      <span class="nav-link-text">Ormawa</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <i class="ni ni-hat-3 text-grey"></i>
+      <span class="nav-link-text">Data Kampus</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/divisi">
+      <i class="ni ni-chart-pie-35 text-blue"></i>
+      <span class="nav-link-text">Divisi</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/jurusan">
+      <i class="ni ni-building text-orange"></i>
+      <span class="nav-link-text">Jurusan</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/kalender">
+      <i class="ni ni-calendar-grid-58 text-green"></i>
+      <span class="nav-link-text">Kalender</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/peminjaman">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text text-dark">Peminjaman</span>
     </a>
   </li>
     ';
@@ -927,21 +988,23 @@ if($navActive == 'Dashboard') {
       <main class="main-content" id="panel">
         @yield('content')
       </main>
-  
     </div>
 
-  <!-- Argon Scripts -->
-  <!-- Core -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('js/js.cookie.js')}}"></script>
-  <script src="{{asset('js/jquery.scrollbar.min.js')}}../assets/vendor/jquery.scrollbar/"></script>
-  <script src="{{asset('js/jquery-scrollLock.min.js')}}"></script>
-  <!-- Optional JS -->
-  <script src="{{asset('js/Chart.min.js')}}../assets/vendor/chart.js/dist/"></script>
-  <script src="{{asset('js/Chart.extension.js')}}"></script>
-  <!-- Argon JS -->
-  <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
-</body>
+    
+    
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('js/js.cookie.js')}}"></script>
+    <script src="{{asset('js/jquery.scrollbar.min.js')}}"></script>
+    <script src="{{asset('js/jquery-scrollLock.min.js')}}"></script>
+    <!-- Optional JS -->
+    <script src="{{asset('js/Chart.min.js')}}"></script>
+    <script src="{{asset('js/Chart.extension.js')}}"></script>
+    <!-- Argon JS -->
+    <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
+    @yield('modal')
+  </body>
 
 </html>
