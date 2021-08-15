@@ -37,17 +37,22 @@ Route::get('/register2',  [App\Http\Controllers\Auth\RegisterController::class, 
 
 // ADMIN
 Route::get('/admin', function () {
-    return view('admin.dashboard');
+    $link = 'dashboard';
+    return view('admin.dashboard', compact('link'));
 });
 Route::get('/admin/user', function () {
-    return view('admin.user');
+    $link = 'user';
+    return view('admin.user', compact('link'));
 });
 Route::get('/admin/buletin', function () {
-    return view('admin.buletin');
+    $link = 'buletin';
+    return view('admin.buletin', compact('link'));
 });
 Route::get('/admin/ormawa', function () {
-    return view('admin.ormawa');
+    $link = 'ormawa';
+    return view('admin.ormawa', compact('link'));
 });
 Route::get('/admin/ormawa', function () {
-    return view('admin.ormawa');
+    $link = 'ormawa';
+    return view('admin.ormawa', compact('link'));
 });
