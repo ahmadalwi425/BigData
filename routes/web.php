@@ -41,10 +41,7 @@ Route::get('/admin', function () {
     $link = 'dashboard';
     return view('admin.dashboard', compact('link'));
 });
-Route::get('/admin/user', function () {
-    $link = 'user';
-    return view('admin.user', compact('link'));
-});
+Route::get('/admin/user', [App\Http\Controllers\userController::class,'index']); 
 
 Route::get('/admin/buletin',  [App\Http\Controllers\buletinController::class, 'index2']);
 
@@ -56,5 +53,6 @@ Route::get('/admin/ormawa', function () {
     $link = 'ormawa';
     return view('admin.ormawa', compact('link'));
 });
-Route::get('/buletin/destroy/{id}', [buletinController::class,'destroy']); 
-Route::put('/buletin/update/{id}', [buletinController::class,'update']); 
+Route::get('/buletin/edit/{id}', [App\Http\Controllers\buletinController::class,'edit']); 
+Route::get('/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
+Route::put('/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 

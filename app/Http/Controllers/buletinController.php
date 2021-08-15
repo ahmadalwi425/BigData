@@ -72,9 +72,7 @@ class buletinController extends Controller
     
     public function show($id)
     {
-        $data = buletin::with('kategori_buletin')->where('id',$id)->first();
-        $link = "Buletin Edit";
-        return view('admin.buletinedit', compact('data','link'));
+        //
     }
 
     /**
@@ -85,7 +83,10 @@ class buletinController extends Controller
      */
     public function edit($id)
     {
-        
+        $data = buletin::with('kategori_buletin')->where('id',$id)->first();
+        $cat = kategori_buletin::get();
+        $link = "Buletin Edit";
+        return view('admin.buletinedit', compact('data','cat','link'));
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\level;
+use App\Models\jurusan;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,9 @@ class User extends Authenticatable
     ];
     public function level(){
         return $this->belongsTo(level::class, 'id_level');
+    }
+    public function jurusan(){
+        return $this->belongsTo(jurusan::class, 'id_jurusan');
     }
     
 
