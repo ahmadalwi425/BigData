@@ -14,4 +14,5 @@ class buletin extends Model
     public function kategori_buletin(){
         return $this->belongsTo(kategori_buletin::class, 'id_kategori_buletin');
     }
+    public $timestamps = false;
 }

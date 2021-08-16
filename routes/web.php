@@ -72,5 +72,5 @@ Route::get('/admin/peminjaman', function () {
     $link = 'peminjaman';
     return view('admin.peminjaman', compact('link'));
 });
-Route::get('/buletin/destroy/{id}', [buletinController::class,'destroy']); 
-Route::put('/buletin/update/{id}', [buletinController::class,'update']); 
+Route::get('/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
+Route::put('/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 

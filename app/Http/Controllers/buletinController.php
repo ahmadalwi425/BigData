@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\buletin;
 use App\Models\kategori_buletin;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class buletinController extends Controller
 {
@@ -20,15 +21,15 @@ class buletinController extends Controller
         $kategori = kategori_buletin::get();
         $link = "buletin";
         $data = buletin::orderBy('id','desc')->get();
-        $link = "Buletin";
         return view('buletin', compact('last','kategori','data','link'));
     }
-
+    
     public function index2()
     {
+        $kategori = kategori_buletin::get();
         $data = buletin::with('kategori_buletin')->get();
-        $link = "Buletin";
-        return view('admin.buletin', compact('data','link'));
+        $link = "buletin";
+        return view('admin.buletin', compact('data','link', 'kategori'));
     }
 
     /**
@@ -110,6 +111,7 @@ class buletinController extends Controller
         $data->id_kategori_buletin = $request->get('id_kategori_buletin');
         $data->save();
         return redirect('/admin/buletin')-> with('success', 'buletin Successfully updated');;
+        // dd($request);
     }
 
     /**
