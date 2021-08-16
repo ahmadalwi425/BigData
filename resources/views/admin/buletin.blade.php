@@ -31,8 +31,9 @@
       <div class="col">
         <div class="card">
           <!-- Card header -->
-          <div class="card-header border-0">
-            <h3 class="mb-0">Table</h3>
+          <div class="card-header border-0 row justify-content-center">
+            <h3 class="mb-0 col-10">Table</h3>
+            <button class="btn-success btn col-2 ">Tambah</button>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
@@ -198,7 +199,10 @@
           </div>
           <div class="form-group">
               <label for="cover">Foto cover</label>
-              <input type="file" name="cover" class="form-control" id="cover" aria-describedby="cover buletin" >
+              <img id="img{{ $row->id }}" onclick="return changeImg('buletinImg{{ $row->id }}')" src="<?= $img_url ?>{{$row->cover}}" alt="{{ $row->judul }}" class="img-thumbnail">
+              <div style='height: 0px;width:0px; overflow:hidden;'>
+                <input id="buletinImg{{ $row->id }}" onchange="readUrl(this, 'img{{ $row->id }}')" type="file" name="cover" class="form-control" id="cover" aria-describedby="cover buletin" >
+              </div>
           </div>
           <div class="form-group">
             <button class="btn btn-primary">Edit</button>
@@ -213,5 +217,24 @@
     </div>
   </div>
 </div> 
+
+<script>
+  const reader = new FileReader();
+
+  const changeImg = (param) => {
+    document.getElementById(param).click()
+  }
+
+  const readUrl = (input, id) => {
+    if (input.files && input.files[0]) {
+      reader.onload = function(e) {
+                $('#' + id)
+                    .attr('src', e.target.result)
+            };
+
+            reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
 @endforeach
 @endsection

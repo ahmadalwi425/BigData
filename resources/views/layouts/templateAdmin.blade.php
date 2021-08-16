@@ -1005,6 +1005,10 @@ if($navActive == 'Dashboard') {
     <!-- Argon JS -->
     <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
     @yield('modal')
+
+    <script>
+    
+    </script>
   </body>
 
 </html>
