@@ -56,7 +56,12 @@
                     {{$row->nama_jurusan}}
                   </th>
                   <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
+                    <span class="badge badge-dot mr-4">
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
+                    </span>
+                    <span class="badge badge-dot mr-4">
+                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                    </span>
                   </td>
                 </tr>
                 @endforeach
@@ -123,25 +128,35 @@
 @endsection
 
 @section('modal')
-    
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detail Jurusan</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
+
+@foreach ($data as $row)
+<div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit {{$row->nama_jurusan}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/jurusan/update',$row->id)}}" method="post" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group">
+              <label for="nama_jurusan">Nama</label>
+              <input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan" aria-describedby="nama_jurusan" value="{{ $row->nama_jurusan }}">
+          </div>
         </div>
         <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-      </div>
+      </form>
     </div>
-</div>  
+  </div>
+</div> 
+@endforeach
 
 @endsection

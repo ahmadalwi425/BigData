@@ -72,10 +72,8 @@
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      <button class="btn btn-primary" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
                     </span>
-                  </td>
-                  <td>
                     <span class="badge badge-dot mr-4">
                       <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
                     </span>
@@ -147,7 +145,7 @@
 @section('modal')
 @foreach ($data as $row)
 <div class="modal fade" id="detail-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">{{$row->judul}}</h5>
@@ -178,7 +176,7 @@
       </div>
       <div class="modal-body">
         
-        <form action="{{url('buletin/update',$row->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{url('admin/buletin/update',$row->id)}}" method="post" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <div class="form-group">
@@ -217,6 +215,7 @@
     </div>
   </div>
 </div> 
+@endforeach
 
 <script>
   const reader = new FileReader();
@@ -236,5 +235,4 @@
     }
   }
 </script>
-@endforeach
 @endsection
