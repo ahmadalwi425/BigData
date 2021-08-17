@@ -31,8 +31,9 @@
       <div class="col">
         <div class="card">
           <!-- Card header -->
-          <div class="card-header border-0">
-            <h3 class="mb-0">Table</h3>
+          <div class="card-header border-0 row justify-content-center">
+            <h3 class="mb-0 col-10">Table</h3>
+            <button class="btn-success btn col-2 ">Tambah</button>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
@@ -61,7 +62,7 @@
                   </th>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      <img src="<?= $img_url ?>{{$row->cover}}" alt="" class="card-img">
+                      <button class="btn btn-dark" data-toggle="modal" data-target="#detail-{{$row->id}}" type="button">Lihat</button>
                     </span>
                   </td>
                   <td>
@@ -71,7 +72,7 @@
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-primary" href="{{ url('buletin/edit',$row->id) }}">Edit</a>
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
                     </span>
                   </td>
                   <td>
@@ -141,5 +142,99 @@
     </footer>
   </div>
 
+@endsection
 
+@section('modal')
+@foreach ($data as $row)
+<div class="modal fade" id="detail-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{$row->judul}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="<?= $img_url ?>{{$row->cover}}" alt="{{$row->judul}}" class="img-fluid">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
+@endforeach
+
+@foreach ($data as $row)
+<div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit {{$row->judul}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('buletin/update',$row->id)}}" method="post" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group">
+              <label for="judul">Judul</label>
+              <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" value="{{ $row->judul }}">
+          </div>
+          <div class="form-group">
+              <label for="id_kategori">Kategori</label>
+              <select name="id_kategori_buletin" id="id_kategori" class="form-control">
+                  @foreach($kategori as $datacat)
+                  <option value="{{$datacat->id}}">{{$datacat->nama_kategori}}</option>
+                  @endforeach
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="konten col-12">Konten</label>
+              <textarea name="konten" class="col-12 ckeditor" id="ckeditor">{!!$row->konten!!}</textarea>
+          </div>
+          <div class="form-group">
+              <label for="cover">Foto cover</label>
+              <img id="img{{ $row->id }}" onclick="return changeImg('buletinImg{{ $row->id }}')" src="<?= $img_url ?>{{$row->cover}}" alt="{{ $row->judul }}" class="img-thumbnail">
+              <div style='height: 0px;width:0px; overflow:hidden;'>
+                <input id="buletinImg{{ $row->id }}" onchange="readUrl(this, 'img{{ $row->id }}')" type="file" name="cover" class="form-control" id="cover" aria-describedby="cover buletin" >
+              </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Edit</button>
+          </div>
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<script>
+  const reader = new FileReader();
+
+  const changeImg = (param) => {
+    document.getElementById(param).click()
+  }
+
+  const readUrl = (input, id) => {
+    if (input.files && input.files[0]) {
+      reader.onload = function(e) {
+                $('#' + id)
+                    .attr('src', e.target.result)
+            };
+
+            reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+@endforeach
 @endsection

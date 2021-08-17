@@ -66,6 +66,6 @@ Route::get('/admin/peminjaman', function () {
     $link = 'peminjaman';
     return view('admin.peminjaman', compact('link'));
 });
-Route::get('/buletin/edit/{id}', [App\Http\Controllers\buletinController::class,'edit']); 
+
 Route::get('/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
 Route::put('/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 

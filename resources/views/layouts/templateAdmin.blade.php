@@ -1,4 +1,5 @@
 @php
+    $base_url = 'http://127.0.0.1:8000/admin';  
     $img_url = 'http://127.0.0.1:8000/storage/assets/img/';  
     $base_url = 'http://127.0.0.1:8000/admin'; 
 
@@ -1005,6 +1006,10 @@ if($navActive == 'Dashboard') {
     <!-- Argon JS -->
     <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
     @yield('modal')
+
+    <script>
+    
+    </script>
   </body>
 
 </html>
