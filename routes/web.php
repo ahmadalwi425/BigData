@@ -49,10 +49,7 @@ Route::get('/admin/ormawa', function () {
     $link = 'ormawa';
     return view('admin.ormawa', compact('link'));
 });
-Route::get('/admin/data_kampus', function () {
-    $link = 'data_kampus';
-    return view('admin.data_kampus', compact('link'));
-});
+Route::get('/admin/data_kampus',[App\Http\Controllers\data_kampusController::class, 'index']);
 Route::get('/admin/divisi', function () {
     $link = 'divisi';
     return view('admin.divisi', compact('link'));
