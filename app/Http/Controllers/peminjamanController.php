@@ -39,7 +39,21 @@ class peminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'id_user' => ['required'],
+            'tgl_pinjam'  => ['required'],
+            'tgl_kembali' => ['required'],
+            'status' => ['required'],
+            'barang' => ['required'],
+        ]);
+        $peminjaman = peminjaman::create([
+            'id_user'     => $request->id_user,
+            'tgl_pinjam'     => $request->tgl_pinjam,
+            'tgl_kembali'     => $request->tgl_kembali,
+            'status'     => 'dipinjam',
+            'barang'     => $request->barang,
+        ]);
+        return redirect('/admin/peminjaman')-> with('success', 'peminjaman Successfully created');
     }
 
     /**
@@ -74,7 +88,6 @@ class peminjamanController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama_peminjaman' => ['required', 'string'],
             'id_user' => ['required'],
             'tgl_pinjam'  => ['required'],
             'tgl_kembali' => ['required'],
@@ -100,7 +113,7 @@ class peminjamanController extends Controller
     public function destroy($id)
     {
         peminjaman::find($id)->delete();
-        return redirect('/admin/ormawa')
-        -> with('success', 'ormawa Successfully Deleted');
+        return redirect('/admin/peminjaman')
+        -> with('success', 'peminjaman Successfully Deleted');
     }
 }

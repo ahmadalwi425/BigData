@@ -50,7 +50,22 @@ class buletinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'cover' => ['required','mimes:jpg,png'],
+            'judul' => ['required', 'string', 'max:25'],
+            'content' => ['required'],
+            'id_kategori_buletin' => ['required', 'number'],
+        ]);
+        $image = $request->file('cover');
+        // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
+        $image_name = $request->file('cover')->store('img','public');
+        $buletin = buletin::create([
+            'cover'     => $image_name,
+            'judul'     => $request->judul,
+            'content'     => $request->content,
+            'id_kategori_buletin'   => $request->id_kategori_buletin,
+        ]);
+        return redirect('/admin/buletin')-> with('success', 'buletin Successfully created');
     }
 
     /**

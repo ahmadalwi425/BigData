@@ -37,7 +37,13 @@ class jurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_jurusan' => ['required', 'string'],
+        ]);
+        $jurusan = jurusan::create([
+            'nama_jurusan'     => $request->nama_divisi,
+        ]);
+        return redirect('/admin/jurusan')-> with('success', 'jurusan Successfully created');
     }
 
     /**

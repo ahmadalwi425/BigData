@@ -39,7 +39,15 @@ class ormawaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_ormawa' => ['required', 'string'],
+            'id_jurusan' => ['required'],
+        ]);
+        $ormawa = ormawa::create([
+            'nama_ormawa'     => $request->nama_ormawa,
+            'id_jurusan'     => $request->id_jurusan,
+        ]);
+        return redirect('/admin/ormawa')-> with('success', 'ormawa Successfully created');
     }
 
     /**

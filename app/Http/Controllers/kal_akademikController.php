@@ -49,7 +49,21 @@ class kal_akademikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_kegiatan'   => 'required',
+            'tgl_mulai'      =>'required',
+            'tgl_selesai'     => 'required',
+            'id_jenis_kal'   => 'required', 
+            'id_tahun_ajar'   => 'required', 
+        ]);
+        $kal_akademik = kal_akademik::create([
+            'nama_kegiatan'     => $request->nama_divisi,
+            'tgl_mulai'     => $request->tgl_mulai,
+            'tgl_selesai'     => $request->tgl_selesai,
+            'id_jenis_kal'     => $request->id_jenis_kal,
+            'id_tahun_ajar'     => $request->id_tahun_ajar,
+        ]);
+        return redirect('/admin/kalender')-> with('success', 'kalender Successfully created');
     }
 
     /**

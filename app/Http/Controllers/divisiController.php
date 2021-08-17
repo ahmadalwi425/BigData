@@ -37,7 +37,15 @@ class divisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_divisi' => ['required', 'string'],
+            'deskripsi' => ['required'],
+        ]);
+        $divisi = divisi::create([
+            'nama_divisi'     => $request->nama_divisi,
+            'deskripsi'     => $request->deskripsi,
+        ]);
+        return redirect('/admin/divisi')-> with('success', 'divisi Successfully created');
     }
 
     /**

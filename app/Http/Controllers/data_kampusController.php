@@ -44,7 +44,15 @@ class data_kampusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'kategori' => ['required'],
+            'total' => ['required'],
+        ]);
+        $data_kampus = data_kampus::create([
+            'kategori'     => $request->kategori,
+            'total'     => $request->total,
+        ]);
+        return redirect('/admin/data_kampus')-> with('success', 'data kampus Successfully created');
     }
 
     /**
