@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\level;
 use App\Models\jurusan;
+use App\Models\daftar_ormawa;
+use App\Models\peminjaman;
 
 class User extends Authenticatable
 {
@@ -32,6 +34,12 @@ class User extends Authenticatable
     }
     public function jurusan(){
         return $this->belongsTo(jurusan::class, 'id_jurusan');
+    }
+    public function daftar_ormawa(){
+        return $this->hasMany(daftar_ormawa::class, 'id');
+    }
+    public function peminjaman(){
+        return $this->hasMany(peminjaman::class, 'id');
     }
     
 

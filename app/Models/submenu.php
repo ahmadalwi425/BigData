@@ -4,8 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Moedls\subdivisi;
 
 class submenu extends Model
 {
     use HasFactory;
+    protected $table = 'submenu';
+    protected $guarded = [];
+    public function subdivisi(){
+        return $this->belongsTo(subdivisi::class, 'id_subdivisi');
+    }
+    public $timestamps = false;
 }

@@ -47,141 +47,35 @@
                 </tr>
               </thead>
               <tbody class="list">
+                @foreach($data as $row)
                 <tr>
                   <td scope="row">
                     <div class="media align-items-center">
                       <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
+                        <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
                       </div>
                     </div>
                   </td>
                   <td>
-                      12-12-2021
+                      {{$row->tgl_mulai}}
                   </td>
                   <td>
-                      09-6-2022
+                      {{$row->tgl_selesai}}
                   </td>
                   <td>
-                      ...
+                      {{$row->jenis_kal->nama_jenis_kal}}
                   </td>
                   <th class="budget text-lg">
-                    2021 / 2022
+                      {{$row->tahun_ajar->tahun_ajar}}
                   </th>
                   <td>
-                      Genap
+                      {{$row->semester}}
                   </td>
                   <td>
                       <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
                   </td>
                 </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                      12-12-2021
-                  </td>
-                  <td>
-                      09-6-2022
-                  </td>
-                  <td>
-                      ...
-                  </td>
-                  <th class="budget text-lg">
-                    2021 / 2022
-                  </th>
-                  <td>
-                      Genap
-                  </td>
-                  <td>
-                      <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                      12-12-2021
-                  </td>
-                  <td>
-                      09-6-2022
-                  </td>
-                  <td>
-                      ...
-                  </td>
-                  <th class="budget text-lg">
-                    2021 / 2022
-                  </th>
-                  <td>
-                      Genap
-                  </td>
-                  <td>
-                      <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                      12-12-2021
-                  </td>
-                  <td>
-                      09-6-2022
-                  </td>
-                  <td>
-                      ...
-                  </td>
-                  <th class="budget text-lg">
-                    2021 / 2022
-                  </th>
-                  <td>
-                      Genap
-                  </td>
-                  <td>
-                      <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                      12-12-2021
-                  </td>
-                  <td>
-                      09-6-2022
-                  </td>
-                  <td>
-                      ...
-                  </td>
-                  <th class="budget text-lg">
-                    2021 / 2022
-                  </th>
-                  <td>
-                      Genap
-                  </td>
-                  <td>
-                      <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\divisi;
 
 class divisiController extends Controller
 {
@@ -13,7 +14,9 @@ class divisiController extends Controller
      */
     public function index()
     {
-        //
+        $data = divisi::get();
+        $link = 'divisi';
+        return view('admin.divisi', compact('data','link'));
     }
 
     /**
@@ -68,7 +71,14 @@ class divisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_divisi' => ['required', 'string'],
+        ]);
+        $data = divisi::where('id',$id)->first();
+        $data->nama_divisi = $request->get('nama_divisi');
+        $data->deskripsi = $request->get('deskripsi');
+        $data->save();
+        return redirect('/admin/divisi')-> with('success', 'divisi Successfully updated');
     }
 
     /**
@@ -79,6 +89,8 @@ class divisiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        divisi::find($id)->delete();
+        return redirect('/admin/divisi')
+        -> with('success', 'divisi Successfully Deleted');
     }
 }

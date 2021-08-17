@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\jurusan;
 
 class jurusanController extends Controller
 {
@@ -13,7 +14,9 @@ class jurusanController extends Controller
      */
     public function index()
     {
-        //
+        $data = jurusan::get();
+        $link = 'jurusan';
+        return view('admin.jurusan', compact('data','link'));
     }
 
     /**
@@ -68,7 +71,13 @@ class jurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_jurusan' => ['required', 'string'],
+        ]);
+        $data = jurusan::where('id',$id)->first();
+        $data->nama_jurusan = $request->get('nama_jurusan');
+        $data->save();
+        return redirect('/admin/jurusan')-> with('success', 'jurusan Successfully updated');
     }
 
     /**
@@ -79,6 +88,8 @@ class jurusanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        jurusan::find($id)->delete();
+        return redirect('/admin/jurusan')
+        -> with('success', 'jurusan Successfully Deleted');
     }
 }

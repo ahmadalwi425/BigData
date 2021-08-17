@@ -99,6 +99,11 @@ class buletinController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'judul' => ['required', 'string', 'max:25'],
+            'content' => ['required'],
+            'id_kategori_buletin' => ['required', 'number'],
+        ]);
         $image = $request->file('cover');
         // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
         $buletin = buletin::with('kategori_buletin')->where('id', $id)->first();
@@ -107,11 +112,12 @@ class buletinController extends Controller
         }
         $image_name = $request->file('cover')->store('img','public');
         $data = buletin::where('id',$id)->with('kategori_buletin')->first();
+        $data->cover = $image_name;
         $data->judul = $request->get('judul');
         $data->konten = $request->get('konten');
         $data->id_kategori_buletin = $request->get('id_kategori_buletin');
         $data->save();
-        return redirect('/admin/buletin')-> with('success', 'buletin Successfully updated');;
+        return redirect('/admin/buletin')-> with('success', 'buletin Successfully updated');
         // dd($request);
     }
 

@@ -10,4 +10,5 @@ class data_kampus extends Model
     use HasFactory;
     protected $table = 'data_kampus';
     protected $guarded = [];
+    public $timestamps = false;
 }

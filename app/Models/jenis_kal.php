@@ -14,4 +14,5 @@ class jenis_kal extends Model
     public function kal_akademik(){
         return $this->hasMany(kal_akademik::class, 'id');
     }
+    public $timestamps = false;
 }

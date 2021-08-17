@@ -22,7 +22,7 @@ class data_kampusController extends Controller
     public function index()
     {
         $data = data_kampus::get();
-        $link = 'Data Kampus';
+        $link = 'data_kampus';
         return view('admin.data_kampus', compact('data','link'));
     }
 
