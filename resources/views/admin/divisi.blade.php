@@ -38,6 +38,7 @@
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
                   <th scope="col" class="sort" data-sort="name">Divisi</th>
+                  <th scope="col" class="sort" data-sort="name">Sub Divisi</th>
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
                   <th scope="col"></th>
                 </tr>
@@ -56,7 +57,17 @@
                     {{$row->nama_divisi}}
                   </th>
                   <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
+                    <a href="{{ url('admin/subdivisi/',$row->id) }}" class="badge badge-dot mr-4">
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Lihat</button>
+                    </a>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
+                    </span>
+                    <span class="badge badge-dot mr-4">
+                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                    </span>
                   </td>
                 </tr>
                 @endforeach
@@ -124,24 +135,38 @@
 
 @section('modal')
     
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detail Divisi</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
+@foreach ($data as $row)
+<div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit {{$row->nama_divisi}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/divisi/update',$row->id)}}" method="post" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group">
+              <label for="nama_divisi">Nama</label>
+              <input type="text" name="nama_divisi" class="form-control" id="nama_divisi" aria-describedby="nama_divisi" value="{{ $row->nama_divisi }}">
+          </div>
+          <div class="form-group">
+              <label for="deskripsi">Deskripsi</label>
+              <textarea cols="30" rows="10" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="deskripsi">{{ $row->deskripsi }}</textarea>
+          </div>
         </div>
         <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-      </div>
+      </form>
     </div>
-</div>  
+  </div>
+</div> 
+@endforeach
 
 @endsection

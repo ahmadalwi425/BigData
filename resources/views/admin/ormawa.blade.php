@@ -38,6 +38,7 @@
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
                   <th scope="col" class="sort" data-sort="name">Nama ormawa</th>
+                  <th scope="col" class="sort" data-sort="name">Aksi</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -54,6 +55,14 @@
                   <th class="budget text-lg">
                     {{$row->nama_ormawa}}
                   </th>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
+                    </span>
+                    <span class="badge badge-dot mr-4">
+                      <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                    </span>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -115,6 +124,40 @@
       </div>
     </footer>
   </div>
+
+
+@endsection
+
+@section('modal')
+ 
+@foreach ($data as $row)
+<div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit {{$row->nama_ormawa}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{url('admin/ormawa/update',$row->id)}}" method="post" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group">
+              <label for="nama_ormawa">Nama</label>
+              <input type="text" name="nama_ormawa" class="form-control" id="nama_ormawa" aria-describedby="nama_ormawa" value="{{ $row->nama_ormawa }}">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Edit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
+@endforeach
 
 
 @endsection

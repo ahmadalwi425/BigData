@@ -66,7 +66,7 @@ class buletinController extends Controller
             'cover' => ['required','mimes:jpg,png'],
             'judul' => ['required', 'string', 'max:25'],
             'content' => ['required'],
-            'id_kategori_buletin' => ['required', 'number'],
+            'id_kategori_buletin' => ['required', 'numeric'],
         ]);
     }
 
