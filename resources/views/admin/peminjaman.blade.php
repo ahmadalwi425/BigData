@@ -47,114 +47,35 @@
                 </tr>
               </thead>
               <tbody class="list">
+                @foreach ($data as $row)
                 <tr>
                   <td scope="row">
                     <div class="media align-items-center">
                       <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
+                        <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
                       </div>
                     </div>
                   </td>
                   <th class="budget text-lg">
-                    Rizal Ammar
+                    {{$row->user->nama}}
                   </th>
                   <td>
-                      12-02-2021
+                    {{$row->tgl_pinjam}}
                   </td>
                   <td>
-                      16-03-2021
+                    {{$row->tgl_kembali}}
                   </td>
                   <th class="text-lg">
-                      Projector
+                    {{$row->barang}}
                   </th>
                   <td class="text-success">
-                      Kembali
+                    {{$row->status}}
                   </td>
                   <td>
                       <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
                   </td>
                 </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Rizal Ammar
-                  </th>
-                  <td>
-                      12-02-2021
-                  </td>
-                  <td>
-                      16-03-2021
-                  </td>
-                  <th class="text-lg">
-                      Projector
-                  </th>
-                  <td class="text-success">
-                      Kembali
-                  </td>
-                  <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Rizal Ammar
-                  </th>
-                  <td>
-                      12-02-2021
-                  </td>
-                  <td>
-                      16-03-2021
-                  </td>
-                  <th class="text-lg">
-                      Projector
-                  </th>
-                  <td class="text-danger">
-                      Terlambat
-                  </td>
-                  <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Rizal Ammar
-                  </th>
-                  <td>
-                      12-02-2021
-                  </td>
-                  <td>
-                      16-03-2021
-                  </td>
-                  <th class="text-lg">
-                      Projector
-                  </th>
-                  <td class="text-success">
-                      Kembali
-                  </td>
-                  <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\level;
+use App\Models\jurusan;
 
 class userController extends Controller
 {
@@ -13,7 +16,9 @@ class userController extends Controller
      */
     public function index()
     {
-        //
+        $data = User::with('level','jurusan')->get();
+        $link = 'user';
+        return view('admin.user', compact('data','link'));
     }
 
     /**

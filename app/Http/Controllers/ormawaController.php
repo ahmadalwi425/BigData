@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ormawa;
+use App\Models\jurusan;
 
 class ormawaController extends Controller
 {
@@ -13,7 +15,10 @@ class ormawaController extends Controller
      */
     public function index()
     {
-        //
+        $data = ormawa::with('jurusan')->get();
+        $jurusan = jurusan::get();
+        $link = 'ormawa';
+        return view('admin.ormawa',compact('data','link','jurusan'));
     }
 
     /**
@@ -68,7 +73,15 @@ class ormawaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_ormawa' => ['required', 'string'],
+            'id_jurusan' => ['required'],
+        ]);
+        $data = ormawa::where('id',$id)->first();
+        $data->nama_ormawa = $request->get('nama_ormawa');
+        $data->id_jurusan = $request->get('id_jurusan');
+        $data->save();
+        return redirect('/admin/ormawa')-> with('success', 'ormawa Successfully updated');
     }
 
     /**
@@ -79,6 +92,8 @@ class ormawaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ormawa::find($id)->delete();
+        return redirect('/admin/ormawa')
+        -> with('success', 'ormawa Successfully Deleted');
     }
 }

@@ -50,136 +50,34 @@
                 </tr>
               </thead>
               <tbody class="list">
+                @foreach ($data as $row)
                 <tr>
                   <td scope="row">
                     <div class="media align-items-center">
                       <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
+                        <span class="name mb-0 text-sm">{{$row->nim}}</span>
                       </div>
                     </div>
                   </td>
                   <th class="budget text-lg">
-                    Muchammad Rizal Ammar
+                    {{$row->nama}}
                   </th>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
+                      {{$row->email}}
                     </span>
                   </td>
                   <td>
-                    081216282911
+                    {{$row->no_hp}}
                   </td>
                   <td>
-                    Mahasiswa
+                    {{$row->level->nama_level}}
                   </td>
                   <td class="text-right">
-                    Teknik Informatika
+                    {{$row->jurusan->nama_jurusan}}
                   </td>
                 </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Muchammad Rizal Ammar
-                  </th>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
-                    </span>
-                  </td>
-                  <td>
-                    081216282911
-                  </td>
-                  <td>
-                    Mahasiswa
-                  </td>
-                  <td class="text-right">
-                    Teknik Informatika
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Muchammad Rizal Ammar
-                  </th>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
-                    </span>
-                  </td>
-                  <td>
-                    081216282911
-                  </td>
-                  <td>
-                    Mahasiswa
-                  </td>
-                  <td class="text-right">
-                    Teknik Informatika
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Muchammad Rizal Ammar
-                  </th>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
-                    </span>
-                  </td>
-                  <td>
-                    081216282911
-                  </td>
-                  <td>
-                    Mahasiswa
-                  </td>
-                  <td class="text-right">
-                    Teknik Informatika
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">19650107</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Muchammad Rizal Ammar
-                  </th>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      rizal.ammar91@yahoo.com
-                    </span>
-                  </td>
-                  <td>
-                    081216282911
-                  </td>
-                  <td>
-                    Mahasiswa
-                  </td>
-                  <td class="text-right">
-                    Teknik Informatika
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

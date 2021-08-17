@@ -41,36 +41,32 @@ Route::get('/admin', function () {
     $link = 'dashboard';
     return view('admin.dashboard', compact('link'));
 });
-Route::get('/admin/user', function () {
-    $link = 'user';
-    return view('admin.user', compact('link'));
-});
+Route::get('/admin/user', [App\Http\Controllers\userController::class,'index']); 
 
 Route::get('/admin/buletin',  [App\Http\Controllers\buletinController::class, 'index2']);
+Route::get('/admin/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
+Route::put('/admin/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 
 
-Route::get('/admin/ormawa', function () {
-    $link = 'ormawa';
-    return view('admin.ormawa', compact('link'));
-});
-Route::get('/admin/data_kampus', function () {
-    $link = 'data_kampus';
-    return view('admin.data_kampus', compact('link'));
-});
-Route::get('/admin/divisi', function () {
-    $link = 'divisi';
-    return view('admin.divisi', compact('link'));
-});
-Route::get('/admin/jurusan', function () {
-    $link = 'jurusan';
-    return view('admin.jurusan', compact('link'));
-});
-Route::get('/admin/kalender', function () {
-    $link = 'kalender';
-    return view('admin.kalender', compact('link'));
-});
-Route::get('/admin/peminjaman', function () {
-    $link = 'peminjaman';
-    return view('admin.peminjaman', compact('link'));
-});
-Route::get('/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
-Route::put('/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 
+Route::get('/admin/data_kampus',[App\Http\Controllers\data_kampusController::class, 'index']);
+Route::get('/admin/data_kampus/destroy/{id}', [App\Http\Controllers\data_kampusController::class,'destroy']); 
+Route::put('/admin/data_kampus/update/{id}', [App\Http\Controllers\data_kampusController::class,'update']);
+
+Route::get('/admin/divisi',  [App\Http\Controllers\divisiController::class, 'index']);
+Route::get('/admin/divisi/destroy/{id}', [App\Http\Controllers\divisiController::class,'destroy']); 
+Route::put('/admin/divisi/update/{id}', [App\Http\Controllers\divisiController::class,'update']); 
+
+Route::get('/admin/jurusan',  [App\Http\Controllers\jurusanController::class, 'index']);
+Route::get('/admin/jurusan/destroy/{id}', [App\Http\Controllers\jurusanController::class,'destroy']); 
+Route::put('/admin/jurusan/update/{id}', [App\Http\Controllers\jurusanController::class,'update']); 
+
+Route::get('/admin/kalender',  [App\Http\Controllers\kal_akademikController::class, 'index2']);
+Route::get('/admin/kalender/destroy/{id}', [App\Http\Controllers\kal_akademikController::class,'destroy']); 
+Route::put('/admin/kalender/update/{id}', [App\Http\Controllers\kal_akademikController::class,'update']); 
+
+Route::get('/admin/peminjaman',  [App\Http\Controllers\peminjamanController::class, 'index']);
+Route::get('/admin/peminjaman/destroy/{id}', [App\Http\Controllers\peminjamanController::class,'destroy']); 
+Route::put('/admin/peminjaman/update/{id}', [App\Http\Controllers\peminjamanController::class,'update']); 
+
+Route::get('/admin/ormawa',  [App\Http\Controllers\ormawaController::class, 'index']);
+Route::get('/admin/ormawa/destroy/{id}', [App\Http\Controllers\ormawaController::class,'destroy']); 
+Route::put('/admin/ormawa/update/{id}', [App\Http\Controllers\ormawaController::class,'update']); 

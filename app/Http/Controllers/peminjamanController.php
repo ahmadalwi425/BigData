@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\peminjaman;
+use App\Models\User;
 
 class peminjamanController extends Controller
 {
@@ -13,7 +15,10 @@ class peminjamanController extends Controller
      */
     public function index()
     {
-        //
+        $data = peminjaman::with('user')->get();
+        $user = User::get();
+        $link = 'peminjaman';
+        return view('admin.peminjaman', compact('data','user','link'));
     }
 
     /**
@@ -68,7 +73,22 @@ class peminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_peminjaman' => ['required', 'string'],
+            'id_user' => ['required'],
+            'tgl_pinjam'  => ['required'],
+            'tgl_kembali' => ['required'],
+            'status' => ['required'],
+            'barang' => ['required'],
+        ]);
+        $data = peminjaman::where('id',$id)->first();
+        $data->tgl_pinjam = $request->get('tgl_pinjam');
+        $data->tgl_kembali = $request->get('tgl_kembali');
+        $data->status = $request->get('status');
+        $data->barang = $request->get('barang');
+        $data->id_user = $request->get('id_user');
+        $data->save();
+        return redirect('/admin/peminjaman')-> with('success', 'peminjaman Successfully updated');
     }
 
     /**
@@ -79,6 +99,8 @@ class peminjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        peminjaman::find($id)->delete();
+        return redirect('/admin/ormawa')
+        -> with('success', 'ormawa Successfully Deleted');
     }
 }

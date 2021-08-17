@@ -18,5 +18,6 @@ class kal_akademik extends Model
     public function tahun_ajar(){
         return $this->belongsTo(tahun_ajar::class, 'id_tahun_ajar');
     }
+    public $timestamps = false;
 }
 

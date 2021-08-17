@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\jurusan;
+use App\Models\data_kampus;
 
-class jurusanController extends Controller
+class data_kampusController extends Controller
 {
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'kategori' => ['required','string'],
+            'total' => ['required', 'number']
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,9 +21,9 @@ class jurusanController extends Controller
      */
     public function index()
     {
-        $data = jurusan::get();
-        $link = 'jurusan';
-        return view('admin.jurusan', compact('data','link'));
+        $data = data_kampus::get();
+        $link = 'data_kampus';
+        return view('admin.data_kampus', compact('data','link'));
     }
 
     /**
@@ -71,13 +78,10 @@ class jurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nama_jurusan' => ['required', 'string'],
-        ]);
-        $data = jurusan::where('id',$id)->first();
-        $data->nama_jurusan = $request->get('nama_jurusan');
+        $data = data_kampus::where('id',$id)->first();
+        $data->kategori = $request->get('kategori');
+        $data->total = $request->get('total');
         $data->save();
-        return redirect('/admin/jurusan')-> with('success', 'jurusan Successfully updated');
     }
 
     /**
@@ -88,8 +92,6 @@ class jurusanController extends Controller
      */
     public function destroy($id)
     {
-        jurusan::find($id)->delete();
-        return redirect('/admin/jurusan')
-        -> with('success', 'jurusan Successfully Deleted');
+        //
     }
 }

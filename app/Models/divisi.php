@@ -10,4 +10,5 @@ class divisi extends Model
     use HasFactory;
     protected $table = 'divisi';
     protected $guarded = [];
+    public $timestamps = false;
 }

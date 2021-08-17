@@ -14,4 +14,5 @@ class kategori_buletin extends Model
     public function buletin(){
         return $this->hasMany(buletin::class, 'id');
     }
+    public $timestamps = false;
 }

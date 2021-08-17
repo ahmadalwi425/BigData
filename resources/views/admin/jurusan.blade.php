@@ -43,81 +43,23 @@
                 </tr>
               </thead>
               <tbody class="list">
+                @foreach ($data as $row)
                 <tr>
                   <td scope="row">
                     <div class="media align-items-center">
                       <div class="media-body">
-                        <span class="name mb-0 text-sm">1</span>
+                        <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
                       </div>
                     </div>
                   </td>
                   <th class="budget text-lg">
-                    Teknik Informatika
+                    {{$row->nama_jurusan}}
                   </th>
                   <td>
                       <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
                   </td>
                 </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">2</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Teknik Informatika
-                  </th>
-                  <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">3</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Teknik Informatika
-                  </th>
-                  <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">4</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Teknik Informatika
-                  </th>
-                  <td>
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">5</span>
-                      </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    Teknik Informatika
-                  </th>
-                  <td>
-                      <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

@@ -1,6 +1,7 @@
 @php
     $base_url = 'http://127.0.0.1:8000/admin';  
     $img_url = 'http://127.0.0.1:8000/storage/assets/img/';  
+    $base_url = 'http://127.0.0.1:8000/admin'; 
 
     if($link == "dashboard") {
     $navActive = "Dashboard";

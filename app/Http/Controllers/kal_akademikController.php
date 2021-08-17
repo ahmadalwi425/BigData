@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\kal_akademik;
 use App\Models\jenis_kal;
 use App\Models\tahun_ajar;
@@ -17,8 +18,17 @@ class kal_akademikController extends Controller
     public function index()
     {
         $data = kal_akademik::with('tahun_ajar','jenis_kal')->get();
-        $link = "Kalender";
+        $link = "kalender";
         return view('calender', compact('data','link'));
+    }
+
+    public function index2()
+    {
+        $data = kal_akademik::with('tahun_ajar','jenis_kal')->get();
+        $link = "kalender";
+        $jenis_kal = jenis_kal::get();
+        $tahun_ajar = tahun_ajar::get();
+        return view('admin.kalender', compact('data','jenis_kal','tahun_ajar','link'));
     }
 
     /**
@@ -73,7 +83,21 @@ class kal_akademikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_kegiatan'   => 'required',
+            'tgl_mulai'      =>'required',
+            'tgl_selesai'     => 'required',
+            'id_jenis_kal'   => 'required', 
+            'id_tahun_ajar'   => 'required', 
+        ]);
+        $data = kal_akademik::with('tahun_ajar','jenis_kal')->where('id',$id)->first();
+        $data->nama_kegiatan = $request->get('nama_kegiatan');
+        $data->tgl_mulai = $request->get('tgl_mulai');
+        $data->tgl_selesai = $request->get('tgl_selesai');
+        $data->id_jenis_kal = $request->get('id_jenis_kal');
+        $data->id_tahun_ajar = $request->get('id_tahun_ajar');
+        $data->save();
+        return redirect('/admin/kalender')-> with('success', 'kegiatan Successfully updated');
     }
 
     /**
@@ -84,6 +108,8 @@ class kal_akademikController extends Controller
      */
     public function destroy($id)
     {
-        //
+        kal_akademik::find($id)->delete();
+        return redirect('/admin/kalender')
+        -> with('success', 'kalender Successfully Deleted');
     }
 }
