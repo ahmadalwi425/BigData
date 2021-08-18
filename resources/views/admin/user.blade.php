@@ -42,10 +42,8 @@
                 <tr>
                   <th scope="col" class="sort" data-sort="name">NIM</th>
                   <th scope="col" class="sort" data-sort="name">Nama</th>
-                  <th scope="col" class="sort" data-sort="budget">Email</th>
-                  <th scope="col" class="sort" data-sort="status">No HP</th>
-                  <th scope="col" class="sort" data-sort="completion">Level</th>
                   <th scope="col" class="sort" data-sort="completion">Jurusan</th>
+                  <th scope="col" class="sort" data-sort="completion">Aksi</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -62,19 +60,16 @@
                   <th class="budget text-lg">
                     {{$row->nama}}
                   </th>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      {{$row->email}}
-                    </span>
-                  </td>
-                  <td>
-                    {{$row->no_hp}}
-                  </td>
-                  <td>
-                    {{$row->level->nama_level}}
-                  </td>
-                  <td class="text-right">
+                  <td class="">
                     {{$row->jurusan->nama_jurusan}}
+                  </td>
+                  <td>
+                    <a href="{{ url('admin/user/') }}" class="badge badge-dot mr-4">
+                      <button class="btn btn-primary" type="button">Edit</button>
+                    </a>
+                    <span class="badge badge-dot mr-4">
+                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                    </span>
                   </td>
                 </tr>
                 @endforeach

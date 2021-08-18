@@ -14,7 +14,8 @@
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                 <li class="breadcrumb-item"><a href="#">dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">divisi</li>
+                <li class="breadcrumb-item"><a href="#">divisi</a></li>
+                <li class="breadcrumb-item active" aria-current="page">subdivisi</li>
               </ol>
             </nav>
           </div>
@@ -57,8 +58,8 @@
                     {{$row->nama_divisi}}
                   </th>
                   <td>
-                    <a href="{{ url('admin/subdivisi/') }}" class="badge badge-dot mr-4">
-                      <button class="btn btn-primary" type="button">Lihat</button>
+                    <a href="{{ url('admin/subdivisi/',$row->id) }}" class="badge badge-dot mr-4">
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Lihat</button>
                     </a>
                   </td>
                   <td>

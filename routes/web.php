@@ -20,10 +20,13 @@ Route::get('/about', function () {
     $link = 'about';
     return view('about', compact('link'));
 });
+Route::get('/admin/userDetail', function () {
+    $link = 'user';
+    return view('admin.userDetail', compact('link'));
+});
 
 
-Route::get('/bigdata',  [App\Http\Controllers\bigdataController::class, 'index']);
-Route::get('/buletin',  [App\Http\Controllers\buletinController::class, 'index']);
+Route::get('/bigdata',  [App\Http\Controllers\bigdataController::class, 'index']);Route::get('/buletin',  [App\Http\Controllers\buletinController::class, 'index']);
 
 Route::get('/findus', function () {
     $link = 'findus';
@@ -40,6 +43,10 @@ Route::get('/register2',  [App\Http\Controllers\Auth\RegisterController::class, 
 Route::get('/admin', function () {
     $link = 'dashboard';
     return view('admin.dashboard', compact('link'));
+});
+Route::get('/admin/subdivisi', function () {
+    $link = 'divisi';
+    return view('admin.subdivisi', compact('link'));
 });
 Route::get('/admin/user', [App\Http\Controllers\userController::class,'index']); 
 
