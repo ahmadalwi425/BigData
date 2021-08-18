@@ -15,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-
+Route::get('/admin/user/showy/{id}', [App\Http\Controllers\userController::class,'dshow']); 
 Route::get('/about', function () {
     $link = 'about';
     return view('about', compact('link'));
 });
+
 
 
 Route::get('/bigdata',  [App\Http\Controllers\bigdataController::class, 'index']);
