@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-
+Route::get('/admin/user/{id}', [App\Http\Controllers\userController::class,'dshow']); 
 Route::get('/about', function () {
     $link = 'about';
     return view('about', compact('link'));
@@ -26,7 +26,9 @@ Route::get('/admin/userDetail', function () {
 });
 
 
-Route::get('/bigdata',  [App\Http\Controllers\bigdataController::class, 'index']);Route::get('/buletin',  [App\Http\Controllers\buletinController::class, 'index']);
+
+Route::get('/bigdata',  [App\Http\Controllers\bigdataController::class, 'index']);
+Route::get('/buletin',  [App\Http\Controllers\buletinController::class, 'index']);
 
 Route::get('/findus', function () {
     $link = 'findus';

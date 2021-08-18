@@ -17,8 +17,9 @@ class userController extends Controller
     public function index()
     {
         $data = User::with('level','jurusan')->get();
+        $level = level::get();
         $link = 'user';
-        return view('admin.user', compact('data','link'));
+        return view('admin.user', compact('data','link','level'));
     }
 
     /**
@@ -68,7 +69,10 @@ class userController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = User::with('level','jurusan')->where('id',$id)->first();
+        $level = level::get();
+        $link = 'user';
+        return view('admin.user', compact('data','link','level'));
     }
 
     /**
@@ -108,11 +112,11 @@ class userController extends Controller
 
         }
         
-        $data->tgl_pinjam = $request->get('tgl_pinjam');
-        $data->tgl_kembali = $request->get('tgl_kembali');
-        $data->status = $request->get('status');
-        $data->barang = $request->get('barang');
-        $data->id_user = $request->get('id_user');
+        $data->nama = $request->get('nama');
+        $data->email = $request->get('email');
+        $data->no_hp = $request->get('no_hp');
+        $data->id_level = $request->get('id_level');
+        $data->id_jurusan = $request->get('id_jurusan');
         $data->save();
         return redirect('/admin/user')-> with('success', 'user Successfully updated');
     }
