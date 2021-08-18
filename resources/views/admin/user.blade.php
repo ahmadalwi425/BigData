@@ -64,7 +64,7 @@
                     {{$row->jurusan->nama_jurusan}}
                   </td>
                   <td>
-                    <a href="{{ url('admin/user/') }}" class="badge badge-dot mr-4">
+                    <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
                       <button class="btn btn-primary" type="button">Edit</button>
                     </a>
                     <span class="badge badge-dot mr-4">

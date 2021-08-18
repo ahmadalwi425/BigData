@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/admin/user/{id}', [App\Http\Controllers\userController::class,'dshow']); 
+Route::get('/admin/user/{id}', [App\Http\Controllers\userController::class,'show']); 
 Route::get('/about', function () {
     $link = 'about';
     return view('about', compact('link'));

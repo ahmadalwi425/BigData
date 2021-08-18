@@ -72,7 +72,7 @@ class userController extends Controller
         $data = User::with('level','jurusan')->where('id',$id)->first();
         $level = level::get();
         $link = 'user';
-        return view('admin.user', compact('data','link','level'));
+        return view('admin.userDetail', compact('data','link','level'));
     }
 
     /**

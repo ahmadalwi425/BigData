@@ -11,8 +11,8 @@
     <div class="container-fluid d-flex align-items-center">
       <div class="row">
         <div class="col-lg-12 col-md-12">
-          <h1 class="display-2 text-white">Hello Jesse</h1>
-          <p class="text-white mt-0 mb-3">This is your profile page.</p>
+          <h1 class="display-2 text-white">Halo {{$data->nama}} !</h1>
+          <p class="text-white mt-0 mb-3">Ini adalah halaman profil <strong>{{$data->nama}}</strong>.</p>
         </div>
       </div>
     </div>
@@ -37,13 +37,13 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="nama">Nama</label>
-                      <input type="text" id="nama" class="form-control" name="nama" placeholder="Nama" value="lucky.jesse">
+                      <input type="text" id="nama" class="form-control" name="nama" placeholder="Nama" value="{{$data->nama}}">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="email">Email address</label>
-                      <input type="email" name="email" id="email" class="form-control" placeholder="bigdata@example.com">
+                      <input type="email" name="email" id="email" class="form-control" placeholder="bigdata@example.com" value="{{$data->email}}">
                     </div>
                   </div>
                 </div>
@@ -51,13 +51,13 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="no_hp">Nomer HP</label>
-                      <input type="text" id="no_hp" class="form-control" placeholder="Nomer HP (08xxxxxx)" value="Lucky">
+                      <input type="text" id="no_hp" class="form-control" placeholder="Nomer HP (08xxxxxx)" value="{{$data->no_hp}}">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-last-name">NIM</label>
-                      <input type="text" id="input-last-name" class="form-control" placeholder="Last name" value="Jesse" disabled>
+                      <input type="text" id="input-last-name" class="form-control" placeholder="Last name" value="{{$data->nim}}" disabled>
                     </div>
                   </div>
                 </div>
@@ -76,22 +76,22 @@
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label class="form-control-label" for="jurusan">Jurusan</label>
-                      <input name="jurusan" type="text" id="jurusan" class="form-control" placeholder="Jurusan" value="Teknik Informatika">
+                      <input name="jurusan" type="text" id="jurusan" class="form-control" placeholder="Jurusan" value="{{$data->jurusan->nama_jurusan}}">
                     </div>
                   </div>
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label class="form-control-label" for="level">Level</label>
-                      <input type="number" id="level" class="form-control" placeholder="Postal code">
+                      <input type="text" id="level" class="form-control" placeholder="Postal code" value="{{$data->level->nama_level}}">
                     </div>
                   </div>
-                  <hr class="my-4" />
-                  <div class="form-group align-self-end text-end">
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                    <a class="btn btn-secondary" href="" onclick="return confirm('Are you sure wanna delete this user?');">Kembali</a>
-                  </div>
                 </div>
-              </div>
+            </div>
+            <hr class="my-4" />
+            <div class="row justify-content-end">
+              <button type="submit" class="col-2 btn btn-primary align-self-end ">Edit</button>
+              <a class="col-2 btn btn-secondary align-self-end " href="" onclick="return confirm('Are you sure wanna delete this user?');">Kembali</a>
+            </div>
               
             </form>
           </div>
