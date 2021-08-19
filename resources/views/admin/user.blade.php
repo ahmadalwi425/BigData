@@ -36,45 +36,47 @@
             <h3 class="mb-0">User Table</h3>
           </div>
           <!-- Light table -->
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" class="sort" data-sort="name">NIM</th>
-                  <th scope="col" class="sort" data-sort="name">Nama</th>
-                  <th scope="col" class="sort" data-sort="completion">Jurusan</th>
-                  <th scope="col" class="sort" data-sort="completion">Aksi</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody class="list">
-                @foreach ($data as $row)
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">{{$row->nim}}</span>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col" class="sort" data-sort="name">NIM</th>
+                    <th scope="col" class="sort" data-sort="name">Nama</th>
+                    <th scope="col" class="sort" data-sort="completion">Jurusan</th>
+                    <th scope="col" class="sort" data-sort="completion">Aksi</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                  @foreach ($data as $row)
+                  <tr>
+                    <td scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{$row->nim}}</span>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    {{$row->nama}}
-                  </th>
-                  <td class="">
-                    {{$row->jurusan->nama_jurusan}}
-                  </td>
-                  <td>
-                    <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
-                      <button class="btn btn-primary" type="button">Edit</button>
-                    </a>
-                    <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
-                    </span>
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+                    </td>
+                    <th class="budget text-lg">
+                      {{$row->nama}}
+                    </th>
+                    <td class="">
+                      {{$row->jurusan->nama_jurusan}}
+                    </td>
+                    <td>
+                      <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
+                        <button class="btn btn-primary" type="button">Edit</button>
+                      </a>
+                      <span class="badge badge-dot mr-4">
+                        <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      </span>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- Card footer -->
           <div class="card-footer py-4">

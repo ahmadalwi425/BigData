@@ -31,57 +31,140 @@
       <div class="col">
         <div class="card">
           <!-- Card header -->
-          <div class="card-header border-0 row justify-content-center">
-            <h3 class="mb-0 col-10">Table</h3>
-            <button class="btn-success btn col-2 ">Tambah</button>
+          <div class="card-header border-0">
+            <div class="mb-0 pb-0 row justify-ceontent-center">
+              <h3 class="mb-0 col-10">Tabel Buletin</h3>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+            </div>
           </div>
           <!-- Light table -->
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" class="sort" data-sort="name">No</th>
-                  <th scope="col" class="sort" data-sort="budget">Judul</th>
-                  <th scope="col" class="sort" data-sort="name">Cover</th>
-                  <th scope="col" class="sort" data-sort="budget">Kategori</th>
-                  <th scope="col" class="sort" data-sort="budget" colspan="2">Aksi</th>
-                </tr>
-              </thead>
-              <tbody class="list">
-                @foreach ($data as $row)
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col" class="sort" data-sort="name">No</th>
+                    <th scope="col" class="sort" data-sort="budget">Judul</th>
+                    <th scope="col" class="sort" data-sort="name">Cover</th>
+                    <th scope="col" class="sort" data-sort="budget">Kategori</th>
+                    <th scope="col" class="sort" data-sort="budget">Aksi</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                  @foreach ($data as $row)
+                  <tr>
+                    <td scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    {{$row->judul}}
-                  </th>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      <button class="btn btn-dark" data-toggle="modal" data-target="#detail-{{$row->id}}" type="button">Lihat</button>
-                    </span>
-                  </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      {{$row->kategori_buletin->nama_kategori}}
-                    </span>
-                  </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
-                    </span>
-                    <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
-                    </span>
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+                    </td>
+                    <th class="budget text-lg">
+                      {{$row->judul}}
+                    </th>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#detail-{{$row->id}}" type="button">Lihat</button>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        {{$row->kategori_buletin->nama_kategori}}
+                      </span>
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
+                      </span>
+                      <span class="badge badge-dot mr-4">
+                        <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      </span>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Card footer -->
+          <div class="card-footer py-4">
+            <nav aria-label="...">
+              <ul class="pagination justify-content-end mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <i class="fas fa-angle-left"></i>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="fas fa-angle-right"></i>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0">
+            <div class="mb-0 pb-0 row justify-ceontent-center">
+              <h3 class="mb-0 col-10">Tabel Kategori</h3>
+              <button type="button" data-toggle="modal" data-target="#createCat" class="btn-success btn col-2 mb-0">Tambah</button>
+            </div>
+          </div>
+          <!-- Light table -->
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col" class="sort" data-sort="name">No</th>
+                    <th scope="col" class="sort" data-sort="budget">Kategori</th>
+                    <th scope="col" class="sort" data-sort="budget">Aksi</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                  @foreach ($kategori as $row)
+                  <tr>
+                    <td scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <th class="budget text-lg">
+                      {{$row->nama_kategori}}
+                    </th>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#editCat-{{$row->id}}" type="button">Edit</button>
+                      </span>
+                      <span class="badge badge-dot mr-4">
+                        <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      </span>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- Card footer -->
           <div class="card-footer py-4">
@@ -143,6 +226,8 @@
 @endsection
 
 @section('modal')
+
+{{-- MODAL DETAIL COVER --}}
 @foreach ($data as $row)
 <div class="modal fade" id="detail-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -164,9 +249,10 @@
 </div> 
 @endforeach
 
+{{-- MODAL EDIT BULETIN --}}
 @foreach ($data as $row)
 <div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit {{$row->judul}}</h5>
@@ -212,6 +298,113 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
+    </div>
+  </div>
+</div> 
+@endforeach
+
+{{-- MODAL TAMBAH BULETIN --}}
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Buletin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/buletin/create')}}" method="post" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+              <label for="judul">Judul</label>
+              <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" value="">
+          </div>
+          <div class="form-group">
+              <label for="id_kategori">Kategori</label>
+              <select name="id_kategori_buletin" id="id_kategori" class="form-control">
+                  @foreach($kategori as $datacat)
+                  <option value="{{$datacat->id}}">{{$datacat->nama_kategori}}</option>
+                  @endforeach
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="konten col-12">Konten</label>
+              <textarea name="konten" class="col-12 ckeditor" id="ckeditor"></textarea>
+          </div>
+          <div class="form-group">
+              <label for="cover">Foto cover</label>
+              <img id="imgCreate" src="" alt="" class="img-thumbnail">
+              <input id="buletinImg" onchange="readUrl(this, 'imgCreate')" type="file" name="cover" class="form-control" id="cover" aria-describedby="cover buletin" >
+          </div>
+          <div class="form-group">
+          </div>
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
+
+{{-- MODAL TAMBAH KATEGORI BULETIN --}}
+<div class="modal fade" id="createCat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori Buletin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/kategori/create')}}" method="post">
+          @csrf
+          <div class="form-group">
+              <label for="judul">Nama Kategori</label>
+              <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" value="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
+
+{{-- MODAL EDIT KATEGORI BULETIN --}}
+@foreach ($kategori as $row)
+<div class="modal fade" id="editCat-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori Buletin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/kategori/edit', $row->id)}}" method="post">
+          @csrf
+          <div class="form-group">
+              <label for="judul">Nama Kategori</label>
+              <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" value="{{$row->nama_kategori}}">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
     </div>
   </div>
 </div> 
