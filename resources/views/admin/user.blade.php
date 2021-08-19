@@ -13,8 +13,8 @@
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tables</li>
+                <li class="breadcrumb-item"><a href="#">dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">user</li>
               </ol>
             </nav>
           </div>
@@ -33,7 +33,10 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">User Table</h3>
+            <div class="mb-0 pb-0 row justify-ceontent-center">
+              <h3 class="mb-0 col-10">Tabel</h3>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+            </div>
           </div>
           <!-- Light table -->
           <div class="card-body">
@@ -66,7 +69,7 @@
                     </td>
                     <td>
                       <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
-                        <button class="btn btn-primary" type="button">Edit</button>
+                        <button class="btn btn-warning" type="button">Edit</button>
                       </a>
                       <span class="badge badge-dot mr-4">
                         <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
@@ -136,4 +139,65 @@
   </div>
 
 
+@endsection
+
+@section('modal')
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/user/create')}}" method="post" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+              <label for="nim">NIM</label>
+              <input type="text" name="nim" class="form-control" id="nim" placeholder="210921xxx" aria-describedby="nim" value="">
+          </div>
+          <div class="form-group">
+              <label for="nama">Nama</label>
+              <input type="text" name="nama" class="form-control" id="nama" placeholder="Inputkan Nama User ..." aria-describedby="nama" value="">
+          </div>
+          <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="text" name="email" class="form-control" id="email" placeholder="bigdata@example.com" aria-describedby="email" value="">
+          </div>
+          <div class="form-group">
+              <label class="form-control-label" for="no_hp">Nomer HP</label>
+              <input type="text" id="no_hp" class="form-control" placeholder="Nomer HP (08xxxxxx)" value="">
+          </div>
+          <div class="form-group">
+              <label class="form-control-label" for="jurusan">Jurusan</label>
+              <select class="form-control" name="jurusan" id="">
+                <option value="">Pilih Jurusan ...</option>
+                @foreach ($jurusan as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama_jurusan}}</option>
+                @endforeach
+              </select>
+          </div>
+          <div class="form-group">
+              <label class="form-control-label" for="level">Level</label>
+              <select class="form-control" name="jurusan" id="">
+                <option value="">Pilih Level ...</option>
+                @foreach ($level as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama_level}}</option>
+                @endforeach
+              </select>
+          </div>
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
 @endsection

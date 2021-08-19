@@ -2,6 +2,25 @@
 
 @section('content')
 
+<script>
+    const del = (event) => {
+      event.preventDefault()
+      const link = event.target.href;
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = link;
+        }
+      })
+    }
+</script>
 
 <!-- Header -->
 <div class="header bg-primary pb-6">
@@ -60,7 +79,7 @@
                       <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
                     </span>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      <a class="btn btn-danger" id="link-{{$row->id}}" href="{{ url('admin/jurusan/destroy',$row->id) }}" onclick="del(event);">Delete</a>
                     </span>
                   </td>
                 </tr>
@@ -158,5 +177,6 @@
   </div>
 </div> 
 @endforeach
+
 
 @endsection

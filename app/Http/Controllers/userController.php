@@ -18,8 +18,9 @@ class userController extends Controller
     {
         $data = User::with('level','jurusan')->get();
         $level = level::get();
+        $jurusan = jurusan::get();
         $link = 'user';
-        return view('admin.user', compact('data','link','level'));
+        return view('admin.user', compact('data','link','level', 'jurusan'));
     }
 
     /**

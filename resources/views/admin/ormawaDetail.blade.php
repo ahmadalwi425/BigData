@@ -9,14 +9,19 @@
       <div class="header-body">
         <div class="row align-items-center py-4">
           <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">Data Kampus</h6>
+            <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">data kampus</li>
+                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                <li class="breadcrumb-item"><a href="#">ormawa</a></li>
+                <li class="breadcrumb-item active" aria-current="page">anggota</li>
               </ol>
             </nav>
+          </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href="#" class="btn btn-sm btn-neutral">New</a>
+            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
           </div>
         </div>
       </div>
@@ -29,38 +34,53 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Table</h3>
+            <div class="mb-0 pb-0 row justify-ceontent-center">
+              <h3 class="mb-0 col-10">Tabel</h3>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+            </div>
           </div>
           <!-- Light table -->
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" class="sort" data-sort="name">No</th>
-                  <th scope="col" class="sort" data-sort="name">Kategori</th>
-                  <th scope="col" class="sort" data-sort="budget">Total</th>
-                </tr>
-              </thead>
-              <tbody class="list">
-                @foreach ($data as $row)
-                <tr>
-                  <td scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="name mb-0 text-sm">{{$loop -> iteration}}</span>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col" class="sort" data-sort="name">NIM</th>
+                    <th scope="col" class="sort" data-sort="name">Nama</th>
+                    <th scope="col" class="sort" data-sort="completion">Jurusan</th>
+                    <th scope="col" class="sort" data-sort="completion">Aksi</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                  @foreach ($data as $row)
+                  <tr>
+                    <td scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{$row->nim}}</span>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <th class="budget text-lg">
-                    {{$row->kategori}}
-                  </th>
-                  <td>
-                    {{$row->total}}
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+                    </td>
+                    <th class="budget text-lg">
+                      {{$row->nama}}
+                    </th>
+                    <td class="">
+                      {{$row->jurusan->nama_jurusan}}
+                    </td>
+                    <td>
+                      <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
+                        <button class="btn btn-warning" type="button">Edit</button>
+                      </a>
+                      <span class="badge badge-dot mr-4">
+                        <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      </span>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- Card footer -->
           <div class="card-footer py-4">
