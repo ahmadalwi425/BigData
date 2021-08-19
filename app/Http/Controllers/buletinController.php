@@ -54,7 +54,7 @@ class buletinController extends Controller
             'cover' => ['required','mimes:jpg,png'],
             'judul' => ['required', 'string', 'max:25'],
             'content' => ['required'],
-            'id_kategori_buletin' => ['required', 'number'],
+            'id_kategori_buletin' => ['required'],
         ]);
         $image = $request->file('cover');
         // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
@@ -81,7 +81,7 @@ class buletinController extends Controller
             'cover' => ['required','mimes:jpg,png'],
             'judul' => ['required', 'string', 'max:25'],
             'content' => ['required'],
-            'id_kategori_buletin' => ['required', 'numeric'],
+            'id_kategori_buletin' => ['required'],
         ]);
     }
 
@@ -117,7 +117,7 @@ class buletinController extends Controller
         $this->validate($request, [
             'judul' => ['required', 'string', 'max:25'],
             'content' => ['required'],
-            'id_kategori_buletin' => ['required', 'number'],
+            'id_kategori_buletin' => ['required'],
         ]);
         $image = $request->file('cover');
         // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());

@@ -18,7 +18,7 @@ class kal_akademikController extends Controller
     public function index()
     {
         $data = kal_akademik::with('tahun_ajar','jenis_kal')->get();
-        $link = "kalender";
+        $link = "calender";
         return view('calender', compact('data','link'));
     }
 

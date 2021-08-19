@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\divisi;
-use App\Models\subdivisi;
-use App\Models\data_kampus;
 
-class bigdataController extends Controller
+class produkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +13,7 @@ class bigdataController extends Controller
      */
     public function index()
     {
-        $datadiv = divisi::get();
-        $datasub = subdivisi::get();
-        $data = data_kampus::get();
-        $link = "bigdata";
-        return view('bigdata', compact('datadiv','datasub','data','link'));
+        //
     }
 
     /**
