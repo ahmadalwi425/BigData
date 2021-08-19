@@ -10,6 +10,8 @@ use App\Models\level;
 use App\Models\jurusan;
 use App\Models\daftar_ormawa;
 use App\Models\peminjaman;
+use App\Models\produk;
+use App\Models\penjualan;
 
 class User extends Authenticatable
 {
@@ -40,6 +42,12 @@ class User extends Authenticatable
     }
     public function peminjaman(){
         return $this->hasMany(peminjaman::class, 'id');
+    }
+    public function pembelian(){
+        return $this->hasMany(pembelian::class, 'id');
+    }
+    public function produk(){
+        return $this->hasMany(produk::class, 'id');
     }
     
 

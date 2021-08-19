@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\kategori_buletin;
 
-class kategori_buletinController extends Controller
+class jenis_produkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,13 +34,7 @@ class kategori_buletinController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nama_kategori'   => 'required', 
-        ]);
-        $kategori_buletin = kategori_buletin::create([
-            'nama_kategori'     => $request->nama_kategori,
-        ]);
-        return redirect('/admin/buletin')-> with('success', 'kategori Successfully created');
+        //
     }
 
     /**
@@ -75,13 +68,7 @@ class kategori_buletinController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nama_kategori' => ['required', 'string'],
-        ]);
-        $data = kategori_buletin::where('id',$id)->first();
-        $data->nama_kategori = $request->get('nama_kategori');
-        $data->save();
-        return redirect('/admin/buletin')-> with('success', 'kategori Successfully updated');
+        //
     }
 
     /**
@@ -92,8 +79,6 @@ class kategori_buletinController extends Controller
      */
     public function destroy($id)
     {
-        kategori_buletin::find($id)->delete();
-        return redirect('/admin/buletin')
-        -> with('success', 'kategori Successfully Deleted');
+        //
     }
 }

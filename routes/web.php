@@ -50,12 +50,19 @@ Route::get('/admin/subdivisi', function () {
     $link = 'divisi';
     return view('admin.subdivisi', compact('link'));
 });
+
+
+
 Route::get('/admin/user', [App\Http\Controllers\userController::class,'index']); 
 
 Route::get('/admin/buletin',  [App\Http\Controllers\buletinController::class, 'index2']);
 Route::post('/admin/buletin/store',  [App\Http\Controllers\buletinController::class, 'store']);
 Route::get('/admin/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
 Route::put('/admin/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 
+
+Route::post('/admin/kategori_buletin/store',  [App\Http\Controllers\kategori_buletinController::class, 'store']);
+Route::get('/admin/kategori_buletin/destroy/{id}', [App\Http\Controllers\kategori_buletinController::class,'destroy']); 
+Route::put('/admin/kategori_buletin/update/{id}', [App\Http\Controllers\kategori_buletinController::class,'update']);
 
 Route::get('/admin/data_kampus',[App\Http\Controllers\data_kampusController::class, 'index']);
 Route::post('/admin/data_kampus/store',  [App\Http\Controllers\data_kampusController::class, 'store']);
@@ -66,6 +73,11 @@ Route::get('/admin/divisi',  [App\Http\Controllers\divisiController::class, 'ind
 Route::post('/admin/divisi/store',  [App\Http\Controllers\divisiController::class, 'store']);
 Route::get('/admin/divisi/destroy/{id}', [App\Http\Controllers\divisiController::class,'destroy']); 
 Route::put('/admin/divisi/update/{id}', [App\Http\Controllers\divisiController::class,'update']); 
+
+Route::get('/admin/subdivisi',  [App\Http\Controllers\subdivisiController::class, 'index']);
+Route::post('/admin/subdivisi/store',  [App\Http\Controllers\subdivisiController::class, 'store']);
+Route::get('/admin/subdivisi/destroy/{id}', [App\Http\Controllers\subdivisiController::class,'destroy']); 
+Route::put('/admin/subdivisi/update/{id}', [App\Http\Controllers\subdivisiController::class,'update']); 
 
 Route::get('/admin/jurusan',  [App\Http\Controllers\jurusanController::class, 'index']);
 Route::post('/admin/jurusan/store',  [App\Http\Controllers\jurusanController::class, 'store']);

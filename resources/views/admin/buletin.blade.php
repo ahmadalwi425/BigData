@@ -157,7 +157,7 @@
                         <button class="btn btn-warning" data-toggle="modal" data-target="#editCat-{{$row->id}}" type="button">Edit</button>
                       </span>
                       <span class="badge badge-dot mr-4">
-                        <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                        <a class="btn btn-danger" href="{{ url('admin/kategori_buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
                       </span>
                     </td>
                   </tr>
@@ -364,11 +364,11 @@
       </div>
       <div class="modal-body">
         
-        <form action="{{url('admin/kategori/create')}}" method="post">
+        <form action="{{url('admin/kategori_buletin/store')}}" method="post">
           @csrf
           <div class="form-group">
               <label for="judul">Nama Kategori</label>
-              <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" value="">
+              <input type="text" name="nama_kategori" class="form-control" id="judul" aria-describedby="judul" value="">
           </div>
         </div>
         <div class="modal-footer">
@@ -393,11 +393,12 @@
       </div>
       <div class="modal-body">
         
-        <form action="{{url('admin/kategori/edit', $row->id)}}" method="post">
+        <form action="{{url('admin/kategori_buletin/update', $row->id)}}" method="post">
           @csrf
+          @method('PUT')
           <div class="form-group">
               <label for="judul">Nama Kategori</label>
-              <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" value="{{$row->nama_kategori}}">
+              <input type="text" name="nama_kategori" class="form-control" id="judul" aria-describedby="judul" value="{{$row->nama_kategori}}">
           </div>
         </div>
         <div class="modal-footer">
