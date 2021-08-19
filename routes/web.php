@@ -53,29 +53,36 @@ Route::get('/admin/subdivisi', function () {
 Route::get('/admin/user', [App\Http\Controllers\userController::class,'index']); 
 
 Route::get('/admin/buletin',  [App\Http\Controllers\buletinController::class, 'index2']);
+Route::post('/admin/buletin/store',  [App\Http\Controllers\buletinController::class, 'store']);
 Route::get('/admin/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
 Route::put('/admin/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 
 
 Route::get('/admin/data_kampus',[App\Http\Controllers\data_kampusController::class, 'index']);
+Route::post('/admin/data_kampus/store',  [App\Http\Controllers\data_kampusController::class, 'store']);
 Route::get('/admin/data_kampus/destroy/{id}', [App\Http\Controllers\data_kampusController::class,'destroy']); 
 Route::put('/admin/data_kampus/update/{id}', [App\Http\Controllers\data_kampusController::class,'update']);
 
 Route::get('/admin/divisi',  [App\Http\Controllers\divisiController::class, 'index']);
+Route::post('/admin/divisi/store',  [App\Http\Controllers\divisiController::class, 'store']);
 Route::get('/admin/divisi/destroy/{id}', [App\Http\Controllers\divisiController::class,'destroy']); 
 Route::put('/admin/divisi/update/{id}', [App\Http\Controllers\divisiController::class,'update']); 
 
 Route::get('/admin/jurusan',  [App\Http\Controllers\jurusanController::class, 'index']);
+Route::post('/admin/jurusan/store',  [App\Http\Controllers\jurusanController::class, 'store']);
 Route::get('/admin/jurusan/destroy/{id}', [App\Http\Controllers\jurusanController::class,'destroy']); 
 Route::put('/admin/jurusan/update/{id}', [App\Http\Controllers\jurusanController::class,'update']); 
 
 Route::get('/admin/kalender',  [App\Http\Controllers\kal_akademikController::class, 'index2']);
+Route::post('/admin/kalender/store',  [App\Http\Controllers\kal_akademikController::class, 'store']);
 Route::get('/admin/kalender/destroy/{id}', [App\Http\Controllers\kal_akademikController::class,'destroy']); 
 Route::put('/admin/kalender/update/{id}', [App\Http\Controllers\kal_akademikController::class,'update']); 
 
 Route::get('/admin/peminjaman',  [App\Http\Controllers\peminjamanController::class, 'index']);
+Route::post('/admin/peminjaman/store',  [App\Http\Controllers\peminjamanController::class, 'store']);
 Route::get('/admin/peminjaman/destroy/{id}', [App\Http\Controllers\peminjamanController::class,'destroy']); 
 Route::put('/admin/peminjaman/update/{id}', [App\Http\Controllers\peminjamanController::class,'update']); 
 
 Route::get('/admin/ormawa',  [App\Http\Controllers\ormawaController::class, 'index']);
+Route::post('/admin/ormawa/store',  [App\Http\Controllers\ormawaController::class, 'store']);
 Route::get('/admin/ormawa/destroy/{id}', [App\Http\Controllers\ormawaController::class,'destroy']); 
 Route::put('/admin/ormawa/update/{id}', [App\Http\Controllers\ormawaController::class,'update']); 
