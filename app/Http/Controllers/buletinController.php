@@ -53,7 +53,7 @@ class buletinController extends Controller
         $this->validate($request, [
             'cover' => ['required','mimes:jpg,png'],
             'judul' => ['required', 'string', 'max:25'],
-            'content' => ['required'],
+            'konten' => ['required'],
             'id_kategori_buletin' => ['required'],
         ]);
         $image = $request->file('cover');
@@ -62,7 +62,7 @@ class buletinController extends Controller
         $buletin = buletin::create([
             'cover'     => $image_name,
             'judul'     => $request->judul,
-            'content'     => $request->content,
+            'konten'     => $request->konten,
             'id_kategori_buletin'   => $request->id_kategori_buletin,
         ]);
         return redirect('/admin/buletin')-> with('success', 'buletin Successfully created');
@@ -80,7 +80,7 @@ class buletinController extends Controller
         return Validator::make($data, [
             'cover' => ['required','mimes:jpg,png'],
             'judul' => ['required', 'string', 'max:25'],
-            'content' => ['required'],
+            'konten' => ['required'],
             'id_kategori_buletin' => ['required'],
         ]);
     }
@@ -116,23 +116,29 @@ class buletinController extends Controller
     {
         $this->validate($request, [
             'judul' => ['required', 'string', 'max:25'],
-            'content' => ['required'],
+            'konten' => ['required'],
             'id_kategori_buletin' => ['required'],
         ]);
         $image = $request->file('cover');
-        // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
-        $buletin = buletin::with('kategori_buletin')->where('id', $id)->first();
-        if($buletin->cover && file_exists(storage_path('app/public/' , $buletin->cover))) {
-            Storage::delete('public/' . $buletin->cover);
+        if($image == null){
+            $data = buletin::where('id',$id)->with('kategori_buletin')->first();
+            $data->cover = $image_name;
+            $data->judul = $request->get('judul');
+            $data->konten = $request->get('konten');
+            $data->id_kategori_buletin = $request->get('id_kategori_buletin');
+            $data->save();
+            return redirect('/admin/buletin')-> with('success', 'buletin Successfully updated');
+        }else{
+            $buletin = buletin::with('kategori_buletin')->where('id', $id)->first();
+            if($buletin->cover && file_exists(storage_path('app/public/' , $buletin->cover))) {
+                Storage::delete('public/' . $buletin->cover);
         }
         $image_name = $request->file('cover')->store('img','public');
-        $data = buletin::where('id',$id)->with('kategori_buletin')->first();
-        $data->cover = $image_name;
-        $data->judul = $request->get('judul');
-        $data->konten = $request->get('konten');
-        $data->id_kategori_buletin = $request->get('id_kategori_buletin');
-        $data->save();
-        return redirect('/admin/buletin')-> with('success', 'buletin Successfully updated');
+
+        }
+        // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
+        
+        
         // dd($request);
     }
 
