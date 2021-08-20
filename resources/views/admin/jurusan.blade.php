@@ -28,7 +28,10 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Table</h3>
+            <div class="mb-0 pb-0 row justify-ceontent-center">
+              <h3 class="mb-0 col-10">Tabel Jurusan</h3>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+            </div>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
@@ -128,7 +131,7 @@
 
 @section('modal')
 
-{{-- MODAL EDIT JURUSAN --}}
+{{-- EDIT --}}
 @foreach ($data as $row)
 <div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -159,5 +162,32 @@
 </div> 
 @endforeach
 
+{{-- TAMBAH --}}
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Jurusan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/jurusan/create')}}" method="post" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+              <label for="nama_jurusan">Nama</label>
+              <input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan" aria-describedby="nama_jurusan" value="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
 
 @endsection

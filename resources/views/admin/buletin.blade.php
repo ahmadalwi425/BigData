@@ -32,7 +32,7 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <div class="mb-0 pb-0 row justify-ceontent-center">
+            <div class="mb-0 pb-0 row justify-content-center">
               <h3 class="mb-0 col-10">Tabel Buletin</h3>
               <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
             </div>
