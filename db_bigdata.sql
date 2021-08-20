@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2021 at 09:10 AM
+-- Generation Time: Aug 20, 2021 at 09:48 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -189,15 +189,15 @@ CREATE TABLE `kal_akademik` (
   `tgl_selesai` date NOT NULL,
   `id_jenis_kal` bigint(20) UNSIGNED NOT NULL,
   `id_tahun_ajar` bigint(20) UNSIGNED NOT NULL,
-  `semester` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id_semester` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `kal_akademik`
 --
 
-INSERT INTO `kal_akademik` (`id`, `nama_kegiatan`, `tgl_mulai`, `tgl_selesai`, `id_jenis_kal`, `id_tahun_ajar`, `semester`) VALUES
-(1, 'Hari Raya Pancasila', '2021-07-01', '2021-07-03', 1, 1, 'Genap');
+INSERT INTO `kal_akademik` (`id`, `nama_kegiatan`, `tgl_mulai`, `tgl_selesai`, `id_jenis_kal`, `id_tahun_ajar`, `id_semester`) VALUES
+(1, 'Hari Raya Pancasila', '2021-07-01', '2021-07-03', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -361,6 +361,25 @@ CREATE TABLE `produk` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `semester`
+--
+
+CREATE TABLE `semester` (
+  `id` int(11) NOT NULL,
+  `semester` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `semester`
+--
+
+INSERT INTO `semester` (`id`, `semester`) VALUES
+(1, 'Ganjil'),
+(2, 'Genap');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subdivisi`
 --
 
@@ -515,7 +534,8 @@ ALTER TABLE `jurusan`
 ALTER TABLE `kal_akademik`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_jenis_kal` (`id_jenis_kal`),
-  ADD KEY `id_tahun_ajar` (`id_tahun_ajar`);
+  ADD KEY `id_tahun_ajar` (`id_tahun_ajar`),
+  ADD KEY `id_semester` (`id_semester`);
 
 --
 -- Indexes for table `kategori_buletin`
@@ -570,6 +590,12 @@ ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_penjual` (`id_penjual`),
   ADD KEY `id_jenis_produk` (`id_jenis_produk`);
+
+--
+-- Indexes for table `semester`
+--
+ALTER TABLE `semester`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `subdivisi`
@@ -702,6 +728,12 @@ ALTER TABLE `produk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `semester`
+--
+ALTER TABLE `semester`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `subdivisi`
 --
 ALTER TABLE `subdivisi`
@@ -747,7 +779,8 @@ ALTER TABLE `daftar_ormawa`
 --
 ALTER TABLE `kal_akademik`
   ADD CONSTRAINT `kal_akademik_ibfk_1` FOREIGN KEY (`id_jenis_kal`) REFERENCES `jenis_kal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `kal_akademik_ibfk_2` FOREIGN KEY (`id_tahun_ajar`) REFERENCES `tahun_ajar` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `kal_akademik_ibfk_2` FOREIGN KEY (`id_tahun_ajar`) REFERENCES `tahun_ajar` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `kal_akademik_ibfk_3` FOREIGN KEY (`id_semester`) REFERENCES `semester` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ormawa`
