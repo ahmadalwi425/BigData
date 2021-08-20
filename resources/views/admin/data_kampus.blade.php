@@ -12,8 +12,7 @@
             <h6 class="h2 text-white d-inline-block mb-0">Data Kampus</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin')}}">dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">data kampus</li>
               </ol>
             </nav>
@@ -29,11 +28,14 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Table</h3>
+            <div class="mb-0 pb-0 row justify-content-between">
+              <h3 class="mb-0 col-2">Tabel</h3>
+              <div class="search-place"></div>
+            </div>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
-            <table class="table align-items-center table-flush">
+            <table class="table align-items-center table-flush datatables">
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>

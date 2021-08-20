@@ -1108,6 +1108,9 @@ if($navActive == 'Dashboard') {
     <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
     {{-- Datepicker --}}
     <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+    {{-- Datatables --}}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
+
     @yield('modal')
 
     <script>
@@ -1118,6 +1121,22 @@ if($navActive == 'Dashboard') {
             todayHighlight: true,
         });
     });
+    $(document).ready(function() {
+        $('.datatables').DataTable();
+        const headerTable = $('.search-place');
+        const headerTable2 = $('.search-place2');
+        $('.dataTables_filter input').addClass('form-control')
+        $('.dataTables_filter').find(`[aria-controls='DataTables_Table_0']`).appendTo(headerTable)
+        $('.dataTables_filter').find(`[aria-controls='DataTables_Table_1']`).appendTo(headerTable2)
+        $('.search-place input, .search-place2 input').attr("placeholder", "Cari data ...");
+        $('.dataTables_filter label').html('');
+        $('.dataTables_paginate span').addClass('page-item');
+        $('.dataTables_paginate span a').addClass('page-link');
+
+        $('.dataTables_length').html('');
+
+    } );
+
     </script>
   </body>
 

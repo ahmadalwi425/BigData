@@ -9,10 +9,9 @@
       <div class="header-body">
         <div class="row align-items-center py-4">
           <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">Divisi</h6>
+            <h6 class="h2 text-white d-inline-block mb-0">Sub Divisi</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                 <li class="breadcrumb-item"><a href="#">dashboard</a></li>
                 <li class="breadcrumb-item"><a href="#">divisi</a></li>
                 <li class="breadcrumb-item active" aria-current="page">subdivisi</li>
@@ -30,18 +29,21 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Table</h3>
+            <div class="mb-0 pb-0 row justify-content-between">
+              <h3 class="mb-0 col-2">Tabel</h3>
+              <div class="search-place"></div>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+            </div>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
-            <table class="table align-items-center table-flush">
+            <table class="table align-items-center table-flush datatables">
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
                   <th scope="col" class="sort" data-sort="name">Sub Divisi</th>
-                  <th scope="col" class="sort" data-sort="name">Anggota</th>
+                  <th scope="col" class="sort" data-sort="name">Detail</th>
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
-                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody class="list">
@@ -58,9 +60,11 @@
                     {{$row->nama_subdivisi}}
                   </th>
                   <td>
-                    <a href="{{ url('admin/subdivisi/',$row->id) }}" class="badge badge-dot mr-4">
-                      <button class="btn btn-primary" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Lihat</button>
-                    </a>
+                    <select class="form-control" name="" id="">
+                      {{-- @foreach ($menu as $item)
+                          <option value=""><a href="">$item->nama</a></option>
+                      @endforeach --}}
+                    </select>
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">

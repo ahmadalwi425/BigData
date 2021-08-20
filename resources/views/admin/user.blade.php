@@ -9,11 +9,10 @@
       <div class="header-body">
         <div class="row align-items-center py-4">
           <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
+            <h6 class="h2 text-white d-inline-block mb-0">User</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin')}}">dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">user</li>
               </ol>
             </nav>
@@ -32,23 +31,23 @@
       <div class="col">
         <div class="card">
           <!-- Card header -->
-          <div class="card-header border-0">
-            <div class="mb-0 pb-0 row justify-ceontent-center">
-              <h3 class="mb-0 col-10">Tabel</h3>
+          <div class="card-header border-0 pb-0">
+            <div class="mb-0 pb-0 row justify-content-between">
+              <h3 class="mb-0 col-2">Tabel</h3>
+              <div class="search-place"></div>
               <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
             </div>
           </div>
           <!-- Light table -->
-          <div class="card-body">
+          <div class="card-body pt-0">
             <div class="table-responsive">
-              <table class="table align-items-center table-flush">
+              <table class="table align-items-center table-flush datatables">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">NIM</th>
                     <th scope="col" class="sort" data-sort="name">Nama</th>
                     <th scope="col" class="sort" data-sort="completion">Jurusan</th>
                     <th scope="col" class="sort" data-sort="completion">Aksi</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody class="list">

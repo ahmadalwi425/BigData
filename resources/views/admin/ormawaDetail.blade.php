@@ -9,12 +9,11 @@
       <div class="header-body">
         <div class="row align-items-center py-4">
           <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
+            <h6 class="h2 text-white d-inline-block mb-0">Anggota</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item"><a href="#">ormawa</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin')}}">dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin/ormawa')}}">ormawa</a></li>
                 <li class="breadcrumb-item active" aria-current="page">anggota</li>
               </ol>
             </nav>
@@ -34,22 +33,21 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <div class="mb-0 pb-0 row justify-ceontent-center">
-              <h3 class="mb-0 col-10">Tabel</h3>
+            <div class="mb-0 pb-0 row justify-content-between">
+              <h3 class="mb-0 col-2">Tabel</h3>
+              <div class="search-place"></div>
               <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
             </div>
           </div>
           <!-- Light table -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table align-items-center table-flush">
+              <table class="table align-items-center table-flush datatables">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">NIM</th>
                     <th scope="col" class="sort" data-sort="name">Nama</th>
-                    <!-- <th scope="col" class="sort" data-sort="completion">Jurusan</th> -->
                     <th scope="col" class="sort" data-sort="completion">Aksi</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody class="list">
@@ -65,15 +63,6 @@
                     <th class="budget text-lg">
                       {{$row->User->nama}}
                     </th>
-                    <td class="">
-                      @php
-                        foreach ($jurusan as $value) {
-                          if ($row->id_jurusan == $value->id) {
-                            echo $value->nama_jurusan;
-                          }
-                        }    
-                      @endphp
-                    </td>
                     <td>
                       <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
                         <button class="btn btn-warning" type="button">Edit</button>
@@ -122,7 +111,7 @@
       <div class="row align-items-center justify-content-lg-between">
         <div class="col-lg-6">
           <div class="copyright text-center  text-lg-left  text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">SantriNgoding</a>
           </div>
         </div>
         <div class="col-lg-6">

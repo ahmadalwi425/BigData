@@ -15,8 +15,7 @@
             <h6 class="h2 text-white d-inline-block mb-0">Buletin</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">admin</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin')}}">admin</a></li>
                 <li class="breadcrumb-item active" aria-current="page">buletin</li>
               </ol>
             </nav>
@@ -32,15 +31,16 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <div class="mb-0 pb-0 row justify-content-center">
-              <h3 class="mb-0 col-10">Tabel Buletin</h3>
+            <div class="mb-0 pb-0 row justify-content-between">
+              <h3 class="mb-0 col-2">Tables</h3>
+              <div class="search-place"></div>
               <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
             </div>
           </div>
           <!-- Light table -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table align-items-center table-flush">
+              <table class="table align-items-center table-flush datatables">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">No</th>
@@ -48,7 +48,6 @@
                     <th scope="col" class="sort" data-sort="name">Cover</th>
                     <th scope="col" class="sort" data-sort="budget">Kategori</th>
                     <th scope="col" class="sort" data-sort="budget">Aksi</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody class="list">
@@ -121,22 +120,22 @@
       <div class="col">
         <div class="card">
           <!-- Card header -->
-          <div class="card-header border-0">
-            <div class="mb-0 pb-0 row justify-ceontent-center">
-              <h3 class="mb-0 col-10">Tabel Kategori</h3>
-              <button type="button" data-toggle="modal" data-target="#createCat" class="btn-success btn col-2 mb-0">Tambah</button>
+          <div class="card-header border-0 pb-0">
+            <div class="mb-0 pb-0 row justify-content-between">
+              <h3 class="mb-0 col-2">Kategori</h3>
+              <div class="search-place2"></div>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
             </div>
           </div>
           <!-- Light table -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table align-items-center table-flush">
+              <table class="table align-items-center table-flush datatables">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">No</th>
                     <th scope="col" class="sort" data-sort="budget">Kategori</th>
                     <th scope="col" class="sort" data-sort="budget">Aksi</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody class="list">
