@@ -10,7 +10,7 @@ use App\Models\User;
 class daftar_ormawa extends Model
 {
     use HasFactory;
-    protected $table = 'data_ormawa';
+    protected $table = 'daftar_ormawa';
     protected $guarded = [];
     public function User(){
         return $this->belongsTo(User::class, 'id_user');

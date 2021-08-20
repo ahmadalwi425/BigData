@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\daftar_ormawa;
+use App\Models\ormawa;
+use App\Models\User;
 
 class daftar_ormawaController extends Controller
 {
@@ -45,7 +48,11 @@ class daftar_ormawaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = daftar_ormawa::with('User','ormawa')->orderBy('id_ormawa','ASC')->get();
+        $user = User::with('jurusan','level')->get();
+        $ormawa = ormawa::get();
+        $link = 'ormawa';
+        return view('admin.ormawaDetail', compact('data','link','user','ormawa'));
     }
 
     /**

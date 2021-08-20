@@ -97,4 +97,5 @@ Route::put('/admin/peminjaman/update/{id}', [App\Http\Controllers\peminjamanCont
 Route::get('/admin/ormawa',  [App\Http\Controllers\ormawaController::class, 'index']);
 Route::post('/admin/ormawa/store',  [App\Http\Controllers\ormawaController::class, 'store']);
 Route::get('/admin/ormawa/destroy/{id}', [App\Http\Controllers\ormawaController::class,'destroy']); 
+Route::get('/admin/ormawa/{id}', [App\Http\Controllers\daftar_ormawaController::class,'show']); 
 Route::put('/admin/ormawa/update/{id}', [App\Http\Controllers\ormawaController::class,'update']); 
