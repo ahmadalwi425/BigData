@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\subdivisi;
+use App\Models\divisi;
 
 class subdivisiController extends Controller
 {
@@ -11,9 +13,12 @@ class subdivisiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $data = subdivisi::with('divisi')->where('id_divisi',$id)->get();
+        $divisi = divisi::get();
+        $link = 'subdivisi';
+        return view('admin.subdivisi', compact('data','link','divisi'));
     }
 
     /**

@@ -57,7 +57,7 @@
                     {{$row->nama_divisi}}
                   </th>
                   <td>
-                    <a href="{{ url('admin/subdivisi/', $row->id) }}" class="badge badge-dot mr-4">
+                    <a href="{{ url('admin/subdivisi', $row->id) }}" class="badge badge-dot mr-4">
                       <button class="btn btn-primary" type="button">Lihat</button>
                     </a>
                   </td>
