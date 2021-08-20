@@ -38,8 +38,8 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
-                  <th scope="col" class="sort" data-sort="name">Divisi</th>
                   <th scope="col" class="sort" data-sort="name">Sub Divisi</th>
+                  <th scope="col" class="sort" data-sort="name">Anggota</th>
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
                   <th scope="col"></th>
                 </tr>
