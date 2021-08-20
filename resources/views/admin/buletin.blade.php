@@ -79,7 +79,7 @@
                         <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
                       </span>
                       <span class="badge badge-dot mr-4">
-                        <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                        <a class="btn btn-danger" href="{{ url('buletin/destroy',$row->id) }}" onclick="del(event);">Delete</a>
                       </span>
                     </td>
                   </tr>
@@ -157,7 +157,7 @@
                         <button class="btn btn-warning" data-toggle="modal" data-target="#editCat-{{$row->id}}" type="button">Edit</button>
                       </span>
                       <span class="badge badge-dot mr-4">
-                        <a class="btn btn-danger" href="{{ url('admin/kategori_buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                        <a class="btn btn-danger" href="{{ url('admin/kategori_buletin/destroy',$row->id) }}" onclick="del(event);">Delete</a>
                       </span>
                     </td>
                   </tr>
@@ -200,7 +200,7 @@
       <div class="row align-items-center justify-content-lg-between">
         <div class="col-lg-6">
           <div class="copyright text-center  text-lg-left  text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">SantriNgoding</a>
           </div>
         </div>
         <div class="col-lg-6">
@@ -242,7 +242,7 @@
         <img src="<?= $img_url ?>{{$row->cover}}" alt="{{$row->judul}}" class="img-fluid">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
       </div>
     </div>
   </div>
@@ -324,6 +324,7 @@
           <div class="form-group">
               <label for="id_kategori">Kategori</label>
               <select name="id_kategori_buletin" id="id_kategori" class="form-control">
+                <option value="">Pilih Kategori ...</option>
                   @foreach($kategori as $datacat)
                   <option value="{{$datacat->id}}">{{$datacat->nama_kategori}}</option>
                   @endforeach
@@ -334,18 +335,15 @@
               <textarea name="konten" class="col-12 ckeditor" id="ckeditor"></textarea>
           </div>
           <div class="form-group">
-              <label for="cover">Foto cover</label>
+              <label for="cover col-12">Foto cover</label>
               <img id="imgCreate" src="" alt="" class="img-thumbnail">
-              <input id="buletinImg" onchange="readUrl(this, 'imgCreate')" type="file" name="cover" class="form-control" id="cover" aria-describedby="cover buletin" >
+              <input id="buletinImg" placeholder="Pilih Gambar ..." onchange="readUrl(this, 'imgCreate')" type="file" name="cover" class="form-control" id="cover" aria-describedby="cover buletin" >
           </div>
-          <div class="form-group">
-          </div>
-          
           
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Tambah</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
         </div>
       </form>
     </div>
@@ -373,7 +371,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Tambah</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
         </div>
       </form>
     </div>
@@ -386,7 +384,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori Buletin</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Kategori Buletin</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -402,7 +400,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </form>
@@ -411,22 +409,4 @@
 </div> 
 @endforeach
 
-<script>
-  const reader = new FileReader();
-
-  const changeImg = (param) => {
-    document.getElementById(param).click()
-  }
-
-  const readUrl = (input, id) => {
-    if (input.files && input.files[0]) {
-      reader.onload = function(e) {
-                $('#' + id)
-                    .attr('src', e.target.result)
-            };
-
-            reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>
 @endsection

@@ -18,10 +18,10 @@
               </ol>
             </nav>
           </div>
-          <div class="col-lg-6 col-5 text-right">
+          {{-- <div class="col-lg-6 col-5 text-right">
             <a href="#" class="btn btn-sm btn-neutral">New</a>
             <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
                         <button class="btn btn-warning" type="button">Edit</button>
                       </a>
                       <span class="badge badge-dot mr-4">
-                        <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                        <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="del(event);">Delete</a>
                       </span>
                     </td>
                   </tr>
@@ -115,7 +115,7 @@
       <div class="row align-items-center justify-content-lg-between">
         <div class="col-lg-6">
           <div class="copyright text-center  text-lg-left  text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">SantriNgoding</a>
           </div>
         </div>
         <div class="col-lg-6">
@@ -141,6 +141,7 @@
 
 @endsection
 
+{{-- MODAL TAMBAH USER --}}
 @section('modal')
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

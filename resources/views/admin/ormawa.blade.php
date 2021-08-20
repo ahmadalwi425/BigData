@@ -38,6 +38,7 @@
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
                   <th scope="col" class="sort" data-sort="name">Nama ormawa</th>
+                  <th scope="col" class="sort" data-sort="name">Anggota</th>
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
                   <th scope="col"></th>
                 </tr>
@@ -55,6 +56,9 @@
                   <th class="budget text-lg">
                     {{$row->nama_ormawa}}
                   </th>
+                  <td scope="row">
+                    <a class="btn btn-primary" href="{{ url('admin/ormawaDetail',$row->id) }}">Lihat</a>
+                  </td>
                   <td>
                     <span class="badge badge-dot mr-4">
                       <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
@@ -102,7 +106,7 @@
       <div class="row align-items-center justify-content-lg-between">
         <div class="col-lg-6">
           <div class="copyright text-center  text-lg-left  text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">SantriNgoding</a>
           </div>
         </div>
         <div class="col-lg-6">

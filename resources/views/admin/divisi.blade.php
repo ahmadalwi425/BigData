@@ -57,7 +57,7 @@
                     {{$row->nama_divisi}}
                   </th>
                   <td>
-                    <a href="{{ url('admin/subdivisi/') }}" class="badge badge-dot mr-4">
+                    <a href="{{ url('admin/subdivisi/', $row->id) }}" class="badge badge-dot mr-4">
                       <button class="btn btn-primary" type="button">Lihat</button>
                     </a>
                   </td>
@@ -66,7 +66,7 @@
                       <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
                     </span>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="del(event);">Delete</a>
                     </span>
                   </td>
                 </tr>
@@ -108,13 +108,13 @@
       <div class="row align-items-center justify-content-lg-between">
         <div class="col-lg-6">
           <div class="copyright text-center  text-lg-left  text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">SantriNgoding</a>
           </div>
         </div>
         <div class="col-lg-6">
           <ul class="nav nav-footer justify-content-center justify-content-lg-end">
             <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">SantriNgoding</a>
             </li>
             <li class="nav-item">
               <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
@@ -140,7 +140,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit {{$row->nama_divisi}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Divisi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -161,7 +161,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
         </div>
       </form>
     </div>

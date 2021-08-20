@@ -73,6 +73,43 @@
   <link rel="stylesheet" href="{{asset('css/argon.css')}}" type="text/css">
   {{-- Sweetalert --}}
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const reader = new FileReader();
+
+    const changeImg = (param) => {
+      document.getElementById(param).click()
+    }
+
+    const readUrl = (input, id) => {
+      if (input.files && input.files[0]) {
+        reader.onload = function(e) {
+                  $('#' + id)
+                      .attr('src', e.target.result)
+              };
+
+              reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    const del = (event) => {
+      event.preventDefault()
+      const link = event.target.href;
+      Swal.fire({
+        title: 'Apakah Anda yakin  ingin menghapus?',
+        text: "Anda tidak dapat membatalkan ini",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Iya, hapus saja!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = link;
+        }
+      })
+    }
+</script>
 </head>
 
 <body>

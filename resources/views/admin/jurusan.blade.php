@@ -2,26 +2,6 @@
 
 @section('content')
 
-<script>
-    const del = (event) => {
-      event.preventDefault()
-      const link = event.target.href;
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = link;
-        }
-      })
-    }
-</script>
-
 <!-- Header -->
 <div class="header bg-primary pb-6">
     <div class="container-fluid">
@@ -121,7 +101,7 @@
       <div class="row align-items-center justify-content-lg-between">
         <div class="col-lg-6">
           <div class="copyright text-center  text-lg-left  text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">SantriNgoding</a>
           </div>
         </div>
         <div class="col-lg-6">
@@ -148,6 +128,7 @@
 
 @section('modal')
 
+{{-- MODAL EDIT JURUSAN --}}
 @foreach ($data as $row)
 <div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -170,7 +151,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
         </div>
       </form>
     </div>
