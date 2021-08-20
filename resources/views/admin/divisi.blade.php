@@ -25,6 +25,16 @@
   <div class="container-fluid mt--6">
     <div class="row">
       <div class="col">
+      @isset($errors)
+          @foreach ($errors->all() as $message)
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endforeach
+          @endisset
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
@@ -35,6 +45,7 @@
             </div>
           </div>
           <!-- Light table -->
+          
           <div class="table-responsive">
             <table class="table align-items-center table-flush datatables">
               <thead class="thead-light">

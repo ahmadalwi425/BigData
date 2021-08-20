@@ -122,7 +122,6 @@ class buletinController extends Controller
         $image = $request->file('cover');
         if($image == null){
             $data = buletin::where('id',$id)->with('kategori_buletin')->first();
-            $data->cover = $image_name;
             $data->judul = $request->get('judul');
             $data->konten = $request->get('konten');
             $data->id_kategori_buletin = $request->get('id_kategori_buletin');
@@ -132,9 +131,15 @@ class buletinController extends Controller
             $buletin = buletin::with('kategori_buletin')->where('id', $id)->first();
             if($buletin->cover && file_exists(storage_path('app/public/' , $buletin->cover))) {
                 Storage::delete('public/' . $buletin->cover);
-        }
-        $image_name = $request->file('cover')->store('img','public');
-
+            }
+            $image_name = $request->file('cover')->store('img','public');
+            $data = buletin::where('id',$id)->with('kategori_buletin')->first();
+            $data->cover = $image_name;
+            $data->judul = $request->get('judul');
+            $data->konten = $request->get('konten');
+            $data->id_kategori_buletin = $request->get('id_kategori_buletin');
+            $data->save();
+            return redirect('/admin/buletin')-> with('success', 'buletin Successfully updated');
         }
         // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
         

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\divisi;
+use Illuminate\Validation\Validator;
 
 class divisiController extends Controller
 {
