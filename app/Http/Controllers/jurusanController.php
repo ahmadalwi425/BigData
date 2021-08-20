@@ -41,7 +41,7 @@ class jurusanController extends Controller
             'nama_jurusan' => ['required', 'string'],
         ]);
         $jurusan = jurusan::create([
-            'nama_jurusan'     => $request->nama_divisi,
+            'nama_jurusan'     => $request->nama_jurusan,
         ]);
         return redirect('/admin/jurusan')-> with('success', 'jurusan Successfully created');
     }

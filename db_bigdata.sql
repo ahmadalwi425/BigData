@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2021 at 09:48 AM
+-- Generation Time: Aug 20, 2021 at 11:43 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -44,7 +44,7 @@ INSERT INTO `buletin` (`id`, `cover`, `judul`, `konten`, `id_kategori_buletin`) 
 (1, 'img/IMG_6877.JPG', 'Bul1-kat1', 'tes', 1),
 (2, 'img/IMG_6877.JPG', 'Bul2-kat2', 'test2', 2),
 (3, 'img/IMG_6877.JPG', 'bul3', 'tes', 1),
-(4, 'img/IMG_6877.JPG', 'bul4', 'tes', 2);
+(5, 'img/ADrgLPTXjHaYNZnykLY4RaGHE26mfZVO0XLfLIwW.png', 'bul 4', 'asdasdasdasd', 1);
 
 -- --------------------------------------------------------
 
@@ -635,7 +635,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `buletin`
 --
 ALTER TABLE `buletin`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `daftar_ormawa`
@@ -653,7 +653,7 @@ ALTER TABLE `data_kampus`
 -- AUTO_INCREMENT for table `divisi`
 --
 ALTER TABLE `divisi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -677,7 +677,7 @@ ALTER TABLE `jenis_produk`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kal_akademik`
