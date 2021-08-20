@@ -39,7 +39,15 @@ class subdivisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_subdivisi' => ['required', 'string'],
+            'id_divisi' => ['required'],
+        ]);
+        $subdivisi = subdivisi::create([
+            'nama_subdivisi'     => $request->nama_subdivisi,
+            'id_divisi'     => $request->id_divisi,
+        ]);
+        return redirect('/admin/subdivisi',$request->id_divisi)-> with('success', 'subdivisi Successfully created');
     }
 
     /**
@@ -73,7 +81,15 @@ class subdivisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_subdivisi' => ['required', 'string'],
+            'id_divisi' => ['required'],
+        ]);
+        $data = subdivisi::where('id',$id)->first();
+        $data->nama_subdivisi = $request->get('nama_subdivisi');
+        $data->id_divisi = $request->get('id_divisi');
+        $data->save();
+        return redirect('/admin/subdivisi',$data->id_divisi)-> with('success', 'subdivisi Successfully updated');
     }
 
     /**
@@ -84,6 +100,8 @@ class subdivisiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cad = subdivisi::where('id',$id)->first()->id_divisi;
+        subdivisi::find($id)->delete();
+        return redirect('/admin/subdivisi',$cad)-> with('success', 'subdivisi Successfully deleted');
     }
 }

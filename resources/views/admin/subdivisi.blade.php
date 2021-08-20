@@ -38,8 +38,8 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
-                  <th scope="col" class="sort" data-sort="name">Divisi</th>
                   <th scope="col" class="sort" data-sort="name">Sub Divisi</th>
+                  <th scope="col" class="sort" data-sort="name">Sub Menu</th>
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
                   <th scope="col"></th>
                 </tr>
@@ -58,7 +58,7 @@
                     {{$row->nama_subdivisi}}
                   </th>
                   <td>
-                    <a href="{{ url('admin/subdivisi/',$row->id) }}" class="badge badge-dot mr-4">
+                    <a href="{{ url('admin/submenu/',$row->id) }}" class="badge badge-dot mr-4">
                       <button class="btn btn-primary" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Lihat</button>
                     </a>
                   </td>
@@ -67,7 +67,7 @@
                       <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
                     </span>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('admin/buletin/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      <a class="btn btn-danger" href="{{ url('admin/subdivisi/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
                     </span>
                   </td>
                 </tr>
@@ -153,11 +153,20 @@
           @method('PUT')
           <div class="form-group">
               <label for="nama_divisi">Nama</label>
-              <input type="text" name="nama_divisi" class="form-control" id="nama_divisi" aria-describedby="nama_divisi" value="{{ $row->nama_divisi }}">
+              <input type="text" name="nama_subdivisi" class="form-control" id="nama_divisi" aria-describedby="nama_divisi" value="{{ $row->nama_subdivisi }}">
           </div>
           <div class="form-group">
-              <label for="deskripsi">Deskripsi</label>
-              <textarea cols="30" rows="10" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="deskripsi">{{ $row->deskripsi }}</textarea>
+              <label for="deskripsi">Divisi</label>
+              <select class="form-control" name="jurusan" id="">
+                <option value="">Pilih Divisi ...</option>
+                @foreach ($divisi as $item)
+                    @if($row->id_divisi == $item->id)
+                    <option value="{{ $item->id }}" selected>{{ $item->nama_divisi}}</option>
+                    @else
+                      <option value="{{ $item->id }}">{{ $item->nama_divisi}}</option>
+                    @endif
+                @endforeach
+              </select>
           </div>
         </div>
         <div class="modal-footer">
