@@ -47,7 +47,7 @@
                   <tr>
                     <th scope="col" class="sort" data-sort="name">NIM</th>
                     <th scope="col" class="sort" data-sort="name">Nama</th>
-                    <th scope="col" class="sort" data-sort="completion">Jurusan</th>
+                    <!-- <th scope="col" class="sort" data-sort="completion">Jurusan</th> -->
                     <th scope="col" class="sort" data-sort="completion">Aksi</th>
                     <th scope="col"></th>
                   </tr>
@@ -58,16 +58,16 @@
                     <td scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">{{$row->nim}}</span>
+                          <span class="name mb-0 text-sm">{{$row->User->nim}}</span>
                         </div>
                       </div>
                     </td>
                     <th class="budget text-lg">
-                      {{$row->nama}}
+                      {{$row->User->nama}}
                     </th>
-                    <td class="">
+                    <!-- <td class="">
                       {{$row->jurusan->nama_jurusan}}
-                    </td>
+                    </td> -->
                     <td>
                       <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
                         <button class="btn btn-warning" type="button">Edit</button>
