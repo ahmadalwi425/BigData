@@ -74,6 +74,8 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('css/argon.css')}}" type="text/css">
+  {{-- DatePicker --}}
+  <link rel="stylesheet" href="{{asset('css/datepicker.css')}}" type="text/css">
   {{-- Sweetalert --}}
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
@@ -1104,10 +1106,18 @@ if($navActive == 'Dashboard') {
     <script src="{{asset('js/Chart.extension.js')}}"></script>
     <!-- Argon JS -->
     <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
+    {{-- Datepicker --}}
+    <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
     @yield('modal')
 
     <script>
-    
+      $(function() {
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
+    });
     </script>
   </body>
 

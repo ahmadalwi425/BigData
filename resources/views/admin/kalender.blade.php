@@ -159,8 +159,25 @@
         <form action="{{url('admin/kalender/create')}}" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
-              <label for="nama_jurusan">Nama</label>
-              <input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan" aria-describedby="nama_jurusan" value="">
+              <label for="nama_kegiatan">Nama Agenda</label>
+              <input type="text" name="nama_kegiatan" class="form-control" id="nama_kegiatan" aria-describedby="nama_kegiatan" value="">
+          </div>
+          <div class="form-group">
+              <label for="tgl_mulai">Tgl Mulai</label>
+              <input type="text" name="tgl_mulai" class="form-control datepicker" id="tgl_mulai" aria-describedby="tgl_mulai" value="">
+          </div>
+          <div class="form-group">
+              <label for="tgl_selesai">Tgl Selesai</label>
+              <input type="text" name="tgl_selesai" class="form-control datepicker" id="tgl_selesai" aria-describedby="tgl_selesai" value="">
+          </div>
+          <div class="form-group">
+              <label for="jenis_kal">Jenis</label>
+              <select class="form-control" name="jenis_kal" id="">
+                <option value="">Pilih Jenis Agenda ...</option>
+                @foreach ($jenis_kal as $item)
+                    <option value='{{$item->id}}'>{{$item->nama_jenis_kal}}</option>
+                @endforeach
+              </select>
           </div>
         </div>
         <div class="modal-footer">
@@ -172,4 +189,13 @@
   </div>
 </div> 
 
+<script>
+  $(function() {
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
+    });
+</script>
 @endsection

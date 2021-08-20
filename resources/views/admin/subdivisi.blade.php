@@ -40,6 +40,7 @@
                   <th scope="col" class="sort" data-sort="name">No</th>
                   <th scope="col" class="sort" data-sort="name">Sub Divisi</th>
                   <th scope="col" class="sort" data-sort="name">Sub Menu</th>
+
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
                   <th scope="col"></th>
                 </tr>

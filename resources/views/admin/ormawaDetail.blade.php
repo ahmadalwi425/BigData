@@ -65,9 +65,15 @@
                     <th class="budget text-lg">
                       {{$row->User->nama}}
                     </th>
-                    <!-- <td class="">
-                      {{$row->jurusan->nama_jurusan}}
-                    </td> -->
+                    <td class="">
+                      @php
+                        foreach ($jurusan as $value) {
+                          if ($row->id_jurusan == $value->id) {
+                            echo $value->nama_jurusan;
+                          }
+                        }    
+                      @endphp
+                    </td>
                     <td>
                       <a href="{{ url('admin/user',$row->id) }}" class="badge badge-dot mr-4">
                         <button class="btn btn-warning" type="button">Edit</button>
