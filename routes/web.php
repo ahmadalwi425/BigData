@@ -93,6 +93,7 @@ Route::get('/admin/peminjaman',  [App\Http\Controllers\peminjamanController::cla
 Route::post('/admin/peminjaman/store',  [App\Http\Controllers\peminjamanController::class, 'store']);
 Route::get('/admin/peminjaman/destroy/{id}', [App\Http\Controllers\peminjamanController::class,'destroy']); 
 Route::put('/admin/peminjaman/update/{id}', [App\Http\Controllers\peminjamanController::class,'update']); 
+Route::get('/admin/peminjaman/edit/{id}', [App\Http\Controllers\peminjamanController::class,'edit']); 
 
 Route::get('/admin/ormawa',  [App\Http\Controllers\ormawaController::class, 'index']);
 Route::post('/admin/ormawa/store',  [App\Http\Controllers\ormawaController::class, 'store']);

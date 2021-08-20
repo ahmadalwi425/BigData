@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2021 at 08:50 AM
+-- Generation Time: Aug 20, 2021 at 09:10 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -57,6 +57,13 @@ CREATE TABLE `daftar_ormawa` (
   `id_ormawa` bigint(20) UNSIGNED NOT NULL,
   `id_user` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `daftar_ormawa`
+--
+
+INSERT INTO `daftar_ormawa` (`id`, `id_ormawa`, `id_user`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -323,9 +330,17 @@ CREATE TABLE `peminjaman` (
   `id_user` bigint(20) UNSIGNED NOT NULL,
   `tgl_pinjam` date NOT NULL,
   `tgl_kembali` date DEFAULT NULL,
+  `tgl_dikembalikan` date DEFAULT NULL,
   `barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'dipinjam'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id`, `id_user`, `tgl_pinjam`, `tgl_kembali`, `tgl_dikembalikan`, `barang`, `status`) VALUES
+(1, 1, '2021-08-02', '2021-08-05', NULL, 'Papan Tulis', 'dipinjam');
 
 -- --------------------------------------------------------
 
@@ -454,8 +469,8 @@ ALTER TABLE `buletin`
 --
 ALTER TABLE `daftar_ormawa`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_user` (`id_user`),
-  ADD KEY `id_ormawa` (`id_ormawa`);
+  ADD KEY `id_ormawa` (`id_ormawa`),
+  ADD KEY `id_user` (`id_user`) USING BTREE;
 
 --
 -- Indexes for table `data_kampus`
@@ -600,7 +615,7 @@ ALTER TABLE `buletin`
 -- AUTO_INCREMENT for table `daftar_ormawa`
 --
 ALTER TABLE `daftar_ormawa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `data_kampus`
@@ -648,7 +663,7 @@ ALTER TABLE `kal_akademik`
 -- AUTO_INCREMENT for table `kategori_buletin`
 --
 ALTER TABLE `kategori_buletin`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `level`
@@ -678,7 +693,7 @@ ALTER TABLE `pembelian`
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -724,7 +739,8 @@ ALTER TABLE `buletin`
 -- Constraints for table `daftar_ormawa`
 --
 ALTER TABLE `daftar_ormawa`
-  ADD CONSTRAINT `daftar_ormawa_ibfk_1` FOREIGN KEY (`id_ormawa`) REFERENCES `ormawa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `daftar_ormawa_ibfk_1` FOREIGN KEY (`id_ormawa`) REFERENCES `ormawa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `daftar_ormawa_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `kal_akademik`

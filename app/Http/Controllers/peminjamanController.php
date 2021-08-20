@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\peminjaman;
 use App\Models\User;
+use Carbon\Carbon;
 
 class peminjamanController extends Controller
 {
@@ -75,7 +76,11 @@ class peminjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = peminjaman::where('id',$id)->first();
+        $data->tgl_dikembalikan = Carbon::now()->format('Y-m-d');
+        $data->status = "dikembalikan";
+        $data->save();
+        return redirect('/admin/peminjaman')-> with('success', 'peminjaman Successfully updated');
     }
 
     /**
