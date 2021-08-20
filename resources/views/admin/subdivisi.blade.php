@@ -55,7 +55,7 @@
                     </div>
                   </td>
                   <th class="budget text-lg">
-                    {{$row->nama_divisi}}
+                    {{$row->nama_subdivisi}}
                   </th>
                   <td>
                     <a href="{{ url('admin/subdivisi/',$row->id) }}" class="badge badge-dot mr-4">

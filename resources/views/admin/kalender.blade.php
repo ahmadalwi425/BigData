@@ -72,7 +72,7 @@
                       {{$row->tahun_ajar->tahun_ajar}}
                   </th>
                   <td>
-                      {{$row->semester}}
+                      {{$row->semester->semester}}
                   </td>
                   <td>
                       <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>

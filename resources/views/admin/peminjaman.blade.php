@@ -68,10 +68,19 @@
                   <th class="text-lg">
                     {{$row->barang}}
                   </th>
+                  @if($row->status == "dipinjam")
+                  <td class="text-danger">
+                    {{$row->status}}
+                  </td>
+                  @elseif($row->status == "dikembalikan")
                   <td class="text-success">
                     {{$row->status}}
                   </td>
+                  @endif
                   <td>
+                  @if($row->status == "dipinjam")
+                      <a class="btn btn-warning" id="link-{{$row->id}}" href="{{ url('admin/peminjaman/edit',$row->id) }}" onclick="del(event);">Kembalikan</a>
+                  @endif
                       <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
                   </td>
                 </tr>
