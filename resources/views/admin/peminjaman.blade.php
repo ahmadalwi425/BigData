@@ -29,7 +29,11 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Table</h3>
+            <div class="mb-0 pb-0 row justify-content-between">
+              <h3 class="mb-0 col-2">Tabel</h3>
+              <div class="search-place"></div>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+            </div>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
@@ -69,7 +73,7 @@
                     {{$row->barang}}
                   </th>
                   @if($row->status == "dipinjam")
-                  <td class="text-danger">
+                  <td class="text-warning">
                     {{$row->status}}
                   </td>
                   @elseif($row->status == "dikembalikan")
@@ -79,7 +83,7 @@
                   @endif
                   <td>
                   @if($row->status == "dipinjam")
-                      <a class="btn btn-warning" id="link-{{$row->id}}" href="{{ url('admin/peminjaman/edit',$row->id) }}" onclick="del(event);">Kembalikan</a>
+                      <a class="btn btn-primary" id="link-{{$row->id}}" href="{{ url('admin/peminjaman/edit',$row->id) }}" onclick="del(event);">Kembalikan</a>
                   @endif
                       <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
                   </td>
@@ -148,25 +152,45 @@
 @endsection
 
 @section('modal')
-    
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detail Jurusan</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
+
+{{-- TAMBAH --}}
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Peminjaman</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/peminjaman/create')}}" method="post" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+              <label for="id_user">Peminjam</label>
+              <input type="text" name="id_user" class="form-control datepicker" id="id_user" aria-describedby="id_user" value="">
+          </div>
+          <div class="form-group">
+              <label for="tgl_pinjam">Tanggal Pinjam</label>
+              <input type="text" name="tgl_pinjam" class="form-control datepicker" id="tgl_pinjam" aria-describedby="tgl_pinjam" value="">
+          </div>
+          <div class="form-group">
+              <label for="tgl_kembali">Tanggal Kembali</label>
+              <input type="text" name="tgl_kembali" class="form-control datepicker" id="tgl_kembali" aria-describedby="tgl_kembali" value="">
+          </div>
+          <div class="form-group">
+              <label for="barang">Barang</label>
+              <input type="text" name="barang" class="form-control datepicker" id="barang" aria-describedby="barang" value="">
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
         </div>
-      </div>
+      </form>
     </div>
-</div>  
+  </div>
+</div> 
 
 @endsection
