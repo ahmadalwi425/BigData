@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\subdivisi;
 use App\Models\submenu;
 use App\Models\divisi;
+use Session;
 
 class subdivisiController extends Controller
 {
@@ -49,7 +50,8 @@ class subdivisiController extends Controller
             'nama_subdivisi'     => $request->nama_subdivisi,
             'id_divisi'     => $request->id_divisi,
         ]);
-        return redirect('/admin/subdivisi',$request->id_divisi)-> with('success', 'subdivisi Successfully created');
+        $link = '/admin/subdivisi/' . $request->id_divisi;
+        return redirect($link)->with('success', 'subdivisi Successfully created');
     }
 
     /**
@@ -91,7 +93,7 @@ class subdivisiController extends Controller
         $data->nama_subdivisi = $request->get('nama_subdivisi');
         $data->id_divisi = $request->get('id_divisi');
         $data->save();
-        return redirect('/admin/subdivisi',$data->id_divisi)-> with('success', 'subdivisi Successfully updated');
+        return redirect()->back()->with('success', 'subdivisi Successfully updated');
     }
 
     /**
