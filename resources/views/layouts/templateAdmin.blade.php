@@ -27,6 +27,9 @@
     else if ($link == "subdivisi") {
         $navActive = "Sub Divisi";
     }
+    else if ($link == "submenu") {
+        $navActive = "Sub Menu";
+    }
     else if ($link == "jurusan") {
         $navActive = "Jurusan";
     }
@@ -79,6 +82,8 @@
   {{-- Sweetalert --}}
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+  {{-- CKEditor --}}
+  <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
   <script>
     const reader = new FileReader();
 
@@ -775,6 +780,64 @@ if($navActive == 'Dashboard') {
   </li>
     ';
   }
+  elseif ($navActive == 'Sub Menu') {
+    echo '
+    <li class="nav-item">
+    <a class="nav-link" href=' . $base_url .'>
+      <i class="ni ni-tv-2 text-primary"></i>
+      <span class="nav-link-text">Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/user">
+      <i class="ni ni-single-02 text-yellow"></i>
+      <span class="nav-link-text">User</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/buletin">
+      <i class="ni ni-books text-green"></i>
+      <span class="nav-link-text">Buletin</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/ormawa">
+      <i class="ni ni-circle-08 text-red"></i>
+      <span class="nav-link-text">Ormawa</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <i class="ni ni-hat-3 text-grey"></i>
+      <span class="nav-link-text">Data Kampus</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/divisi">
+      <i class="ni ni-chart-pie-35 text-blue"></i>
+      <span class="nav-link-text text-dark">Divisi</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/jurusan">
+      <i class="ni ni-building text-orange"></i>
+      <span class="nav-link-text">Jurusan</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/kalender">
+      <i class="ni ni-calendar-grid-58 text-green"></i>
+      <span class="nav-link-text">Kalender</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+    ';
+  }
 
 @endphp
             {{-- <li class="nav-item">
@@ -1113,6 +1176,7 @@ if($navActive == 'Dashboard') {
     <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
     {{-- Datatables --}}
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
+    
 
     @yield('modal')
 
