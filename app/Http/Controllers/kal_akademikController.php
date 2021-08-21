@@ -60,7 +60,7 @@ class kal_akademikController extends Controller
             'id_semester'   => 'required', 
         ]);
         $kal_akademik = kal_akademik::create([
-            'nama_kegiatan'     => $request->nama_divisi,
+            'nama_kegiatan'     => $request->nama_kegiatan,
             'tgl_mulai'     => $request->tgl_mulai,
             'tgl_selesai'     => $request->tgl_selesai,
             'id_jenis_kal'     => $request->id_jenis_kal,
