@@ -65,7 +65,7 @@
                       <option value="">Pilih Menu ...</option>
                       @foreach ($submenu as $item)
                           @if($item->id_subdiv == $row->id)
-                          <option value="{{url('/admin')}}">{{$item->judul}}</option>
+                          <option value="{{url('/admin/submenu',$item->id)}}">{{$item->judul}}</option>
                           @endif
                       @endforeach
                     </select>
