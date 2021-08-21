@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Moedls\subdivisi;
+use App\Models\subdivisi;
 
 class submenu extends Model
 {

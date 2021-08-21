@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\submenu;
+use App\Models\subdivisi;
 
 class submenuController extends Controller
 {
