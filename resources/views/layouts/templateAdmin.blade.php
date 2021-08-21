@@ -81,9 +81,9 @@
   <link rel="stylesheet" href="{{asset('css/datepicker.css')}}" type="text/css">
   {{-- Sweetalert --}}
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+  <!-- <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script> -->
   {{-- CKEditor --}}
-  <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
+  <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
   <script>
     const reader = new FileReader();
 
@@ -1203,7 +1203,7 @@ if($navActive == 'Dashboard') {
         $('.dataTables_length').html('');
 
     } );
-
+    
     </script>
     @if(Session::has('success'))
     <script>

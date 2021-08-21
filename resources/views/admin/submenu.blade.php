@@ -36,9 +36,8 @@
             </div>
           </div>
           <div class="card-body">
-                  <textarea class="editor" name="" id="" cols="30" rows="10">
-                      {!! $data->konten !!}
-                  </textarea>
+                  
+            <textarea name="ckeditor" class="ckeditor" id="ckeditor">{!!$data->konten!!}</textarea>
           </div>
           <!-- Card footer -->
           <div class="card-footer py-4">
@@ -96,15 +95,7 @@
       </div>
     </footer>
   </div>
-
-  <script>
-    ClassicEditor
-            .create( document.querySelector( '.editor' ) )
-            .then( editor => {
-                    console.log( editor );
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
-</script>
+  <script type="text/javascript">
+        CKEDITOR.replace('ckeditor',{tabSpaces:4});
+    </script>
 @endsection
