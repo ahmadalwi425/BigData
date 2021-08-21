@@ -12,7 +12,7 @@ class submenu extends Model
     protected $table = 'submenu';
     protected $guarded = [];
     public function subdivisi(){
-        return $this->belongsTo(subdivisi::class, 'id_subdivisi');
+        return $this->belongsTo(subdivisi::class, 'id_subdiv');
     }
     public $timestamps = false;
 }

@@ -11,9 +11,11 @@ class submenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $data = submenu::with('subdivisi')->where('id',$id)->get();
+        $link = 'submenu';
+        return view('admin.submenu', compact('data','link'));
     }
 
     /**
@@ -34,7 +36,17 @@ class submenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'judul' => ['required', 'string'],
+            'id_subdivisi' => ['required'],
+            'konten' => ['required'],
+        ]);
+        $subdivisi = subdivisi::create([
+            'judul'     => $request->judul,
+            'id_subdivisi'     => $request->id_subdivisi,
+            'konten'     => $request->konten,
+        ]);
+        return redirect('/admin/subdivisi',$request->id_subdivisi)-> with('success', 'submenu Successfully created');
     }
 
     /**
@@ -68,7 +80,17 @@ class submenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'judul' => ['required', 'string'],
+            'id_subdivisi' => ['required'],
+            'konten' => ['required'],
+        ]);
+        $data = submenu::where('id',$id)->first();
+        $data->judul = $request->get('judul');
+        $data->id_subdivisi = $request->get('id_subdivisi');
+        $data->konten = $request->get('konten');
+        $data->save();
+        return redirect('/admin/submenu',$data->id)-> with('success', 'submenu Successfully updated');
     }
 
     /**
@@ -79,6 +101,8 @@ class submenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cad = submenu::where('id',$id)->first()->id_subdiv;
+        submenu::find($id)->delete();
+        return redirect('/admin/subdivisi',$cad)-> with('success', 'submenu Successfully deleted');
     }
 }

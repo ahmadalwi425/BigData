@@ -62,9 +62,11 @@
                   </th>
                   <td>
                     <select class="form-control" name="" id="">
-                      {{-- @foreach ($menu as $item)
-                          <option value=""><a href="">$item->nama</a></option>
-                      @endforeach --}}
+                      @foreach ($submenu as $item)
+                          @if($item->id_subdiv == $row->id)
+                          <option value=""><a href="">{{$item->judul}}</a></option>
+                          @endif
+                      @endforeach
                     </select>
                   </td>
                   <td>

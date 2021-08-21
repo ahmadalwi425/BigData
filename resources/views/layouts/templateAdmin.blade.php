@@ -78,6 +78,7 @@
   <link rel="stylesheet" href="{{asset('css/datepicker.css')}}" type="text/css">
   {{-- Sweetalert --}}
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
   <script>
     const reader = new FileReader();
 

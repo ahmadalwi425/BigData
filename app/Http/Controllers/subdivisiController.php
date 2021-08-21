@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\subdivisi;
+use App\Models\submenu;
 use App\Models\divisi;
 
 class subdivisiController extends Controller
@@ -17,8 +18,9 @@ class subdivisiController extends Controller
     {
         $data = subdivisi::with('divisi')->where('id_divisi',$id)->get();
         $divisi = divisi::get();
+        $submenu = submenu::get();
         $link = 'subdivisi';
-        return view('admin.subdivisi', compact('data','link','divisi'));
+        return view('admin.subdivisi', compact('data','link','divisi','submenu'));
     }
 
     /**
