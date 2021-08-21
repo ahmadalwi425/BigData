@@ -115,7 +115,9 @@
         }
       })
     }
+
 </script>
+    
 </head>
 
 <body>
@@ -1139,6 +1141,27 @@ if($navActive == 'Dashboard') {
     } );
 
     </script>
+    @if(Session::has('success'))
+    <script>
+        Swal.fire(
+          'Berhasil!',
+          '{{session()->get('success')}}',
+          'success'
+        )
+    </script>
+  @endif
+  @isset($errors)
+    @foreach ($errors->all() as $message)
+      <script>let errMsg += '{{$message}}';</script>  
+    @endforeach
+    <script>
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: errMsg
+      })
+    </script>
+  @endisset
   </body>
 
 </html>

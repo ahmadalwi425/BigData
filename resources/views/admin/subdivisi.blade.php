@@ -61,10 +61,11 @@
                     {{$row->nama_subdivisi}}
                   </th>
                   <td>
-                    <select class="form-control" name="" id="">
+                    <select class="form-control" onchange="location = this.value" name="" id="">
+                      <option value="">Pilih Menu ...</option>
                       @foreach ($submenu as $item)
                           @if($item->id_subdiv == $row->id)
-                          <option value=""><a href="">{{$item->judul}}</a></option>
+                          <option value="{{url('/admin')}}">{{$item->judul}}</option>
                           @endif
                       @endforeach
                     </select>
@@ -143,6 +144,7 @@
 
 @section('modal')
     
+{{-- EDIT --}}
 @foreach ($data as $row)
 <div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -155,7 +157,7 @@
       </div>
       <div class="modal-body">
         
-        <form action="{{url('admin/divisi/update',$row->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{url('admin/subdivisi/update',$row->id)}}" method="post" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <div class="form-group">
@@ -185,5 +187,44 @@
   </div>
 </div> 
 @endforeach
+
+{{-- TAMBAH --}}
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Sub Divisi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/subdivisi/create')}}" method="post">
+          @csrf
+          <div class="form-group">
+              <label for="nama_subdivisi">Nama</label>
+              <input type="text" name="nama_subdivisi" class="form-control" id="nama_subdivisi" aria-describedby="nama_subdivisi" value="">
+          </div>
+          <div class="form-group">
+              <label for="id_divisi">Divisi</label>
+              <select class="form-control" name="id_divisi" id="id_divisi">
+                <option value="">Pilih Divisi ...</option>
+                @foreach ($divisi as $item)
+                    @if($row->id_divisi == $item->id)
+                    <option value="{{ $item->id }}" selected>{{ $item->nama_divisi}}</option>
+                    @endif
+                @endforeach
+              </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
 
 @endsection
