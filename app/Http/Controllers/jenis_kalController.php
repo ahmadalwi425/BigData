@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\jenis_kal;
 
 class jenis_kalController extends Controller
 {
@@ -34,7 +35,13 @@ class jenis_kalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_jenis_kal' => ['required', 'string'],
+        ]);
+        $jenis_kal = jenis_kal::create([
+            'nama_jenis_kal'     => $request->nama_jenis_kal,
+        ]);
+        return redirect('/admin/jenis_kal')-> with('success', 'Jenis Kalender Berhasil Ditambahkan');
     }
 
     /**

@@ -48,7 +48,7 @@ class submenuController extends Controller
             'id_subdivisi'     => $request->id_subdivisi,
             'konten'     => $request->konten,
         ]);
-        return redirect('/admin/subdivisi',$request->id_subdivisi)-> with('success', 'submenu Successfully created');
+        return redirect('/admin/subdivisi/'.$request->id_subdivisi)-> with('success', 'Submenu Berhasil Ditambahkan');
     }
 
     /**
@@ -92,7 +92,7 @@ class submenuController extends Controller
         $data->id_subdivisi = $request->get('id_subdivisi');
         $data->konten = $request->get('konten');
         $data->save();
-        return redirect('/admin/submenu',$data->id)-> with('success', 'submenu Successfully updated');
+        return redirect('/admin/submenu/'.$data->id)-> with('success', 'submenu Successfully updated');
     }
 
     /**
@@ -105,6 +105,6 @@ class submenuController extends Controller
     {
         $cad = submenu::where('id',$id)->first()->id_subdiv;
         submenu::find($id)->delete();
-        return redirect('/admin/subdivisi',$cad)-> with('success', 'submenu Successfully deleted');
+        return redirect('/admin/subdivisi/'.$cad)-> with('success', 'submenu Successfully deleted');
     }
 }

@@ -43,7 +43,7 @@ class jurusanController extends Controller
         $jurusan = jurusan::create([
             'nama_jurusan'     => $request->nama_jurusan,
         ]);
-        return redirect('/admin/jurusan')-> with('success', 'jurusan Successfully created');
+        return redirect('/admin/jurusan')-> with('success', 'Jurusan Berhasil Ditambahkan');
     }
 
     /**

@@ -67,7 +67,7 @@ class kal_akademikController extends Controller
             'id_tahun_ajar'     => $request->id_tahun_ajar,
             'id_semester'     => $request->id_semester,
         ]);
-        return redirect('/admin/kalender')-> with('success', 'kalender Successfully created');
+        return redirect('/admin/kalender')-> with('success', 'Kegiatan Berhasil Ditambahkan');
     }
 
     /**

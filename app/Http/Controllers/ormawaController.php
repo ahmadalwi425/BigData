@@ -47,7 +47,7 @@ class ormawaController extends Controller
             'nama_ormawa'     => $request->nama_ormawa,
             'id_jurusan'     => $request->id_jurusan,
         ]);
-        return redirect('/admin/ormawa')-> with('success', 'ormawa Successfully created');
+        return redirect('/admin/ormawa')-> with('success', 'Ormawa Berhasil Ditambahkan');
     }
 
     /**

@@ -54,7 +54,7 @@ class peminjamanController extends Controller
             'status'     => 'dipinjam',
             'barang'     => $request->barang,
         ]);
-        return redirect('/admin/peminjaman')-> with('success', 'peminjaman Successfully created');
+        return redirect('/admin/peminjaman')-> with('success', 'Peminjaman Berhasil Ditambahkan');
     }
 
     /**

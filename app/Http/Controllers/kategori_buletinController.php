@@ -41,7 +41,7 @@ class kategori_buletinController extends Controller
         $kategori_buletin = kategori_buletin::create([
             'nama_kategori'     => $request->nama_kategori,
         ]);
-        return redirect('/admin/buletin')-> with('success', 'kategori Successfully created');
+        return redirect('/admin/buletin')-> with('success', 'Kategori Berhasil Ditambahkan');
     }
 
     /**

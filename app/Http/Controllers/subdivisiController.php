@@ -51,7 +51,7 @@ class subdivisiController extends Controller
             'id_divisi'     => $request->id_divisi,
         ]);
         $link = '/admin/subdivisi/' . $request->id_divisi;
-        return redirect($link)->with('success', 'subdivisi Successfully created');
+        return redirect($link)->with('success', 'Subdivisi Berhasil Ditambahkan');
     }
 
     /**
@@ -106,6 +106,6 @@ class subdivisiController extends Controller
     {
         $cad = subdivisi::where('id',$id)->first()->id_divisi;
         subdivisi::find($id)->delete();
-        return redirect('/admin/subdivisi',$cad)-> with('success', 'subdivisi Successfully deleted');
+        return redirect('/admin/subdivisi/'.$cad)-> with('success', 'subdivisi Successfully deleted');
     }
 }
