@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2021 at 11:43 AM
+-- Generation Time: Aug 21, 2021 at 03:32 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -43,8 +43,7 @@ CREATE TABLE `buletin` (
 INSERT INTO `buletin` (`id`, `cover`, `judul`, `konten`, `id_kategori_buletin`) VALUES
 (1, 'img/IMG_6877.JPG', 'Bul1-kat1', 'tes', 1),
 (2, 'img/IMG_6877.JPG', 'Bul2-kat2', 'test2', 2),
-(3, 'img/IMG_6877.JPG', 'bul3', 'tes', 1),
-(5, 'img/ADrgLPTXjHaYNZnykLY4RaGHE26mfZVO0XLfLIwW.png', 'bul 4', 'asdasdasdasd', 1);
+(3, 'img/IMG_6877.JPG', 'bul3', 'tes', 1);
 
 -- --------------------------------------------------------
 
@@ -426,6 +425,13 @@ CREATE TABLE `submenu` (
   `konten` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `submenu`
+--
+
+INSERT INTO `submenu` (`id`, `id_subdiv`, `judul`, `konten`) VALUES
+(1, 1, 'qwd', 'sdad');
+
 -- --------------------------------------------------------
 
 --
@@ -743,7 +749,7 @@ ALTER TABLE `subdivisi`
 -- AUTO_INCREMENT for table `submenu`
 --
 ALTER TABLE `submenu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tahun_ajar`
