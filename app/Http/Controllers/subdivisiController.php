@@ -106,6 +106,7 @@ class subdivisiController extends Controller
     {
         $cad = subdivisi::where('id',$id)->first()->id_divisi;
         subdivisi::find($id)->delete();
-        return redirect('/admin/subdivisi',$cad)-> with('success', 'subdivisi Successfully deleted');
+        $link = '/admin/subdivisi/' . $cad;
+        return redirect($link)->with('success', 'subdivisi Successfully deleted');
     }
 }
