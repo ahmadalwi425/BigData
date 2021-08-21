@@ -79,6 +79,7 @@ Route::post('/admin/subdivisi/create',  [App\Http\Controllers\subdivisiControlle
 Route::get('/admin/subdivisi/destroy/{id}', [App\Http\Controllers\subdivisiController::class,'destroy']); 
 Route::put('/admin/subdivisi/update/{id}', [App\Http\Controllers\subdivisiController::class,'update']); 
 
+Route::get('/admin/submenu/add',  [App\Http\Controllers\submenuController::class, 'add']);
 Route::get('/admin/submenu/{id}',  [App\Http\Controllers\submenuController::class, 'index']);
 Route::post('/admin/submenu/create',  [App\Http\Controllers\submenuController::class, 'store']);
 Route::get('/admin/submenu/destroy/{id}', [App\Http\Controllers\submenuController::class,'destroy']); 

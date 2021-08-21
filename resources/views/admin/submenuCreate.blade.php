@@ -29,17 +29,23 @@
       <div class="col">
         <div class="card">
           <!-- Card header -->
-          <form action="{{url('/admin/submenu/update/', $data->id )}}" method="post">
+          <form action="{{url('/admin/submenu/create' )}}" method="post">
           <div class="card-header border-0">
                 @csrf
-                @method('PUT')
                 <div class="mb-0 pb-0 row justify-content-between">
-                <h3 class="mb-0 col-2">Isi Menu <strong>{{ $data->judul }}</strong></h3>
-                <button type="submit" disabled class="btn-simpan btn col-2 mb-0">Simpan</button>
+                <h3 class="mb-0 col-2">Tambah Menu</h3>
+                <button type="submit" disabled class="btn-simpan btn col-2 mb-0">Tambah</button>
                 </div>
             </div>
             <div class="card-body">
-                <textarea onchange="setBtn" name="ckeditor" class="ckeditor" id="ckeditor">{!!$data->konten!!}</textarea>
+                <div class="form-group">
+                    <label for="judul">Judul</label>
+                    <input class="form-control" name="judul" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="konten">Konten</label>
+                    <textarea onchange="setBtn" name="ckeditor" class="ckeditor" id="ckeditor"></textarea>
+                </div>
             </div>
         </form>
           <!-- Card footer -->
