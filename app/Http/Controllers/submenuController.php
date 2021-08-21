@@ -15,7 +15,7 @@ class submenuController extends Controller
      */
     public function index($id)
     {
-        $data = submenu::with('subdivisi')->where('id',$id)->get();
+        $data = submenu::with('subdivisi')->where('id',$id)->first();
         $link = 'submenu';
         return view('admin.submenu', compact('data','link'));
     }

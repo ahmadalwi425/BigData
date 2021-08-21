@@ -75,7 +75,7 @@
                       <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
                     </span>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('admin/subdivisi/destroy',$row->id) }}" onclick="return confirm('Are you sure wanna delete this user?');">Delete</a>
+                      <a class="btn btn-danger" href="{{ url('admin/subdivisi/destroy',$row->id) }}" onclick="del(event);">Delete</a>
                     </span>
                   </td>
                 </tr>
