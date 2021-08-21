@@ -158,6 +158,13 @@ else if ($link == "shop") {
                                 ';
                             }
                         @endphp
+                        @guest
+
+                        @else
+                            @if(Auth::user()->id_level)
+                            <a class="nav-link active" href="{{url('admin')}}">Manage Web</a>
+                            @endif
+                        @endguest
                     </div>
                 </div>
             </div>
