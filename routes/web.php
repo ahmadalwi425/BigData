@@ -42,10 +42,7 @@ Auth::routes();
 Route::get('/register2',  [App\Http\Controllers\Auth\RegisterController::class, 'tampilform']);
 
 // ADMIN
-Route::get('/admin', function () {
-    $link = 'dashboard';
-    return view('admin.dashboard', compact('link'));
-});
+Route::get('/admin', [App\Http\Controllers\daftar_ormawaController::class,'index']); 
 Route::get('/admin/subdivisi', function () {
     $link = 'divisi';
     return view('admin.subdivisi', compact('link'));
@@ -79,7 +76,7 @@ Route::post('/admin/subdivisi/create',  [App\Http\Controllers\subdivisiControlle
 Route::get('/admin/subdivisi/destroy/{id}', [App\Http\Controllers\subdivisiController::class,'destroy']); 
 Route::put('/admin/subdivisi/update/{id}', [App\Http\Controllers\subdivisiController::class,'update']); 
 
-Route::get('/admin/submenu/add',  [App\Http\Controllers\submenuController::class, 'add']);
+Route::get('/admin/submenu/add/{id}',  [App\Http\Controllers\submenuController::class, 'add']);
 Route::get('/admin/submenu/{id}',  [App\Http\Controllers\submenuController::class, 'index']);
 Route::post('/admin/submenu/create',  [App\Http\Controllers\submenuController::class, 'store']);
 Route::get('/admin/submenu/destroy/{id}', [App\Http\Controllers\submenuController::class,'destroy']); 
@@ -106,3 +103,6 @@ Route::post('/admin/ormawa/create',  [App\Http\Controllers\ormawaController::cla
 Route::get('/admin/ormawa/destroy/{id}', [App\Http\Controllers\ormawaController::class,'destroy']); 
 Route::get('/admin/ormawa/{id}', [App\Http\Controllers\daftar_ormawaController::class,'show']); 
 Route::put('/admin/ormawa/update/{id}', [App\Http\Controllers\ormawaController::class,'update']); 
+
+Route::get('/admin/daftar_ormawa/destroy/{id}', [App\Http\Controllers\daftar_ormawaController::class,'destroy']); 
+Route::post('/admin/daftar_ormawa/create',  [App\Http\Controllers\daftar_ormawaController::class, 'store']);

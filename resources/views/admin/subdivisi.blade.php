@@ -72,7 +72,7 @@
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-success" href="{{ url('admin/submenu/add', $row-id) }}">Tambah</a>
+                      <a class="btn btn-success" href="{{ url('admin/submenu/add', $row->id) }}">Tambah</a>
                     </span>
                     <span class="badge badge-dot mr-4">
                       <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
