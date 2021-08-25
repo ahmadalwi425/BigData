@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tahun_ajar;
 
 class tahun_ajarController extends Controller
 {
@@ -34,7 +35,15 @@ class tahun_ajarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'tahun1' => ['required'],
+            'tahun2' => ['required'],
+        ]);
+        $name = $request->tahun1."/".$request->tahun2;
+        $tahun_ajar = tahun_ajar::create([
+            'tahun_ajar'     => $name,
+        ]);
+        return redirect('/admin/kalender')-> with('success', 'Tahun Ajar Berhasil Ditambahkan');
     }
 
     /**
@@ -79,6 +88,8 @@ class tahun_ajarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        tahun_ajar::find($id)->delete();
+        return redirect('/admin/kalender')
+        -> with('success', 'Tahun Ajar Berhasil Dihapus');
     }
 }

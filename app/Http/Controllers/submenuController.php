@@ -27,8 +27,9 @@ class submenuController extends Controller
      */
     public function add($id)
     {
+        $subdiv = $id;
         $link = 'submenu';
-        return view('admin.submenuCreate', compact('link'));
+        return view('admin.submenuCreate', compact('link','subdiv'));
     }
 
     /**
@@ -44,9 +45,9 @@ class submenuController extends Controller
             'id_subdivisi' => ['required'],
             'konten' => ['required'],
         ]);
-        $subdivisi = subdivisi::create([
+        $submenu = submenu::create([
             'judul'     => $request->judul,
-            'id_subdivisi'     => $request->id_subdivisi,
+            'id_subdiv'     => $request->id_subdivisi,
             'konten'     => $request->konten,
         ]);
         return redirect('/admin/subdivisi/'.$request->id_subdivisi)-> with('success', 'Submenu Berhasil Ditambahkan');

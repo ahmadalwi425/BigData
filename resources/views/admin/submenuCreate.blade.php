@@ -27,6 +27,16 @@
   <div class="container-fluid mt--6">
     <div class="row">
       <div class="col">
+      @isset($errors)
+          @foreach ($errors->all() as $message)
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endforeach
+          @endisset
         <div class="card">
           <!-- Card header -->
           <form action="{{url('/admin/submenu/create' )}}" method="post">
@@ -37,6 +47,7 @@
                 <button type="submit" disabled class="btn-simpan btn col-2 mb-0">Tambah</button>
                 </div>
             </div>
+            <input type="hidden" name="id_subdivisi" value="{{$subdiv}}">
             <div class="card-body">
                 <div class="form-group">
                     <label for="judul">Judul</label>
@@ -44,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <label for="konten">Konten</label>
-                    <textarea onchange="setBtn" name="ckeditor" class="ckeditor" id="ckeditor"></textarea>
+                    <textarea onchange="setBtn" name="konten" class="ckeditor" id="ckeditor"></textarea>
                 </div>
             </div>
         </form>

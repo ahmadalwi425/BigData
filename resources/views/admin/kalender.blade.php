@@ -91,7 +91,18 @@
                       {{$row->semester->semester}}
                   </td>
                   <td>
-                      <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
+                    <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
+                    <a class="btn btn-danger" href="{{ url('admin/kal_akademik/destroy',$row->id) }}" onclick="del(event);">
+                      <div class="row justify-content-center align-items-center">
+                        <div class="col-1">
+                         <i class="ni ni-fat-remove text-white mt--4 ml--3 text-xl"></i> 
+                       </div>
+                       <div class="col-6">
+                        <span class="ml--3">
+                          Delete
+                        </span>
+                      </div>
+                    </div></a>
                   </td>
                 </tr>
                 @endforeach
@@ -169,6 +180,17 @@
                         </td>
                         <td>
                           <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
+                          <a class="btn btn-danger" href="{{ url('admin/jenis_kal/destroy',$row->id) }}" onclick="del(event);">
+                          <div class="row justify-content-center align-items-center">
+                            <div class="col-1">
+                              <i class="ni ni-fat-remove text-white mt--4 ml--3 text-xl"></i> 
+                            </div>
+                            <div class="col-6">
+                              <span class="ml--3">
+                                Delete
+                              </span>
+                            </div>
+                          </div></a>
                         </td>
                       </tr>
                       @endforeach
@@ -248,6 +270,17 @@
                         </td>
                         <td  class="col-md-6">
                           <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
+                          <a class="btn btn-danger" href="{{ url('admin/tahun_ajar/destroy',$row->id) }}" onclick="del(event);">
+                          <div class="row justify-content-center align-items-center">
+                            <div class="col-1">
+                              <i class="ni ni-fat-remove text-white mt--4 ml--3 text-xl"></i> 
+                            </div>
+                            <div class="col-6">
+                              <span class="ml--3">
+                                Delete
+                              </span>
+                            </div>
+                          </div></a>
                         </td>
                       </tr>
                       @endforeach
@@ -423,14 +456,14 @@
       </div>
       <div class="modal-body">
         
-        <form action="{{url('admin/jenis_kal/create')}}" method="post">
+        <form action="{{url('admin/tahun_ajar/create')}}" method="post">
           @csrf
           <div class="form-group justify-content-center
           ">
               <label for="nama_jenis_kal">Tahun Ajar</label>
-              <input type="text" name="nama_jenis_kal" class="form-control datepickerYear col-5 align-self-center mx-auto" id="nama_jenis_kal" aria-describedby="nama_jenis_kal" value="">
+              <input type="text" name="tahun1" class="form-control datepickerYear col-5 align-self-center mx-auto" id="nama_jenis_kal" aria-describedby="nama_jenis_kal" value="">
               <span class="d-block text-center mx-auto">/</span>
-              <input type="text" name="nama_jenis_kal" class="form-control datepickerYear col-5 align-self-center mx-auto" id="nama_jenis_kal" aria-describedby="nama_jenis_kal" value="">
+              <input type="text" name="tahun2" class="form-control datepickerYear col-5 align-self-center mx-auto" id="nama_jenis_kal" aria-describedby="nama_jenis_kal" value="">
           </div>
         </div>
         <div class="modal-footer">

@@ -86,6 +86,8 @@ class jenis_kalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        jenis_kal::find($id)->delete();
+        return redirect('/admin/kalender')
+        -> with('success', 'Jenis Event Successfully Deleted');
     }
 }

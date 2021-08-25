@@ -96,6 +96,6 @@ class jurusanController extends Controller
     {
         jurusan::find($id)->delete();
         return redirect('/admin/jurusan')
-        -> with('success', 'jurusan Successfully Deleted');
+        -> with('success', 'Jurusan Berhasil Dihapus');
     }
 }
