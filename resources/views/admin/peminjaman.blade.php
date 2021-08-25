@@ -99,7 +99,7 @@
                   </td>
                   @endif
                   <td>
-                  @if($row->status == "dipinjam")
+                    @if($row->status == "dipinjam")
                       <a class="btn btn-danger" id="link-{{$row->id}}" href="{{ url('admin/peminjaman/edit',$row->id) }}" onclick="kembali(event);"><div class="row justify-content-center align-items-center">
                         <div class="col-1">
                           <i class="ni ni-box-2 text-white mt--1 ml--3 text-md"></i> 
@@ -110,6 +110,18 @@
                           </span>
                         </div>
                       </div></a>
+                    @else
+                      <a class="btn btn-secondary" style="pointer-events: none" id="link-{{$row->id}}" href="#"><div class="row justify-content-center align-items-center">
+                        <div class="col-1">
+                          <i class="ni ni-box-2 text-dark mt--1 ml--3 text-md"></i> 
+                        </div>
+                        <div class="col-6">
+                          <span class="ml--4 pr-2 text-grey">
+                            Kembalikan
+                          </span>
+                        </div>
+                      </div></a>
+
                   @endif
                       <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ni ni-archive-2 text-white mt--1 mr-2 text-lg"></i> Detail</button>
                   </td>
