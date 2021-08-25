@@ -151,5 +151,39 @@
     </footer>
   </div>
 
+  {{-- TAMBAH --}}
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Ormawa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/daftar_ormawa/create')}}" method="post" enctype="multipart/form-data">
+          @csrf
+          <div class="form-group">
+              <label class="form-control-label" for="level">Mahasiswa</label>
+              <select class="form-control" name="id_user" id="">
+                <option value="">Pilih mahasiswa...</option>
+                @foreach ($user as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama}}</option>
+                @endforeach
+              </select>
+          </div>
+          <input type="hidden" name="id_ormawa" value="{{$data->first()->id_ormawa}}">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
 
 @endsection

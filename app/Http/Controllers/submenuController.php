@@ -25,7 +25,7 @@ class submenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function add()
+    public function add($id)
     {
         $link = 'submenu';
         return view('admin.submenuCreate', compact('link'));

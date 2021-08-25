@@ -25,6 +25,16 @@
   <div class="container-fluid mt--6">
     <div class="row">
       <div class="col">
+      @isset($errors)
+          @foreach ($errors->all() as $message)
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endforeach
+          @endisset
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
@@ -184,8 +194,13 @@
         <form action="{{url('admin/peminjaman/create')}}" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
-              <label for="id_user">Peminjam</label>
-              <input type="text" name="id_user" class="form-control datepicker" id="id_user" aria-describedby="id_user" value="">
+              <label class="form-control-label" for="level">Peminjam</label>
+              <select class="form-control" name="id_user" id="">
+                <option value="">Pilih Peminjam...</option>
+                @foreach ($user as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama}}</option>
+                @endforeach
+              </select>
           </div>
           <div class="form-group">
               <label for="tgl_pinjam">Tanggal Pinjam</label>
@@ -197,7 +212,7 @@
           </div>
           <div class="form-group">
               <label for="barang">Barang</label>
-              <input type="text" name="barang" class="form-control datepicker" id="barang" aria-describedby="barang" value="">
+              <input type="text" name="barang" class="form-control" id="barang" aria-describedby="barang" value="">
           </div>
         </div>
         <div class="modal-footer">

@@ -17,7 +17,7 @@ class peminjamanController extends Controller
     public function index()
     {
         $data = peminjaman::with('user')->get();
-        $user = User::get();
+        $user = User::with('level')->get();
         $link = 'peminjaman';
         return view('admin.peminjaman', compact('data','user','link'));
     }
@@ -44,7 +44,6 @@ class peminjamanController extends Controller
             'id_user' => ['required'],
             'tgl_pinjam'  => ['required'],
             'tgl_kembali' => ['required'],
-            'status' => ['required'],
             'barang' => ['required'],
         ]);
         $peminjaman = peminjaman::create([
@@ -78,9 +77,9 @@ class peminjamanController extends Controller
     {
         $data = peminjaman::where('id',$id)->first();
         $data->tgl_dikembalikan = Carbon::now()->format('Y-m-d');
-        $data->status = "dikembalikan";
+        $data->status = 'dikembalikan';
         $data->save();
-        return redirect('/admin/peminjaman')-> with('success', 'peminjaman Successfully updated');
+        return redirect('/admin/peminjaman')-> with('success', 'Barang sudah dikembalikan');
     }
 
     /**
@@ -106,7 +105,7 @@ class peminjamanController extends Controller
         $data->barang = $request->get('barang');
         $data->id_user = $request->get('id_user');
         $data->save();
-        return redirect('/admin/peminjaman')-> with('success', 'peminjaman Successfully updated');
+        return redirect('/admin/peminjaman')-> with('success', 'peminjaman berhasil diperbarui');
     }
 
     /**
@@ -119,6 +118,6 @@ class peminjamanController extends Controller
     {
         peminjaman::find($id)->delete();
         return redirect('/admin/peminjaman')
-        -> with('success', 'peminjaman Successfully Deleted');
+        -> with('success', 'peminjaman berhasil dihapus');
     }
 }

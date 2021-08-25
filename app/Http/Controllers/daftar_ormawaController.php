@@ -17,7 +17,20 @@ class daftar_ormawaController extends Controller
      */
     public function index()
     {
-        //
+        $ormawa = ormawa::get();
+        $data = array(
+            array(
+               
+            )
+        );
+        $start = 0;
+        foreach($ormawa as $i){
+            $data[$start][0]=$i->nama_ormawa;
+            $data[$start][1]=daftar_ormawa::where('id_ormawa',$i->id)->count();
+            $start++;
+        }
+        $link = "dashboard";
+        return view('admin.dashboard',compact('data','link'));
     }
 
     /**
@@ -46,7 +59,7 @@ class daftar_ormawaController extends Controller
             'id_user'     => $request->id_user,
             'id_ormawa'     => $request->id_ormawa,
         ]);
-        return redirect('/admin/ormawaDetail')-> with('success', 'Anggota ormawa Successfully created');
+        return redirect('/admin/ormawa/'.$request->id_ormawa)-> with('success', 'Anggota ormawa berhasil ditambahkan');
     }
 
     /**
@@ -96,8 +109,9 @@ class daftar_ormawaController extends Controller
      */
     public function destroy($id)
     {
+        $cad = daftar_ormawa::where('id',$id)->first()->id_ormawa;
         daftar_ormawa::find($id)->delete();
-        return redirect('/admin/ormawaDetail')
-        -> with('success', 'Anggota Successfully Deleted');
+        return redirect('/admin/ormawa/'.$cad)
+        -> with('success', 'Anggota berhasil dihabpus');
     }
 }

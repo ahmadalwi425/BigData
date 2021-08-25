@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2021 at 03:32 AM
+-- Generation Time: Aug 23, 2021 at 05:54 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -62,7 +62,10 @@ CREATE TABLE `daftar_ormawa` (
 --
 
 INSERT INTO `daftar_ormawa` (`id`, `id_ormawa`, `id_user`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(9, 1, 1),
+(10, 2, 1),
+(11, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -196,7 +199,8 @@ CREATE TABLE `kal_akademik` (
 --
 
 INSERT INTO `kal_akademik` (`id`, `nama_kegiatan`, `tgl_mulai`, `tgl_selesai`, `id_jenis_kal`, `id_tahun_ajar`, `id_semester`) VALUES
-(1, 'Hari Raya Pancasila', '2021-07-01', '2021-07-03', 1, 1, 1);
+(1, 'Hari Raya Pancasila', '2021-07-01', '2021-07-03', 1, 1, 1),
+(2, 'libur1', '2021-08-21', '2021-08-22', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -287,7 +291,9 @@ CREATE TABLE `ormawa` (
 --
 
 INSERT INTO `ormawa` (`id`, `id_jurusan`, `nama_ormawa`) VALUES
-(1, 1, 'ormawa 1');
+(1, 1, 'ormawa 1'),
+(2, 3, 'ormawa 2'),
+(3, 2, 'ormawa 3');
 
 -- --------------------------------------------------------
 
@@ -331,7 +337,7 @@ CREATE TABLE `peminjaman` (
   `tgl_kembali` date DEFAULT NULL,
   `tgl_dikembalikan` date DEFAULT NULL,
   `barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'dipinjam'
+  `status` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT 'dipinjam'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -339,7 +345,8 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`id`, `id_user`, `tgl_pinjam`, `tgl_kembali`, `tgl_dikembalikan`, `barang`, `status`) VALUES
-(1, 1, '2021-08-02', '2021-08-05', NULL, 'Papan Tulis', 'dipinjam');
+(1, 1, '2021-08-02', '2021-08-05', '2021-08-23', 'Papan Tulis', 'dikembalikan'),
+(2, 1, '2021-08-24', '2021-08-26', NULL, 'Buku', 'dipinjam');
 
 -- --------------------------------------------------------
 
@@ -476,7 +483,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nim`, `nama`, `email`, `email_verified_at`, `password`, `no_hp`, `id_level`, `id_jurusan`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 123123, 'user1', 'user@user.com', NULL, '$2y$10$xJ1hv4KmzcyQXot4kUfZdOfhO4mRt60Tc7zZy3VEpJ4RLkY8Lw8Ae', 5674563, 2, 1, NULL, '2021-08-11 07:12:26', '2021-08-11 07:12:26');
+(1, 123123, 'user1', 'user@user.com', NULL, '$2y$10$xJ1hv4KmzcyQXot4kUfZdOfhO4mRt60Tc7zZy3VEpJ4RLkY8Lw8Ae', 5674563, 1, 1, NULL, '2021-08-11 07:12:26', '2021-08-11 07:12:26');
 
 --
 -- Indexes for dumped tables
@@ -647,7 +654,7 @@ ALTER TABLE `buletin`
 -- AUTO_INCREMENT for table `daftar_ormawa`
 --
 ALTER TABLE `daftar_ormawa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `data_kampus`
@@ -689,7 +696,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `kal_akademik`
 --
 ALTER TABLE `kal_akademik`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategori_buletin`
@@ -713,7 +720,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ormawa`
 --
 ALTER TABLE `ormawa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
@@ -725,7 +732,7 @@ ALTER TABLE `pembelian`
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -743,7 +750,7 @@ ALTER TABLE `semester`
 -- AUTO_INCREMENT for table `subdivisi`
 --
 ALTER TABLE `subdivisi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `submenu`
