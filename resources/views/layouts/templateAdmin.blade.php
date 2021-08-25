@@ -106,7 +106,7 @@
       event.preventDefault()
       const link = event.target.href;
       Swal.fire({
-        title: 'Apakah Anda yakin  ingin menghapus?',
+        title: 'Apakah Anda yakin ingin menghapus?',
         text: "Anda tidak dapat membatalkan ini",
         icon: 'warning',
         showCancelButton: true,
@@ -114,6 +114,24 @@
         cancelButtonColor: '#d33',
         cancelButtonText: 'Batal',
         confirmButtonText: 'Iya, hapus saja!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = link;
+        }
+      })
+    }
+    const kembali = (event) => {
+      event.preventDefault()
+      const link = event.target.href;
+      Swal.fire({
+        title: 'Apakah Anda yakin ingin mengubah status menjadi DIKEMBALIKAN?',
+        text: "Anda tidak dapat membatalkan ini",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Iya, ubah saja!'
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.href = link;

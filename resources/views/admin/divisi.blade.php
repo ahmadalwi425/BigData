@@ -41,7 +41,15 @@
             <div class="mb-0 pb-0 row justify-content-between">
               <h3 class="mb-0 col-2">Tabel</h3>
               <div class="search-place"></div>
-              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0"><div class="row justify-content-center align-items-center">
+                  
+                <div class="col-1 ml--2">
+                  <i class="ni ni-fat-add text-white text-md m-0 pt-1 text-lg"></i> 
+                </div>
+                <div class="col-6">
+                  <span class="d-inline-block pt--4">Tambah</span>
+                </div>
+              </div></button>
             </div>
           </div>
           <!-- Light table -->
@@ -71,15 +79,24 @@
                   </th>
                   <td>
                     <a href="{{ url('admin/subdivisi', $row->id) }}" class="badge badge-dot mr-4">
-                      <button class="btn btn-primary" type="button">Lihat</button>
+                      <button class="btn btn-primary" type="button"><i class="ni ni-image text-white mt--2 mr-3"></i>Lihat</button>
                     </a>
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button"><i class="ni ni-ruler-pencil text-white mt--2 mr-3"></i> Edit</button>
                     </span>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('admin/divisi/destroy',$row->id) }}" onclick="del(event);">Delete</a>
+                      <a class="btn btn-danger" href="{{ url('admin/divisi/destroy',$row->id) }}" onclick="del(event);"><div class="row justify-content-center align-items-center">
+                        <div class="col-1">
+                          <i class="ni ni-fat-remove text-white mt--4 ml--3 text-xl"></i> 
+                        </div>
+                        <div class="col-6">
+                          <span class="ml--3">
+                            Delete
+                          </span>
+                        </div>
+                      </div></a>
                     </span>
                   </td>
                 </tr>

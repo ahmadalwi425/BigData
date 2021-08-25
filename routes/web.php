@@ -94,6 +94,7 @@ Route::get('/admin/kalender',  [App\Http\Controllers\kal_akademikController::cla
 Route::post('/admin/kalender/create',  [App\Http\Controllers\kal_akademikController::class, 'store']);
 Route::get('/admin/kalender/destroy/{id}', [App\Http\Controllers\kal_akademikController::class,'destroy']); 
 Route::put('/admin/kalender/update/{id}', [App\Http\Controllers\kal_akademikController::class,'update']); 
+Route::post('/admin/jenis_kal/create',  [App\Http\Controllers\jenis_kalController::class, 'store']);
 
 Route::get('/admin/peminjaman',  [App\Http\Controllers\peminjamanController::class, 'index']);
 Route::post('/admin/peminjaman/create',  [App\Http\Controllers\peminjamanController::class, 'store']);

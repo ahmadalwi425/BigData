@@ -12,8 +12,7 @@
             <h6 class="h2 text-white d-inline-block mb-0">Peminjaman</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fa fa-home text-primary"></i> Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">peminjaman</li>
               </ol>
             </nav>
@@ -32,7 +31,15 @@
             <div class="mb-0 pb-0 row justify-content-between">
               <h3 class="mb-0 col-2">Tabel</h3>
               <div class="search-place"></div>
-              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0"><div class="row justify-content-center align-items-center">
+                  
+                <div class="col-1 ml--2">
+                  <i class="ni ni-fat-add text-white text-md m-0 pt-1 text-lg"></i> 
+                </div>
+                <div class="col-6">
+                  <span class="d-inline-block pt--4">Tambah</span>
+                </div>
+              </div></button>
             </div>
           </div>
           <!-- Light table -->
@@ -74,18 +81,27 @@
                   </th>
                   @if($row->status == "dipinjam")
                   <td class="text-warning">
-                    {{$row->status}}
+                    <strong>DIPINJAM</strong>
                   </td>
                   @elseif($row->status == "dikembalikan")
                   <td class="text-success">
-                    {{$row->status}}
+                    <strong>DIKEMBALIKAN</strong>
                   </td>
                   @endif
                   <td>
                   @if($row->status == "dipinjam")
-                      <a class="btn btn-primary" id="link-{{$row->id}}" href="{{ url('admin/peminjaman/edit',$row->id) }}" onclick="del(event);">Kembalikan</a>
+                      <a class="btn btn-danger" id="link-{{$row->id}}" href="{{ url('admin/peminjaman/edit',$row->id) }}" onclick="kembali(event);"><div class="row justify-content-center align-items-center">
+                        <div class="col-1">
+                          <i class="ni ni-box-2 text-white mt--1 ml--3 text-md"></i> 
+                        </div>
+                        <div class="col-6">
+                          <span class="ml--4 pr-2">
+                            Kembalikan
+                          </span>
+                        </div>
+                      </div></a>
                   @endif
-                      <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModal">Detail</button>
+                      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ni ni-archive-2 text-white mt--1 mr-2 text-lg"></i> Detail</button>
                   </td>
                 </tr>
                 @endforeach

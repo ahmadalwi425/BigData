@@ -41,7 +41,7 @@ class jenis_kalController extends Controller
         $jenis_kal = jenis_kal::create([
             'nama_jenis_kal'     => $request->nama_jenis_kal,
         ]);
-        return redirect('/admin/jenis_kal')-> with('success', 'Jenis Kalender Berhasil Ditambahkan');
+        return redirect('/admin/kalender')-> with('success', 'Jenis Kalender Berhasil Ditambahkan');
     }
 
     /**

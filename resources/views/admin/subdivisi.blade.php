@@ -12,7 +12,7 @@
             <h6 class="h2 text-white d-inline-block mb-0">Sub Divisi</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#">dashboard</a></li>
+                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home text-primary"></i> Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="#">divisi</a></li>
                 <li class="breadcrumb-item active" aria-current="page">subdivisi</li>
               </ol>
@@ -32,7 +32,14 @@
             <div class="mb-0 pb-0 row justify-content-between">
               <h3 class="mb-0 col-2">Tabel</h3>
               <div class="search-place"></div>
-              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0"><div class="row justify-content-center align-items-center">
+                <div class="col-1 ml--2">
+                  <i class="ni ni-fat-add text-white text-md m-0 pt-1 text-lg"></i> 
+                </div>
+                <div class="col-6">
+                  <span class="d-inline-block pt--4">Tambah</span>
+                </div>
+              </div></button>
             </div>
           </div>
           <!-- Light table -->
@@ -72,13 +79,31 @@
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-success" href="{{ url('admin/submenu/add', $row-id) }}">Tambah</a>
+                      <a class="btn btn-primary" href="{{ url('admin/submenu/add', $row->id) }}"><div class="row justify-content-center align-items-center">
+                        <div class="col-1">
+                          <i class="ni ni-fat-add text-white mt--4 ml--3 text-xl"></i> 
+                        </div>
+                        <div class="col-6">
+                          <span class="ml--3">
+                            Tambah
+                          </span>
+                        </div>
+                      </div></a>
                     </span>
                     <span class="badge badge-dot mr-4">
-                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button">Edit</button>
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#edit-{{$row->id}}" type="button"><i class="ni ni-ruler-pencil text-white mt--2 mr-3"></i> Edit</button>
                     </span>
                     <span class="badge badge-dot mr-4">
-                      <a class="btn btn-danger" href="{{ url('admin/subdivisi/destroy',$row->id) }}" onclick="del(event);">Delete</a>
+                      <a class="btn btn-danger" href="{{ url('admin/subdivisi/destroy',$row->id) }}" onclick="del(event);"><div class="row justify-content-center align-items-center">
+                        <div class="col-1">
+                          <i class="ni ni-fat-remove text-white mt--4 ml--3 text-xl"></i> 
+                        </div>
+                        <div class="col-6">
+                          <span class="ml--3">
+                            Delete
+                          </span>
+                        </div>
+                      </div></a>
                     </span>
                   </td>
                 </tr>

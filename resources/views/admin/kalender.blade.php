@@ -12,8 +12,7 @@
             <h6 class="h2 text-white d-inline-block mb-0">Kalender</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fa fa-home text-primary"></i> Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">kalender</li>
               </ol>
             </nav>
@@ -40,8 +39,16 @@
           <!-- Card header -->
           <div class="card-header border-0">
             <div class="mb-0 pb-0 row justify-ceontent-center">
-              <h3 class="mb-0 col-10">Tabel</h3>
-              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">Tambah</button>
+              <h3 class="mb-0 col-10">Daftar Agenda</h3>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0"><div class="row justify-content-center align-items-center">
+                  
+                <div class="col-1 ml--2">
+                  <i class="ni ni-fat-add text-white text-md m-0 pt-1 text-lg"></i> 
+                </div>
+                <div class="col-6">
+                  <span class="d-inline-block pt--4">Tambah</span>
+                </div>
+              </div></button>
             </div>
           </div>
           <!-- Light table -->
@@ -84,7 +91,7 @@
                       {{$row->semester->semester}}
                   </td>
                   <td>
-                      <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
+                      <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
                   </td>
                 </tr>
                 @endforeach
@@ -123,17 +130,26 @@
             <div class="card">
               <!-- Card header -->
               <div class="card-header border-0">
-                <div class="mb-0 pb-0 row justify-ceontent-center">
+                <div class="mb-0 pb-0 row justify-content-between">
                   <h3 class="mb-0 col-8">Jenis Event</h3>
-                  <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-4 mb-0">Tambah</button>
+                  <button type="button" data-toggle="modal" data-target="#createEvent" class="btn-success btn col-4 mb-0"><div class="row justify-content-center align-items-center">
+                  
+                    <div class="col-1 ml--2">
+                      <i class="ni ni-fat-add text-white text-md m-0 pt-1 text-lg"></i> 
+                    </div>
+                    <div class="col-6">
+                      <span class="d-inline-block pt--4">Tambah</span>
+                    </div>
+                  </div></button>
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body p-0">
                 <!-- Light table -->
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
+                        <th scope="col" class="sort" data-sort="name">No</th>
                         <th scope="col" class="sort" data-sort="name">Nama Jenis</th>
                         <th scope="col" class="sort" data-sort="name">Aksi</th>
                       </tr>
@@ -141,11 +157,18 @@
                     <tbody class="list">
                       @foreach($jenis_kal as $row)
                       <tr>
+                        <td scope="row">
+                          <div class="media align-items-center">
+                            <div class="media-body">
+                              <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
+                            </div>
+                          </div>
+                        </td>
                         <td>
                             {{$row->nama_jenis_kal}}
                         </td>
                         <td>
-                            <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
+                          <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
                         </td>
                       </tr>
                       @endforeach
@@ -185,17 +208,26 @@
             <div class="card">
               <!-- Card header -->
               <div class="card-header border-0">
-                <div class="mb-0 pb-0 row justify-ceontent-center">
+                <div class="mb-0 pb-0 row justify-content-between">
                   <h3 class="mb-0 col-8">Tahun Ajar</h3>
-                  <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-4 mb-0">Tambah</button>
+                  <button type="button" data-toggle="modal" data-target="#createTahun" class="btn-success btn col-4 mb-0"><div class="row justify-content-center align-items-center">
+                  
+                    <div class="col-1 ml--2">
+                      <i class="ni ni-fat-add text-white text-md m-0 pt-1 text-lg"></i> 
+                    </div>
+                    <div class="col-6">
+                      <span class="d-inline-block pt--4">Tambah</span>
+                    </div>
+                  </div></button>
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body p-0">
                 <!-- Light table -->
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
+                        <th scope="col" class="sort col-md-6" data-sort="name">No</th>
                         <th scope="col" class="sort col-md-6" data-sort="name">Tahun Ajar</th>
                         <th scope="col" class="sort col-md-6" data-sort="name">Aksi</th>
                         <th scope="col"></th>
@@ -204,11 +236,18 @@
                     <tbody class="list">
                       @foreach($tahun_ajar as $row)
                       <tr>
+                        <td scope="row">
+                          <div class="media align-items-center">
+                            <div class="media-body">
+                              <span class="name mb-0 text-sm">{{$loop->iteration}}</span>
+                            </div>
+                          </div>
+                        </td>
                         <td class="col-md-6">
                             {{$row->tahun_ajar}}
                         </td>
                         <td  class="col-md-6">
-                            <button class="btn btn-warning" type="button"data-toggle="modal" data-target="#exampleModal">Detail</button>
+                          <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
                         </td>
                       </tr>
                       @endforeach
@@ -281,7 +320,7 @@
 @section('modal')
     
 <!-- Modal -->  
-{{-- TAMBAH --}}
+{{-- TAMBAH AGENDA --}}
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -344,10 +383,77 @@
   </div>
 </div> 
 
+{{-- TAMBAH JENIS EVENT --}}
+<div class="modal fade" id="createEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/jenis_kal/create')}}" method="post">
+          @csrf
+          <div class="form-group">
+              <label for="nama_jenis_kal">Jenis Event</label>
+              <input type="text" name="nama_jenis_kal" class="form-control" id="nama_jenis_kal" aria-describedby="nama_jenis_kal" value="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
+
+{{-- TAMBAH TAHUN AJAR --}}
+<div class="modal fade" id="createTahun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Tahun Ajar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="{{url('admin/jenis_kal/create')}}" method="post">
+          @csrf
+          <div class="form-group justify-content-center
+          ">
+              <label for="nama_jenis_kal">Tahun Ajar</label>
+              <input type="text" name="nama_jenis_kal" class="form-control datepickerYear col-5 align-self-center mx-auto" id="nama_jenis_kal" aria-describedby="nama_jenis_kal" value="">
+              <span class="d-block text-center mx-auto">/</span>
+              <input type="text" name="nama_jenis_kal" class="form-control datepickerYear col-5 align-self-center mx-auto" id="nama_jenis_kal" aria-describedby="nama_jenis_kal" value="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
+
 <script>
   $(function() {
         $(".datepicker").datepicker({
             format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
+        $(".datepickerYear").datepicker({
+            format: 'yyyy',
+            changeYear: true,
+            changeMonth: false,
+            changeDate: false,
             autoclose: true,
             todayHighlight: true,
         });
