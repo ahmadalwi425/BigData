@@ -865,7 +865,24 @@ if($navActive == 'Dashboard') {
 
 @endphp
 @else
-
+@php
+if($navActive == 'Dashboard') {
+  echo '
+  <li class="nav-item">
+    <a class="nav-link active" href=' . $base_url .'>
+      <i class="ni ni-tv-2 text-primary"></i>
+      <span class="nav-link-text text-dark">Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk',Auth::User()-id">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
+    </a>
+  </li>
+    ';
+  }
+  @endphp
 @endif
             {{-- <li class="nav-item">
               <a class="nav-link" href="icons.html">
