@@ -160,9 +160,9 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
+@if(Auth::User()->id_level == 1)
+@php
 
-            @php
-                
 if($navActive == 'Dashboard') {
   echo '
   <li class="nav-item">
@@ -860,6 +860,9 @@ if($navActive == 'Dashboard') {
   }
 
 @endphp
+@else
+
+@endif
             {{-- <li class="nav-item">
               <a class="nav-link" href="icons.html">
                 <i class="ni ni-planet text-orange"></i>
