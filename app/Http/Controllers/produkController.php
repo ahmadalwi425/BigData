@@ -34,7 +34,20 @@ class produkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'id_jenis produk' => ['required'],
+            'nama_produk' => ['required'],
+            'stok' => ['required'],
+            'harga' => ['required'],
+            'gambar' => ['required'],
+            'stok' => ['required'],
+            'stok' => ['required'],
+        ]);
+        $ormawa = ormawa::create([
+            'nama_ormawa'     => $request->nama_ormawa,
+            'id_jurusan'     => $request->id_jurusan,
+        ]);
+        return redirect('/admin/ormawa')-> with('success', 'Ormawa Berhasil Ditambahkan');
     }
 
     /**

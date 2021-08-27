@@ -39,6 +39,12 @@
     else if ($link == "peminjaman") {
         $navActive = "Peminjaman";
     }
+    else if ($link == "produk") {
+        $navActive = "Produk";
+    }
+    else if ($link == "pembelian") {
+        $navActive = "Pembelian";
+    }
 
 @endphp
 
