@@ -180,7 +180,7 @@
                         </td>
                         <td>
                           <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#exampleModal"><i class="ni ni-calendar-grid-58 text-white mt--2 mr-3"></i> Detail</button>
-                          <a class="btn btn-danger" href="{{ url('admin/jenis_kal/destroy',$row->id) }}" onclick="del(event);">
+                          <a class="btn btn-danger" href="{{ url('admin/jenis_kal/destroy', $row->id) }}" onclick="del(event);">
                           <div class="row justify-content-center align-items-center">
                             <div class="col-1">
                               <i class="ni ni-fat-remove text-white mt--4 ml--3 text-xl"></i> 

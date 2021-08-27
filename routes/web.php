@@ -91,6 +91,8 @@ Route::get('/admin/kalender',  [App\Http\Controllers\kal_akademikController::cla
 Route::post('/admin/kalender/create',  [App\Http\Controllers\kal_akademikController::class, 'store']);
 Route::get('/admin/kalender/destroy/{id}', [App\Http\Controllers\kal_akademikController::class,'destroy']); 
 Route::put('/admin/kalender/update/{id}', [App\Http\Controllers\kal_akademikController::class,'update']); 
+Route::get('/admin/jenis_kal/destroy/{id}', [App\Http\Controllers\jenis_kalController::class,'destroy']); 
+Route::post('/admin/jenis_kal/create',  [App\Http\Controllers\jenis_kalController::class, 'store']);
 
 Route::get('/admin/peminjaman',  [App\Http\Controllers\peminjamanController::class, 'index']);
 Route::post('/admin/peminjaman/create',  [App\Http\Controllers\peminjamanController::class, 'store']);
@@ -109,6 +111,3 @@ Route::post('/admin/daftar_ormawa/create',  [App\Http\Controllers\daftar_ormawaC
 
 Route::get('/admin/tahun_ajar/destroy/{id}', [App\Http\Controllers\tahun_ajarController::class,'destroy']); 
 Route::post('/admin/tahun_ajar/create',  [App\Http\Controllers\tahun_ajarController::class, 'store']);
-
-Route::get('/admin/jenis_kal/destroy/{id}', [App\Http\Controllers\jenis_kalController::class,'destroy']); 
-Route::post('/admin/jenis_kal/create',  [App\Http\Controllers\jenis_kalController::class, 'store']);
