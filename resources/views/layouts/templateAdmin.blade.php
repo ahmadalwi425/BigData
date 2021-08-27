@@ -41,22 +41,6 @@
     }
 
 @endphp
-
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html>
 
@@ -160,7 +144,7 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
-@if(Auth::User()->id_level == 1)
+{{-- @if(Auth::User()->id_level == 1) --}}
 @php
 
 if($navActive == 'Dashboard') {
@@ -860,9 +844,9 @@ if($navActive == 'Dashboard') {
   }
 
 @endphp
-@else
+{{-- @else --}}
 
-@endif
+{{-- @endif --}}
             {{-- <li class="nav-item">
               <a class="nav-link" href="icons.html">
                 <i class="ni ni-planet text-orange"></i>

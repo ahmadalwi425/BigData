@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/login', function() {
+    return view('login');
+});
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/admin/user/{id}', [App\Http\Controllers\userController::class,'show']); 
 Route::get('/about', function () {
