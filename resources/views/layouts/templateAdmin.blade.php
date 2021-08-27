@@ -47,22 +47,6 @@
     }
 
 @endphp
-
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html>
 
@@ -108,9 +92,9 @@
       }
     }
 
-    const del = (event) => {
-      event.preventDefault()
-      const link = event.target.href;
+    const del = (eventt) => {
+      eventt.preventDefault()
+      const link = eventt.currentTarget.href;
       Swal.fire({
         title: 'Apakah Anda yakin ingin menghapus?',
         text: "Anda tidak dapat membatalkan ini",
@@ -122,13 +106,15 @@
         confirmButtonText: 'Iya, hapus saja!'
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = link;
+          console.log(link);
+          // window.location.href = link;
         }
       })
     }
+
     const kembali = (event) => {
       event.preventDefault()
-      const link = event.target.href;
+      const link = event.currentTtarget.href;
       Swal.fire({
         title: 'Apakah Anda yakin ingin mengubah status menjadi DIKEMBALIKAN?',
         text: "Anda tidak dapat membatalkan ini",
@@ -154,9 +140,9 @@
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-dark bg-default" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-        <a class="navbar-brand" href="javascript:void(0)">
-          <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+      <div class="pt-4 pb-5 sidenav-header  align-items-center">
+        <a class="avatar avatar-lg rounded-circle" href="javascript:void(0)">
+          <img src="{{ $img_url }}default.png" class="" alt="...">
         </a>
       </div>
       <div class="navbar-inner">
@@ -164,7 +150,7 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
-@if(Auth::User()->id_level == 1)
+{{-- @if(Auth::User()->id_level == 1) --}}
 @php
 
 if($navActive == 'Dashboard') {
@@ -966,7 +952,7 @@ if($navActive == 'Dashboard') {
           <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <!-- Search form -->
-              <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+              {{-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
                 <div class="form-group mb-0">
                   <div class="input-group input-group-alternative input-group-merge">
                     <div class="input-group-prepend">
@@ -978,7 +964,8 @@ if($navActive == 'Dashboard') {
                 <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
-              </form>
+              </form> --}}
+              <h1 class="text-white">BIG DATA BEM KBM IT-PLN</h1>
               <!-- Navbar links -->
               <ul class="navbar-nav align-items-center  ml-md-auto ">
                 <li class="nav-item d-xl-none">
@@ -1002,16 +989,16 @@ if($navActive == 'Dashboard') {
                   </a>
                   <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
                     <!-- Dropdown header -->
-                    <div class="px-3 py-3">
+                    {{-- <div class="px-3 py-3">
                       <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-                    </div>
+                    </div> --}}
                     <!-- List group -->
                     <div class="list-group list-group-flush">
-                      <a href="#!" class="list-group-item list-group-item-action">
+                      {{-- <a href="#!" class="list-group-item list-group-item-action">
                         <div class="row align-items-center">
                           <div class="col-auto">
                             <!-- Avatar -->
-                            <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                            <img alt="Image placeholder" src="{{ $img_url }}default.png">
                           </div>
                           <div class="col ml--2">
                             <div class="d-flex justify-content-between align-items-center">
@@ -1025,86 +1012,11 @@ if($navActive == 'Dashboard') {
                             <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
                           </div>
                         </div>
-                      </a>
-                      <a href="#!" class="list-group-item list-group-item-action">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg" class="avatar rounded-circle">
-                          </div>
-                          <div class="col ml--2">
-                            <div class="d-flex justify-content-between align-items-center">
-                              <div>
-                                <h4 class="mb-0 text-sm">John Snow</h4>
-                              </div>
-                              <div class="text-right text-muted">
-                                <small>3 hrs ago</small>
-                              </div>
-                            </div>
-                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#!" class="list-group-item list-group-item-action">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg" class="avatar rounded-circle">
-                          </div>
-                          <div class="col ml--2">
-                            <div class="d-flex justify-content-between align-items-center">
-                              <div>
-                                <h4 class="mb-0 text-sm">John Snow</h4>
-                              </div>
-                              <div class="text-right text-muted">
-                                <small>5 hrs ago</small>
-                              </div>
-                            </div>
-                            <p class="text-sm mb-0">Your posts have been liked a lot.</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#!" class="list-group-item list-group-item-action">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg" class="avatar rounded-circle">
-                          </div>
-                          <div class="col ml--2">
-                            <div class="d-flex justify-content-between align-items-center">
-                              <div>
-                                <h4 class="mb-0 text-sm">John Snow</h4>
-                              </div>
-                              <div class="text-right text-muted">
-                                <small>2 hrs ago</small>
-                              </div>
-                            </div>
-                            <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="#!" class="list-group-item list-group-item-action">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <img alt="Image placeholder" src="../assets/img/theme/team-5.jpg" class="avatar rounded-circle">
-                          </div>
-                          <div class="col ml--2">
-                            <div class="d-flex justify-content-between align-items-center">
-                              <div>
-                                <h4 class="mb-0 text-sm">John Snow</h4>
-                              </div>
-                              <div class="text-right text-muted">
-                                <small>3 hrs ago</small>
-                              </div>
-                            </div>
-                            <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                          </div>
-                        </div>
-                      </a>
+                      </a> --}}
+                      
                     </div>
                     <!-- View all -->
-                    <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                    <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">No Notification yet</a>
                   </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -1112,42 +1024,54 @@ if($navActive == 'Dashboard') {
                     <i class="ni ni-ungroup"></i>
                   </a>
                   <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
-                    <div class="row shortcuts px-4">
-                      <a href="#!" class="col-4 shortcut-item">
+                    <div class="row shortcuts px-4 py-2 g-2 text-center text-white">
+                      <a href="{{ url('admin/user')}}" class="col-4 mb-2 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                          <i class="ni ni-single-02"></i>
+                        </span>
+                        <small>User</small>
+                      </a>
+                      <a href="{{ url('admin/buletin')}}" class="col-4 mb-2 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                          <i class="ni ni-books"></i>
+                        </span>
+                        <small>Buletin</small>
+                      </a>
+                      <a href="{{ url('admin/ormawa')}}" class="col-4 mb-2 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                          <i class="ni ni-circle-08"></i>
+                        </span>
+                        <small>Ormawa</small>
+                      </a>
+                      <a href="{{ url('admin/data_kampus')}}" class="col-4 mb-2 shortcut-item">
+                        <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                          <i class="ni ni-hat-3"></i>
+                        </span>
+                        <small>Data</small>
+                      </a>
+                      <a href="{{ url('admin/kalender')}}" class="col-4 mb-2 shortcut-item">
                         <span class="shortcut-media avatar rounded-circle bg-gradient-red">
                           <i class="ni ni-calendar-grid-58"></i>
                         </span>
-                        <small>Calendar</small>
+                        <small>Kalender</small>
                       </a>
-                      <a href="#!" class="col-4 shortcut-item">
+                      <a href="{{ url('admin/divisi')}}" class="col-4 mb-2 shortcut-item">
                         <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
-                          <i class="ni ni-email-83"></i>
+                          <i class="ni ni-chart-pie-35"></i>
                         </span>
-                        <small>Email</small>
+                        <small>Divisi</small>
                       </a>
-                      <a href="#!" class="col-4 shortcut-item">
+                      <a href="{{ url('admin/jurusan')}}" class="col-4 mb-2 shortcut-item">
                         <span class="shortcut-media avatar rounded-circle bg-gradient-info">
-                          <i class="ni ni-credit-card"></i>
+                          <i class="ni ni-building"></i>
                         </span>
-                        <small>Payments</small>
+                        <small>Jurusan</small>
                       </a>
-                      <a href="#!" class="col-4 shortcut-item">
+                      <a href="{{ url('admin/jurusan')}}" class="col-4 mb-2 shortcut-item">
                         <span class="shortcut-media avatar rounded-circle bg-gradient-green">
-                          <i class="ni ni-books"></i>
+                          <i class="ni ni-folder-17"></i>
                         </span>
-                        <small>Reports</small>
-                      </a>
-                      <a href="#!" class="col-4 shortcut-item">
-                        <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
-                          <i class="ni ni-pin-3"></i>
-                        </span>
-                        <small>Maps</small>
-                      </a>
-                      <a href="#!" class="col-4 shortcut-item">
-                        <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
-                          <i class="ni ni-basket"></i>
-                        </span>
-                        <small>Shop</small>
+                        <small>Peminjaman</small>
                       </a>
                     </div>
                   </div>
@@ -1158,10 +1082,10 @@ if($navActive == 'Dashboard') {
                   <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                       <span class="avatar avatar-sm rounded-circle">
-                        <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
+                        <img alt="Image placeholder" src="{{ $img_url }}default.png">
                       </span>
                       <div class="media-body  ml-2  d-none d-lg-block">
-                        <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                        <span class="mb-0 text-sm  font-weight-bold">SantriNgoding</span>
                       </div>
                     </div>
                   </a>
@@ -1169,7 +1093,7 @@ if($navActive == 'Dashboard') {
                     <div class="dropdown-header noti-title">
                       <h6 class="text-overflow m-0">Welcome!</h6>
                     </div>
-                    <a href="#!" class="dropdown-item">
+                    <a href="{{ url('admin/user') }}" class="dropdown-item">
                       <i class="ni ni-single-02"></i>
                       <span>My profile</span>
                     </a>
@@ -1186,7 +1110,7 @@ if($navActive == 'Dashboard') {
                       <span>Support</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#!" class="dropdown-item">
+                    <a href="{{ url('admin/logout') }}" class="dropdown-item">
                       <i class="ni ni-user-run"></i>
                       <span>Logout</span>
                     </a>
