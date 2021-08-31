@@ -109,6 +109,12 @@ Route::get('/admin/ormawa/destroy/{id}', [App\Http\Controllers\ormawaController:
 Route::get('/admin/ormawa/{id}', [App\Http\Controllers\daftar_ormawaController::class,'show']); 
 Route::put('/admin/ormawa/update/{id}', [App\Http\Controllers\ormawaController::class,'update']); 
 
+Route::get('/admin/produk',  [App\Http\Controllers\produkController::class, 'index']);
+Route::get('/admin/produk2',  [App\Http\Controllers\produkController::class, 'index2']);
+Route::post('/admin/produk/create',  [App\Http\Controllers\produkController::class, 'store']);
+Route::get('/admin/produk/destroy/{id}', [App\Http\Controllers\produkController::class,'destroy']); 
+Route::put('/admin/produk/update/{id}', [App\Http\Controllers\produkController::class,'update']); 
+
 Route::get('/admin/daftar_ormawa/destroy/{id}', [App\Http\Controllers\daftar_ormawaController::class,'destroy']); 
 Route::post('/admin/daftar_ormawa/create',  [App\Http\Controllers\daftar_ormawaController::class, 'store']);
 

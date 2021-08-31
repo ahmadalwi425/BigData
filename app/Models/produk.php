@@ -13,7 +13,7 @@ class produk extends Model
     protected $table = 'produk';
     protected $guarded = [];
     public $timestamps = false;
-    public function user(){
+    public function User(){
         return $this->belongsTo(User::class, 'id_penjual');
     }
     public function jenis_produk(){

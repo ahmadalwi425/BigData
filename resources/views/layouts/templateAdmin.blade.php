@@ -150,7 +150,7 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
-{{-- @if(Auth::User()->id_level == 1) --}}
+@if(Auth::User()->id_level == 1)
 @php
 
 if($navActive == 'Dashboard') {
@@ -323,6 +323,12 @@ if($navActive == 'Dashboard') {
     <a class="nav-link" href="' . $base_url .'/peminjaman">
       <i class="ni ni-folder-17 text-primary"></i>
       <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
     </a>
   </li>
     ';
@@ -383,6 +389,12 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Peminjaman</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
+    </a>
+  </li>
     ';
   }
   elseif ($navActive == 'Ormawa') {
@@ -439,6 +451,12 @@ if($navActive == 'Dashboard') {
     <a class="nav-link" href="' . $base_url .'/peminjaman">
       <i class="ni ni-folder-17 text-primary"></i>
       <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
     </a>
   </li>
     ';
@@ -499,6 +517,12 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Peminjaman</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
+    </a>
+  </li>
     ';
   }
   elseif ($navActive == 'Kalender') {
@@ -555,6 +579,12 @@ if($navActive == 'Dashboard') {
     <a class="nav-link" href="' . $base_url .'/peminjaman">
       <i class="ni ni-folder-17 text-primary"></i>
       <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
     </a>
   </li>
     ';
@@ -615,6 +645,12 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Peminjaman</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
+    </a>
+  </li>
     ';
   }
   elseif ($navActive == 'Jurusan') {
@@ -671,6 +707,12 @@ if($navActive == 'Dashboard') {
     <a class="nav-link" href="' . $base_url .'/peminjaman">
       <i class="ni ni-folder-17 text-primary"></i>
       <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
     </a>
   </li>
     ';
@@ -731,6 +773,12 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text text-dark">Peminjaman</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
+    </a>
+  </li>
     ';
   }elseif ($navActive == 'Sub Divisi') {
     echo '
@@ -786,6 +834,12 @@ if($navActive == 'Dashboard') {
     <a class="nav-link" href="' . $base_url .'/peminjaman">
       <i class="ni ni-folder-17 text-primary"></i>
       <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
     </a>
   </li>
     ';
@@ -846,29 +900,86 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Peminjaman</span>
     </a>
   </li>
-    ';
-  }
-
-@endphp
-@else
-@php
-if($navActive == 'Dashboard') {
-  echo '
   <li class="nav-item">
-    <a class="nav-link active" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text text-dark">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk',Auth::User()-id">
+    <a class="nav-link" href="' . $base_url .'/produk/'">
       <i class="ni ni-folder-17 text-primary"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
     ';
+  }elseif ($navActive == 'Produk') {
+    echo '
+    <li class="nav-item">
+    <a class="nav-link" href=' . $base_url .'>
+      <i class="ni ni-tv-2 text-primary"></i>
+      <span class="nav-link-text">Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/user">
+      <i class="ni ni-single-02 text-yellow"></i>
+      <span class="nav-link-text">User</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/buletin">
+      <i class="ni ni-books text-green"></i>
+      <span class="nav-link-text">Buletin</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/ormawa">
+      <i class="ni ni-circle-08 text-red"></i>
+      <span class="nav-link-text">Ormawa</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <i class="ni ni-hat-3 text-grey"></i>
+      <span class="nav-link-text">Data Kampus</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/divisi">
+      <i class="ni ni-chart-pie-35 text-blue"></i>
+      <span class="nav-link-text">Divisi</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/jurusan">
+      <i class="ni ni-building text-orange"></i>
+      <span class="nav-link-text">Jurusan</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/kalender">
+      <i class="ni ni-calendar-grid-58 text-green"></i>
+      <span class="nav-link-text">Kalender</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/produk/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text text-dark">Produk</span>
+    </a>
+  </li>
+    ';
   }
-  @endphp
+
+@endphp
+@else
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk2/'">
+      <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Produk</span>
+    </a>
+  </li>
 @endif
             {{-- <li class="nav-item">
               <a class="nav-link" href="icons.html">
@@ -1085,7 +1196,7 @@ if($navActive == 'Dashboard') {
                         <img alt="Image placeholder" src="{{ $img_url }}default.png">
                       </span>
                       <div class="media-body  ml-2  d-none d-lg-block">
-                        <span class="mb-0 text-sm  font-weight-bold">SantriNgoding</span>
+                        <span class="mb-0 text-sm  font-weight-bold">{{Auth::User()->nama}}</span>
                       </div>
                     </div>
                   </a>
@@ -1110,10 +1221,14 @@ if($navActive == 'Dashboard') {
                       <span>Support</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ url('admin/logout') }}" class="dropdown-item">
+                    <a class="dropdown-item" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
                       <i class="ni ni-user-run"></i>
                       <span>Logout</span>
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
                   </div>
                 </li>
               </ul>

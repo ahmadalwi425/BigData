@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\produk;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Models\jenis_produk;
 
 class produkController extends Controller
 {
@@ -13,7 +17,20 @@ class produkController extends Controller
      */
     public function index()
     {
-        //
+        $data = produk::with('User','jenis_produk')->get();
+        $user = User::with('level')->get();
+        $link = 'produk';
+        $jenis_produk = jenis_produk::get();
+        return view('admin.produk', compact('data','user','jenis_produk','link'));
+    }
+
+    public function index2()
+    {
+        $data = produk::with('User','jenis_produk')->where('id_penjual',Auth::User()->id)->get();
+        $user = User::with('level')->get();
+        $link = 'produk';
+        $jenis_produk = jenis_produk::get();
+        return view('admin.produk', compact('data','user','jenis_produk','link'));
     }
 
     /**

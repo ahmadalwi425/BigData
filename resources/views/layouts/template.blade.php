@@ -161,8 +161,10 @@ else if ($link == "shop") {
                         @guest
 
                         @else
-                            @if(Auth::user()->id_level)
+                            @if(Auth::user()->id_level == 1)
                             <a class="nav-link active" href="{{url('admin')}}">Manage Web</a>
+                            @else
+                            <a class="nav-link active" href="{{url('admin/produk2')}}">Manage Data Shop</a>
                             @endif
                         @endguest
                     </div>
