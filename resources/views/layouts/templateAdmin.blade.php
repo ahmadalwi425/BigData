@@ -209,62 +209,10 @@ if($navActive == 'Dashboard') {
       <span class="nav-link-text">Peminjaman</span>
     </a>
   </li>
-    ';
-  }
-  elseif ($navActive == 'Buletin') {
-    echo '
   <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text text-dark">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
+      <span class="nav-link-text">Produk</span>
     </a>
   </li>
     ';
@@ -326,8 +274,72 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
+      <span class="nav-link-text">Produk</span>
+    </a>
+  </li>
+    ';
+  }
+  elseif ($navActive == 'Buletin') {
+    echo '
+  <li class="nav-item">
+    <a class="nav-link" href=' . $base_url .'>
+      <i class="ni ni-tv-2 text-primary"></i>
+      <span class="nav-link-text">Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/user">
+      <i class="ni ni-single-02 text-yellow"></i>
+      <span class="nav-link-text">User</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="' . $base_url .'/buletin">
+      <i class="ni ni-books text-green"></i>
+      <span class="nav-link-text text-dark">Buletin</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/ormawa">
+      <i class="ni ni-circle-08 text-red"></i>
+      <span class="nav-link-text">Ormawa</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <i class="ni ni-hat-3 text-grey"></i>
+      <span class="nav-link-text">Data Kampus</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/divisi">
+      <i class="ni ni-chart-pie-35 text-blue"></i>
+      <span class="nav-link-text">Divisi</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/jurusan">
+      <i class="ni ni-building text-orange"></i>
+      <span class="nav-link-text">Jurusan</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/kalender">
+      <i class="ni ni-calendar-grid-58 text-green"></i>
+      <span class="nav-link-text">Kalender</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/peminjaman">
       <i class="ni ni-folder-17 text-primary"></i>
+      <span class="nav-link-text">Peminjaman</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -390,8 +402,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -454,8 +466,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -518,8 +530,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -582,8 +594,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -646,8 +658,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -710,8 +722,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -774,8 +786,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -837,8 +849,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -901,8 +913,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>
@@ -964,8 +976,8 @@ if($navActive == 'Dashboard') {
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/produk/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link active" href="' . $base_url .'/produk/">
+      <i class="ni ni-bag-17 text-red"></i>
       <span class="nav-link-text text-dark">Produk</span>
     </a>
   </li>
@@ -975,8 +987,8 @@ if($navActive == 'Dashboard') {
 @endphp
 @else
   <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk2/'">
-      <i class="ni ni-folder-17 text-primary"></i>
+    <a class="nav-link" href="' .{{$base_url}}.'/produk2/">
+    <i class="ni ni-bag-17 text-grey"></i>
       <span class="nav-link-text">Produk</span>
     </a>
   </li>

@@ -7,6 +7,10 @@ use App\Models\jenis_kal;
 
 class jenis_kalController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

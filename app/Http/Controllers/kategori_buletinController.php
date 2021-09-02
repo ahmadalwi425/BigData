@@ -7,6 +7,10 @@ use App\Models\kategori_buletin;
 
 class kategori_buletinController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
