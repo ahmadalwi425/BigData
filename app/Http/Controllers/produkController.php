@@ -56,19 +56,48 @@ class produkController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id_jenis produk' => ['required'],
+            'nama_produk' => ['required'],
+            'stok' => ['required'],
+            'harga' => ['required'],
+            'id_penjual' => ['required'],
+            'gambar' => ['required'],
+            'rekening' => ['required'],
+        ]);
+        $image = $request->file('gambar');
+        // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
+        $image_name = $request->file('gambar')->store('img','public');
+        $produk = produk::create([
+            'nama_produk'     => $request->nama_produk,
+            'stok'     => $request->stok,
+            'harga'     => $request->harga,
+            'gambar'     => $image_name,
+            'id_penjual'     => $request->id_penjual,
+            'rekening'     => $request->rekening,
+        ]);
+        return redirect('/admin/produk')-> with('success', 'produk Berhasil Ditambahkan');
+    }
+
+    public function store2(Request $request)
+    {
+        $this->validate($request, [
             'nama_produk' => ['required'],
             'stok' => ['required'],
             'harga' => ['required'],
             'gambar' => ['required'],
-            'stok' => ['required'],
-            'stok' => ['required'],
+            'rekening' => ['required'],
         ]);
-        $ormawa = ormawa::create([
-            'nama_ormawa'     => $request->nama_ormawa,
-            'id_jurusan'     => $request->id_jurusan,
+        $image = $request->file('gambar');
+        // $image->storeAs('public/storage/img', Carbon::now()->toDateTimeString());
+        $image_name = $request->file('gambar')->store('img','public');
+        $produk = produk::create([
+            'nama_produk'     => $request->nama_produk,
+            'stok'     => $request->stok,
+            'harga'     => $request->harga,
+            'gambar'     => $image_name,
+            'id_penjual'     => Auth::User()->id,
+            'rekening'     => $request->rekening,
         ]);
-        return redirect('/admin/ormawa')-> with('success', 'Ormawa Berhasil Ditambahkan');
+        return redirect('/admin/produk2')-> with('success', 'produk Berhasil Ditambahkan');
     }
 
     /**
@@ -102,7 +131,42 @@ class produkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama_produk' => ['required'],
+            'stok' => ['required'],
+            'harga' => ['required'],
+            'gambar' => ['required'],
+            'rekening' => ['required'],
+        ]);
+        $image = $request->file('gambar');
+        if($image == null){
+            $data = produk::where('id',$id)->first();
+            $data->nama_produk = $request->get('nama_produk');
+            $data->stok = $request->get('stok');
+            $data->harga = $request->get('harga');
+            $data->rekening = $request->get('rekening');
+            $data->save();
+        }else{
+            $produk = produk::where('id', $id)->first();
+            if($produk->gambar && file_exists(storage_path('app/public/' , $produk->gambar))) {
+                Storage::delete('public/' . $produk->gambar);
+            }
+            $image_name = $request->file('gambar')->store('img','public');
+            $data = produk::where('id',$id)->with('kategori_produk')->first();
+            $data->gambar = $image_name;
+            $data->nama_produk = $request->get('nama_produk');
+            $data->stok = $request->get('stok');
+            $data->harga = $request->get('harga');
+            $data->rekening = $request->get('rekening');
+            $data->save();
+        }
+        if(Auth::User()->id_level == 1 ){
+            return redirect('/admin/produk') -> with('success', 'Produk Berhasil Diperbaruui');
+        }
+        
+        elseif (Auth::User()->id_level == 2){
+            return redirect('/admin/produk2')-> with('success', 'Produk Berhasil Diperbarui');
+        }
     }
 
     /**
@@ -113,6 +177,13 @@ class produkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        produk::find($id)->delete();
+        if(Auth::User()->id_level == 1 ){
+            return redirect('/admin/produk') -> with('success', 'Produk Berhasil Dihapus');
+        }
+        
+        elseif (Auth::User()->id_level == 2){
+            return redirect('/admin/produk2')-> with('success', 'Produk Berhasil Dihapus');
+        }
     }
 }
