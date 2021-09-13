@@ -44,7 +44,7 @@ class keranjangController extends Controller
             'id_user'     => Auth::User()->id,
             'id_produk' => $id,
         ]);
-        return redirect('/keranjang')-> with('success', 'Keranjang Berhasil Ditambahkan');
+        return redirect('/shop')-> with('success', 'Keranjang Berhasil Ditambahkan');
     }
 
     /**

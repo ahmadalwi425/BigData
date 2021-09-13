@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\pembelian;
+use App\Models\produk;
+use Carbon\Carbon;
 
 class pembelianController extends Controller
 {
@@ -17,7 +21,7 @@ class pembelianController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -38,7 +42,18 @@ class pembelianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'id_produk' => ['required'],
+            'qty' => ['required'],
+        ]);
+        $pembelian = pembelian::create([
+            'id_pembeli'     => Auth::User()->id,
+            'id_produk'     => $request->id_produk,
+            'qty'     => $request->qty,
+            'tanggal'     => Carbon::now(),
+            'status'     => 'menunggu konfirmasi',
+        ]);
+        return redirect('/konfirmasi');
     }
 
     /**
@@ -73,6 +88,22 @@ class pembelianController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function konfirmasibukti(Request $request, $id)
+    {
+        $image = $request->file('bukti');
+        $image_name = $request->file('bukti')->store('img','public');
+        $data = pembelian::where('id',$id)->first();
+        $data->bukti = $image_name;
+        $data->status ='menunggu pengiriman';
+        $data->save();
+        $tmpstok = $data->qty;
+        $data2 = produk::where('id',$data->id_produk)->first();
+        $newstok = $data2->stok - $data->qty;
+        $data2 = $newstok;
+        $data2->save();
+        return redirect('konfirmasi');
     }
 
     /**

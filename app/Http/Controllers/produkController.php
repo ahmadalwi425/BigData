@@ -19,7 +19,16 @@ class produkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function shop()
+    {
+        $data = produk::with('User','jenis_produk')->get();
+        $user = User::with('level')->get();
+        $link = 'produk';
+        $jenis_produk = jenis_produk::get();
+        return view('shop', compact('data','user','jenis_produk','link'));
+    }
+    
+     public function index()
     {
         $data = produk::with('User','jenis_produk')->get();
         $user = User::with('level')->get();
