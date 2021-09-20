@@ -15,7 +15,7 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                 </h1>
             </div>
             <div class="card-body bg-white">
-                <img src="<?= $img_url ?>{{$last->cover}}" alt="">
+                <img src="{{asset('storage/'.$last->cover)}}" alt="">
                 <br><br><br>
             </div>
             <div class="card-footer text-center">

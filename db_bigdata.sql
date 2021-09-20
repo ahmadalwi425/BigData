@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2021 at 05:54 PM
+-- Generation Time: Sep 20, 2021 at 03:57 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -145,7 +145,8 @@ CREATE TABLE `jenis_kal` (
 --
 
 INSERT INTO `jenis_kal` (`id`, `nama_jenis_kal`) VALUES
-(1, 'Hari Libur Nasional');
+(1, 'Hari Libur Nasional'),
+(4, 'asddsa');
 
 -- --------------------------------------------------------
 
@@ -157,6 +158,14 @@ CREATE TABLE `jenis_produk` (
   `id` int(11) NOT NULL,
   `jenis_produk` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenis_produk`
+--
+
+INSERT INTO `jenis_produk` (`id`, `jenis_produk`) VALUES
+(1, 'Baju'),
+(2, 'Sepatu');
 
 -- --------------------------------------------------------
 
@@ -220,6 +229,18 @@ CREATE TABLE `kategori_buletin` (
 INSERT INTO `kategori_buletin` (`id`, `nama_kategori`) VALUES
 (1, 'KAJIAN BEM KBM IT-PLN'),
 (2, 'INFOGRAFIS KBM IT-PLN');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keranjang`
+--
+
+CREATE TABLE `keranjang` (
+  `id` int(11) NOT NULL,
+  `id_user` bigint(20) UNSIGNED NOT NULL,
+  `id_produk` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -319,7 +340,7 @@ CREATE TABLE `pembelian` (
   `id_produk` int(11) NOT NULL,
   `total_harga` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
-  `bukti` varchar(250) NOT NULL,
+  `bukti` varchar(250) DEFAULT NULL,
   `tanggal` datetime NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -357,12 +378,21 @@ INSERT INTO `peminjaman` (`id`, `id_user`, `tgl_pinjam`, `tgl_kembali`, `tgl_dik
 CREATE TABLE `produk` (
   `id` int(11) NOT NULL,
   `id_jenis_produk` int(11) NOT NULL,
+  `nama_produk` varchar(100) NOT NULL,
   `stok` int(11) NOT NULL,
   `harga` bigint(20) NOT NULL,
   `gambar` varchar(250) NOT NULL,
   `id_penjual` bigint(20) UNSIGNED NOT NULL,
   `rekening` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `produk`
+--
+
+INSERT INTO `produk` (`id`, `id_jenis_produk`, `nama_produk`, `stok`, `harga`, `gambar`, `id_penjual`, `rekening`) VALUES
+(1, 2, 'Sneaker', 3, 350000, 'sdf', 2, '12312'),
+(2, 1, 'Baju Kemeja', 5, 150000, 'wdasd', 1, '234234');
 
 -- --------------------------------------------------------
 
@@ -437,7 +467,8 @@ CREATE TABLE `submenu` (
 --
 
 INSERT INTO `submenu` (`id`, `id_subdiv`, `judul`, `konten`) VALUES
-(1, 1, 'qwd', 'sdad');
+(1, 1, 'qwd', 'sdad'),
+(2, 1, 'asdsad', '<p>asdasdasasfad</p>');
 
 -- --------------------------------------------------------
 
@@ -455,7 +486,8 @@ CREATE TABLE `tahun_ajar` (
 --
 
 INSERT INTO `tahun_ajar` (`id`, `tahun_ajar`) VALUES
-(1, '2020/2021');
+(1, '2020/2021'),
+(2, '2021/2022');
 
 -- --------------------------------------------------------
 
@@ -483,7 +515,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nim`, `nama`, `email`, `email_verified_at`, `password`, `no_hp`, `id_level`, `id_jurusan`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 123123, 'user1', 'user@user.com', NULL, '$2y$10$xJ1hv4KmzcyQXot4kUfZdOfhO4mRt60Tc7zZy3VEpJ4RLkY8Lw8Ae', 5674563, 1, 1, NULL, '2021-08-11 07:12:26', '2021-08-11 07:12:26');
+(1, 123123, 'user1', 'user@user.com', NULL, '$2y$10$xJ1hv4KmzcyQXot4kUfZdOfhO4mRt60Tc7zZy3VEpJ4RLkY8Lw8Ae', 5674563, 1, 1, NULL, '2021-08-11 07:12:26', '2021-08-11 07:12:26'),
+(2, 112233, 'user2', 'user2@user.com', NULL, '$2y$10$xJ1hv4KmzcyQXot4kUfZdOfhO4mRt60Tc7zZy3VEpJ4RLkY8Lw8Ae', 237832, 2, 2, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -555,6 +588,14 @@ ALTER TABLE `kal_akademik`
 --
 ALTER TABLE `kategori_buletin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `keranjang`
+--
+ALTER TABLE `keranjang`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_produk` (`id_produk`);
 
 --
 -- Indexes for table `level`
@@ -678,13 +719,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `jenis_kal`
 --
 ALTER TABLE `jenis_kal`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jenis_produk`
 --
 ALTER TABLE `jenis_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
@@ -703,6 +744,12 @@ ALTER TABLE `kal_akademik`
 --
 ALTER TABLE `kategori_buletin`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `keranjang`
+--
+ALTER TABLE `keranjang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `level`
@@ -738,7 +785,7 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `semester`
@@ -756,19 +803,19 @@ ALTER TABLE `subdivisi`
 -- AUTO_INCREMENT for table `submenu`
 --
 ALTER TABLE `submenu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tahun_ajar`
 --
 ALTER TABLE `tahun_ajar`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -794,6 +841,13 @@ ALTER TABLE `kal_akademik`
   ADD CONSTRAINT `kal_akademik_ibfk_1` FOREIGN KEY (`id_jenis_kal`) REFERENCES `jenis_kal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kal_akademik_ibfk_2` FOREIGN KEY (`id_tahun_ajar`) REFERENCES `tahun_ajar` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `kal_akademik_ibfk_3` FOREIGN KEY (`id_semester`) REFERENCES `semester` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `keranjang`
+--
+ALTER TABLE `keranjang`
+  ADD CONSTRAINT `keranjang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `keranjang_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ormawa`
