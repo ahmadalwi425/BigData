@@ -46,12 +46,7 @@
         </div>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a href="dashboard.html" class="nav-link">
-              <span class="nav-link-inner--text">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a  href="{{ url('register2') }}" class="nav-link">
+            <a  href="{{ url('registerUser') }}" class="nav-link">
               <span class="nav-link-inner--text">Register</span>
             </a>
           </li>
@@ -76,18 +71,18 @@
               <span class="nav-link-inner--text d-lg-none">Twitter</span>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial" target="_blank" data-toggle="tooltip" data-original-title="Star us on Github">
               <i class="fab fa-github"></i>
               <span class="nav-link-inner--text d-lg-none">Github</span>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item d-none d-lg-block ml-lg-4">
-            <a href="https://www.creative-tim.com/product/argon-dashboard-pro?ref=ad_upgrade_pro" target="_blank" class="btn btn-neutral btn-icon">
+            <a href="{{ url('registerUser') }}" class="btn btn-neutral btn-icon">
               <span class="btn-inner--icon">
                 <i class="fas fa-shopping-cart mr-2"></i>
               </span>
-              <span class="nav-link-inner--text">Kembali ke Halaman Utama</span>
+              <span class="nav-link-inner--text">Ke Halaman Registrasi</span>
             </a>
           </li>
         </ul>
@@ -132,7 +127,7 @@
                 </a>
               </div>
             </div> --}}
-            <div class="card-body px-lg-5 py-lg-5 pt-lg-7">
+            <div class="card-body px-lg-5 py-lg-5 pt-5 pt-lg-7">
               {{-- <div class="text-center text-muted mb-4">
                 <small>Or sign in with credentials</small>
               </div> --}}
@@ -148,7 +143,7 @@
           @endisset
               <form role="form" action="{{ route('login') }}" method="POST">
               @csrf
-                <div class="form-group mb-3">
+                <div class="form-group col">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
@@ -156,7 +151,7 @@
                     <input class="form-control" placeholder="NIM" type="name" name="nim">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
@@ -181,7 +176,7 @@
               <a href="#" class="text-light"><small>Forgot password?</small></a>
             </div>
             <div class="col-6 text-right">
-              <a href="#" class="text-light"><small>Create new account</small></a>
+              <a href="{{ url('registerUser') }}" class="text-light"><small>Create new account</small></a>
             </div>
           </div>
         </div>
@@ -218,13 +213,13 @@
   </footer>
   <!-- Argon Scripts -->
   <!-- Core -->
-  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-  <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-  <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('js/js.cookie.js')}}"></script>
+  {{-- <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script> --}}
   <!-- Argon JS -->
-  <script src="../assets/js/argon.js?v=1.2.0"></script>
+  <script src="{{asset('js/argon.js?v=1.2.0')}}"></script>
 </body>
 
 </html>

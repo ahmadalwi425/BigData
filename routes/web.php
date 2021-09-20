@@ -42,7 +42,7 @@ Route::get('/calender', [App\Http\Controllers\kal_akademikController::class, 'in
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-Route::get('/register2',  [App\Http\Controllers\Auth\RegisterController::class, 'tampilform']);
+Route::get('/registerUser',  [App\Http\Controllers\Auth\RegisterController::class, 'tampilform']);
 
 // ADMIN
 Route::get('/admin', [App\Http\Controllers\daftar_ormawaController::class,'index']); 
