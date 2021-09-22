@@ -114,6 +114,7 @@ Route::get('/admin/produk2',  [App\Http\Controllers\produkController::class, 'in
 Route::post('/admin/produk/create',  [App\Http\Controllers\produkController::class, 'store']);
 Route::get('/admin/produk/destroy/{id}', [App\Http\Controllers\produkController::class,'destroy']); 
 Route::put('/admin/produk/update/{id}', [App\Http\Controllers\produkController::class,'update']); 
+Route::put('/admin/produk/updatestok/{id}', [App\Http\Controllers\produkController::class,'updatestok']); 
 
 Route::get('/admin/daftar_ormawa/destroy/{id}', [App\Http\Controllers\daftar_ormawaController::class,'destroy']); 
 Route::post('/admin/daftar_ormawa/create',  [App\Http\Controllers\daftar_ormawaController::class, 'store']);

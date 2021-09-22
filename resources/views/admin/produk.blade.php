@@ -169,7 +169,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{url('admin/produk/update',$row->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{url('admin/produk/updatestok',$row->id)}}" method="post" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <div class="form-group">
@@ -177,7 +177,7 @@
               <input type="text" name="nama_produk" class="form-control" id="nama_produk" aria-describedby="nama_produk" value="{{ $row->nama_produk }}">
           </div>
           <div class="form-group">
-              <label for="stok">Nama</label>
+              <label for="stok">Stok</label>
               <input type="number" name="stok" class="form-control" id="stok" aria-describedby="stok" value="{{ $row->stok }}">
           </div>
         </div>
