@@ -1,3 +1,6 @@
+@php
+    $img_url = 'http://127.0.0.1:8000/storage/assets/';  
+@endphp
 @extends('layouts.templateAdmin')
 
 @section('content')
@@ -49,6 +52,7 @@
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
                   <th scope="col" class="sort" data-sort="name">Nama Produk</th>
+                  <th scope="col" class="sort" data-sort="name">Gambar</th>
                   <th scope="col" class="sort" data-sort="name">Jenis</th>
                   <th scope="col" class="sort" data-sort="name">Stok</th>
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
@@ -66,6 +70,11 @@
                   </td>
                   <th class="budget text-lg">
                     {{$row->nama_produk}}
+                  </th>
+                  <th>
+                    <span class="badge badge-dot mr-4">
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#detail-{{$row->id}}" type="button"><i class="ni ni-image text-white mt--2 mr-3"></i>Lihat</button>
+                    </span>
                   </th>
                   <th class="budget text-lg">
                     {{$row->jenis_produk->jenis_produk}}
@@ -157,6 +166,28 @@
 
 @section('modal')
  
+{{-- MODAL DETAIL COVER --}}
+@foreach ($data as $row)
+<div class="modal fade" id="detail-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{$row->nama_produk}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="<?= $img_url ?>{{$row->gambar}}" alt="{{$row->judul}}" class="img-fluid">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div> 
+@endforeach
+
 {{-- EDIT --}}
 @foreach ($data as $row)
 <div class="modal fade" id="edit-{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
