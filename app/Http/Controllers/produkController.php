@@ -178,6 +178,25 @@ class produkController extends Controller
         }
     }
 
+    public function updatestok(Request $request, $id)
+    {
+        $this->validate($request, [
+            'nama_produk' => ['required'],
+            'stok' => ['required'],
+        ]);
+        $data = produk::where('id',$id)->first();
+        $data->nama_produk = $request->get('nama_produk');
+        $data->stok = $request->get('stok');
+        $data->save();
+        
+        if(Auth::User()->id_level == 1 ){
+            return redirect('/admin/produk') -> with('success', 'Produk Berhasil Diperbaruui');
+        }elseif (Auth::User()->id_level == 2){
+            return redirect('/admin/produk2')-> with('success', 'Produk Berhasil Diperbarui');
+        }
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
