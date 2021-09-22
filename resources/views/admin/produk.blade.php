@@ -9,11 +9,11 @@
       <div class="header-body">
         <div class="row align-items-center py-4">
           <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">produk</h6>
+            <h6 class="h2 text-white d-inline-block mb-0">Produk</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="{{url('/admin')}}"><i class="fa fa-home text-primary"></i> Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Produk</li>
+                <li class="breadcrumb-item active" aria-current="page">produk</li>
               </ol>
             </nav>
           </div>
@@ -175,6 +175,10 @@
           <div class="form-group">
               <label for="nama_produk">Nama</label>
               <input type="text" name="nama_produk" class="form-control" id="nama_produk" aria-describedby="nama_produk" value="{{ $row->nama_produk }}">
+          </div>
+          <div class="form-group">
+              <label for="stok">Nama</label>
+              <input type="number" name="stok" class="form-control" id="stok" aria-describedby="stok" value="{{ $row->stok }}">
           </div>
         </div>
         <div class="modal-footer">

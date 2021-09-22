@@ -172,10 +172,7 @@
             </div>
           </div>
           <div class="row mt-3">
-            <div class="col-6">
-              <a href="#" class="text-light"><small>Forgot password?</small></a>
-            </div>
-            <div class="col-6 text-right">
+            <div class="col text-right">
               <a href="{{ url('registerUser') }}" class="text-light"><small>Create new account</small></a>
             </div>
           </div>
