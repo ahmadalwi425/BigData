@@ -1088,9 +1088,9 @@ if($navActive == 'Dashboard') {
                   <span aria-hidden="true">×</span>
                 </button>
               </form> --}}
-              <h1 class="text-white">BIG DATA BEM KBM IT-PLN</h1>
+              <h1 class="d-none d-lg-inline text-white">BIG DATA BEM KBM IT-PLN</h1>
               <!-- Navbar links -->
-              <ul class="navbar-nav align-items-center  ml-md-auto ">
+              <ul class="navbar-nav align-items-center ml-12 ml-md-auto ">
                 <li class="nav-item d-xl-none">
                   <!-- Sidenav toggler -->
                   <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
