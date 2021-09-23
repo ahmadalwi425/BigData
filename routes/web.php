@@ -37,6 +37,10 @@ Route::get('/findus', function () {
     $link = 'findus';
     return view('findus', compact('link'));
 });
+Route::get('/shop', function () {
+    $link = 'shop';
+    return view('shop', compact('link'));
+});
 
 Route::get('/calender', [App\Http\Controllers\kal_akademikController::class, 'index']);
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
