@@ -178,7 +178,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="<?= $img_url ?>{{$row->gambar}}" alt="{{$row->judul}}" class="img-fluid">
+        <img src="{{asset('storage/'.$row->gambar)}}" alt="{{$row->judul}}" class="img-fluid">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

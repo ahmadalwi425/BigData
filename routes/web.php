@@ -114,6 +114,7 @@ Route::get('/admin/ormawa/{id}', [App\Http\Controllers\daftar_ormawaController::
 Route::put('/admin/ormawa/update/{id}', [App\Http\Controllers\ormawaController::class,'update']); 
 
 Route::get('/admin/produk',  [App\Http\Controllers\produkController::class, 'index']);
+Route::get('/admin/produk/{id}',  [App\Http\Controllers\produkController::class, 'detail']);
 Route::get('/admin/produk2',  [App\Http\Controllers\produkController::class, 'index2']);
 Route::post('/admin/produk/create',  [App\Http\Controllers\produkController::class, 'store']);
 Route::get('/admin/produk/destroy/{id}', [App\Http\Controllers\produkController::class,'destroy']); 
@@ -125,3 +126,10 @@ Route::post('/admin/daftar_ormawa/create',  [App\Http\Controllers\daftar_ormawaC
 
 Route::get('/admin/tahun_ajar/destroy/{id}', [App\Http\Controllers\tahun_ajarController::class,'destroy']); 
 Route::post('/admin/tahun_ajar/create',  [App\Http\Controllers\tahun_ajarController::class, 'store']);
+
+Route::get('/pembelian',  [App\Http\Controllers\produkController::class, 'shop']);
+Route::get('/keranjang',  [App\Http\Controllers\keranjangController::class, 'index']);
+Route::post('/keranjang/create',  [App\Http\Controllers\keranjangController::class, 'store']);
+Route::post('/pembelian/store',  [App\Http\Controllers\pembelianController::class, 'store']);
+Route::post('/pembelian/konfirmasibukti',  [App\Http\Controllers\pembelianController::class, 'konfirmasibukti']);
+Route::get('/pembelian/konfirmasikirim',  [App\Http\Controllers\pembelianController::class, 'konfirmasikirim']);
