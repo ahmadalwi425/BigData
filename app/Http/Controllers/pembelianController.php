@@ -105,6 +105,13 @@ class pembelianController extends Controller
         $data2->save();
         return redirect('konfirmasi');
     }
+    public function konfirmasikirim(Request $request, $id)
+    {
+        $data = pembelian::where('id',$id)->first();
+        $data->status ='Terkirim';
+        $data->save();
+        return redirect('konfirmasi');
+    }
 
     /**
      * Remove the specified resource from storage.
