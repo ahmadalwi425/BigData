@@ -115,9 +115,13 @@ class produkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function detail($id)
     {
-        //
+        $data = produk::with('User','jenis_produk')->where('id',$id)->first();
+        $user = User::with('level')->get();
+        $link = 'produk';
+        $jenis_produk = jenis_produk::get();
+        return view('admin.produkDetail', compact('data','user','jenis_produk','link'));
     }
 
     /**
