@@ -130,6 +130,6 @@ Route::post('/admin/tahun_ajar/create',  [App\Http\Controllers\tahun_ajarControl
 Route::get('/pembelian',  [App\Http\Controllers\produkController::class, 'shop']);
 Route::get('/keranjang',  [App\Http\Controllers\keranjangController::class, 'index']);
 Route::get('/keranjang/create/{id}',  [App\Http\Controllers\keranjangController::class, 'store']);
-Route::get('/pembelian/store/{id}',  [App\Http\Controllers\pembelianController::class, 'store']);
+Route::post('/pembelian/store',  [App\Http\Controllers\pembelianController::class, 'store']);
 Route::post('/pembelian/konfirmasibukti',  [App\Http\Controllers\pembelianController::class, 'konfirmasibukti']);
 Route::get('/pembelian/konfirmasikirim',  [App\Http\Controllers\pembelianController::class, 'konfirmasikirim']);
