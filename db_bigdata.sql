@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2021 at 03:57 PM
+-- Generation Time: Sep 24, 2021 at 07:30 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -239,7 +239,8 @@ INSERT INTO `kategori_buletin` (`id`, `nama_kategori`) VALUES
 CREATE TABLE `keranjang` (
   `id` int(11) NOT NULL,
   `id_user` bigint(20) UNSIGNED NOT NULL,
-  `id_produk` int(11) NOT NULL
+  `id_produk` int(11) NOT NULL,
+  `qty` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -391,8 +392,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `id_jenis_produk`, `nama_produk`, `stok`, `harga`, `gambar`, `id_penjual`, `rekening`) VALUES
-(1, 2, 'Sneaker', 3, 350000, 'sdf', 2, '12312'),
-(2, 1, 'Baju Kemeja', 5, 150000, 'wdasd', 1, '234234');
+(1, 2, 'Sneaker edit', 4, 350000, 'img/IMG_6877.JPG', 2, '12312'),
+(2, 1, 'Baju Kemeja', 5, 150000, 'img/IMG_6877.JPG', 1, '234234');
 
 -- --------------------------------------------------------
 

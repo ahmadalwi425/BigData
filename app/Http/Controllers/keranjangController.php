@@ -38,11 +38,12 @@ class keranjangController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id)
+    public function store(Request $request, $id)
     {
         $keranjang = keranjang::create([
             'id_user'     => Auth::User()->id,
             'id_produk' => $id,
+            'qty' => $request->get('qty'),
         ]);
         return redirect('/shop')-> with('success', 'Keranjang Berhasil Ditambahkan');
     }
