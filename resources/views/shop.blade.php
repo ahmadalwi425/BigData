@@ -213,16 +213,16 @@
 										<div class="overlay-content">
 											<h2>Rp. {{ number_format($row->harga, 3, ',', '.') }}</h2>
 											<p>{{ $row->nama_produk }}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											<a href="{{ url('/keranjang/create', $row->id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 									</div>
 								</div>
-								<div class="choose">
+								{{-- <div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
 										<li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
-								</div>
+								</div> --}}
 							</div>
 						</div>
 						@endforeach
