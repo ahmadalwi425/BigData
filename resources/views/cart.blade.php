@@ -180,15 +180,15 @@
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
 									<a class="cart_quantity_up" href="{{ url('/keranjang/create', $row->id) }}"> + </a>
-									<input disabled class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<input disabled class="cart_quantity_input" type="text" name="quantity" value="{{ $row->qty }}" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href="{{ url('/keranjang/kurang', $row->id) }}"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p class="cart_total_price">{{ $row->harga }}</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="{{ url('/keranjang/hapus', $row->id) }}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						@endforeach
