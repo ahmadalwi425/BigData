@@ -41,7 +41,7 @@ class keranjangController extends Controller
      */
     public function store($id)
     {
-        $data = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        $data = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->get();
         $ck = count($data);
         if($ck == 0){
             $keranjang = keranjang::create([
