@@ -38,14 +38,25 @@ class keranjangController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store($id)
     {
-        $keranjang = keranjang::create([
-            'id_user'     => Auth::User()->id,
-            'id_produk' => $id,
-            'qty' => $request->get('qty'),
-        ]);
-        return redirect('/shop')-> with('success', 'Keranjang Berhasil Ditambahkan');
+        $data = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        $ck = count($data);
+        if($ck == 0){
+            $keranjang = keranjang::create([
+                'id_user'     => Auth::User()->id,
+                'id_produk' => $id,
+                'qty' => 1,
+            ]);
+            return redirect('/shop')-> with('success', 'Keranjang Berhasil Ditambahkan');
+        } else {
+            $now = $data->qty;
+            $now += 1;
+            $data->qty = $now;
+            $data->save();
+            return redirect('/shop');
+        }
+        
     }
 
     /**
