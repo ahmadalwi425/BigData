@@ -41,7 +41,8 @@ class keranjangController extends Controller
      */
     public function store($id)
     {
-        $data = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        $data = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->get();
+        $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
         $ck = count($data);
         if($ck == 0){
             $keranjang = keranjang::create([
@@ -49,13 +50,28 @@ class keranjangController extends Controller
                 'id_produk' => $id,
                 'qty' => 1,
             ]);
-            return redirect('/shop')-> with('success', 'Keranjang Berhasil Ditambahkan');
+            return redirect('/pembelian')-> with('success', 'Keranjang Berhasil Ditambahkan');
         } else {
-            $now = $data->qty;
+            $now = $data2->qty;
             $now += 1;
-            $data->qty = $now;
-            $data->save();
-            return redirect('/shop');
+            $data2->qty = $now;
+            $data2->save();
+            return redirect('/keranjang');
+        }
+        
+    }
+    public function kurangkeranjang($id)
+    {
+        $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        if($data2->qty == 1){
+            $data2->delete();
+            return redirect('/keranjang');
+        } else {
+            $now = $data2->qty;
+            $now -= 1;
+            $data2->qty = $now;
+            $data2->save();
+            return redirect('/keranjang');
         }
         
     }
@@ -102,6 +118,8 @@ class keranjangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        keranjang::find($id)->delete();
+        return redirect('/keranjang')
+        -> with('success', 'keranjang Successfully Deleted');
     }
 }
