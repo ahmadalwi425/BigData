@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Shop | E-Shopper</title>
+    <title>Cart | E-Shopper</title>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/prettyPhoto.cs')}}s" rel="stylesheet">
@@ -29,7 +29,7 @@
 		<div class="header_top"><!--header_top-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6 ">
+					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
@@ -60,7 +60,7 @@
 							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
-							{{-- <div class="btn-group">
+							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									USA
 									<span class="caret"></span>
@@ -80,7 +80,7 @@
 									<li><a href="">Canadian Dollar</a></li>
 									<li><a href="">Pound</a></li>
 								</ul>
-							</div> --}}
+							</div>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -89,8 +89,8 @@
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="{{ url('keranjang') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Logout</a></li>
+								<li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -113,12 +113,12 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="index.html">Home</a></li>
-								<li class="dropdown"><a href="#" class="active">Shop<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html" class="active">Products</a></li>
+                                        <li><a href="shop.html">Products</a></li>
 										<li><a href="product-details.html">Product Details</a></li> 
 										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
+										<li><a href="cart.html" class="active">Cart</a></li> 
 										<li><a href="login.html">Login</a></li> 
                                     </ul>
                                 </li> 
@@ -139,107 +139,143 @@
 						</div>
 					</div>
 				</div>
-				</div>
 			</div>
-	</header>
-	
-	<section id="advertisement">
-		<div class="container">
-			<img src="images/shop/advertisement.jpg" alt="" />
-		</div>
-	</section>
-	
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3">
-					<div class="left-sidebar">
-						<h2>Category</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->	
-							{{-- <div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Womens
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="">Fendi</a></li>
-											<li><a href="">Guess</a></li>
-											<li><a href="">Valentino</a></li>
-											<li><a href="">Dior</a></li>
-											<li><a href="">Versace</a></li>
-										</ul>
-									</div>
-								</div>
-							</div> --}}
+		</div><!--/header-bottom-->
+	</header><!--/header-->
 
-							@foreach($jenis_produk as $row)
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">{{ $row->jenis_produk }}</a></h4>
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li class="active">Shopping Cart</li>
+				</ol>
+			</div>
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="total">Total</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach($data as $row)
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="{{ asset('storage/'.$row->gambar) }}" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">{{ $row->produk->nama_produk }}</a></h4>
+								<p>Product ID: {{ $row->id_produk }}</p>
+							</td>
+							<td class="cart_price">
+								<p>Rp. {{ number_format($row->harga, 3, ',', '.') }}</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<a class="cart_quantity_up" href=""> + </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href=""> - </a>
 								</div>
-							</div>
-							@endforeach
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price">$59</p>
+							</td>
+							<td class="cart_delete">
+								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+						@endforeach
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section> <!--/#cart_items-->
+
+	<section id="do_action">
+		<div class="container">
+			<div class="heading">
+				<h3>What would you like to do next?</h3>
+				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="chose_area">
+						<ul class="user_option">
+							<li>
+								<input type="checkbox">
+								<label>Use Coupon Code</label>
+							</li>
+							<li>
+								<input type="checkbox">
+								<label>Use Gift Voucher</label>
+							</li>
+							<li>
+								<input type="checkbox">
+								<label>Estimate Shipping & Taxes</label>
+							</li>
+						</ul>
+						<ul class="user_info">
+							<li class="single_field">
+								<label>Country:</label>
+								<select>
+									<option>United States</option>
+									<option>Bangladesh</option>
+									<option>UK</option>
+									<option>India</option>
+									<option>Pakistan</option>
+									<option>Ucrane</option>
+									<option>Canada</option>
+									<option>Dubai</option>
+								</select>
+								
+							</li>
+							<li class="single_field">
+								<label>Region / State:</label>
+								<select>
+									<option>Select</option>
+									<option>Dhaka</option>
+									<option>London</option>
+									<option>Dillih</option>
+									<option>Lahore</option>
+									<option>Alaska</option>
+									<option>Canada</option>
+									<option>Dubai</option>
+								</select>
 							
-						</div><!--/category-productsr-->
-					
-						<div class="shipping text-center"><!--shipping-->
-							<img src="images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-						
+							</li>
+							<li class="single_field zip-field">
+								<label>Zip Code:</label>
+								<input type="text">
+							</li>
+						</ul>
+						<a class="btn btn-default update" href="">Get Quotes</a>
+						<a class="btn btn-default check_out" href="">Continue</a>
 					</div>
 				</div>
-				
-				<div class="col-sm-9 padding-right">
-					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
-
-						@foreach ($data as $row)
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="{{asset('storage/'.$row->gambar)}}" alt="" />
-										<h2>Rp. {{ number_format($row->harga, 3, ',', '.') }}</h2>
-										<p>{{ $row->nama_produk }}</p>
-										<a href="{{ url('/keranjang/create', $row->id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>Rp. {{ number_format($row->harga, 3, ',', '.') }}</h2>
-											<p>{{ $row->nama_produk }}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						@endforeach
-						
-						
-						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">&raquo;</a></li>
+				<div class="col-sm-6">
+					<div class="total_area">
+						<ul>
+							<li>Cart Sub Total <span>$59</span></li>
+							<li>Eco Tax <span>$2</span></li>
+							<li>Shipping Cost <span>Free</span></li>
+							<li>Total <span>$61</span></li>
 						</ul>
-					</div><!--features_items-->
+							<a class="btn btn-default update" href="">Update</a>
+							<a class="btn btn-default check_out" href="">Check Out</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	
+	</section><!--/#do_action-->
+
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
@@ -390,7 +426,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-Shopper. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>
@@ -399,12 +435,13 @@
 	</footer><!--/Footer-->
 	
 
-  
+
     <script src="{{asset('js/jquery.js')}}"></script>
 	<script src="{{asset('js/price-range.js')}}"></script>
     <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
+</body>
 </body>
 </html>

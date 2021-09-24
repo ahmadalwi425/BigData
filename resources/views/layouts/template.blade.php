@@ -82,8 +82,8 @@ else if ($link == "shop") {
                         @php
                             if($navActive == "home") {
                                 echo '
-                                <a class="nav-link active" href="home">HOME</a>
-                                <a class="nav-link" href="about">ABOUT</a>
+                                <a class="nav-link active" href="{{ url("home",$row->id) }}">HOME</a>
+                                <a class="nav-link" href="{{ url("about",$row->id) }}">ABOUT</a>
                                 <a class="nav-link" href="bigdata">BIG DATA</a>
                                 <a class="nav-link" href="buletin">BULETIN</a>
                                 <a class="nav-link" href="calender">CALENDER</a>

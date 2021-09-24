@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\keranjang;
+use Illuminate\Support\Facades\Auth;
 
 class keranjangController extends Controller
 {
@@ -19,7 +20,7 @@ class keranjangController extends Controller
     public function index()
     {
         $data = keranjang::with('User','produk')->where('id_user',Auth::User()->id)->get();
-        return view('keranjang', compact('data'));
+        return view('cart', compact('data'));
     }
 
     /**
@@ -44,7 +45,7 @@ class keranjangController extends Controller
             'id_user'     => Auth::User()->id,
             'id_produk' => $id,
         ]);
-        return redirect('/shop')-> with('success', 'Keranjang Berhasil Ditambahkan');
+        return redirect('/pembelian')-> with('success', 'Keranjang Berhasil Ditambahkan');
     }
 
     /**

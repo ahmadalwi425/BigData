@@ -37,10 +37,10 @@ Route::get('/findus', function () {
     $link = 'findus';
     return view('findus', compact('link'));
 });
-Route::get('/shop', function () {
-    $link = 'shop';
-    return view('shop', compact('link'));
-});
+// Route::get('/shop', function () {
+//     $link = 'shop';
+//     return view('shop', compact('link'));
+// });
 
 Route::get('/calender', [App\Http\Controllers\kal_akademikController::class, 'index']);
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -129,7 +129,7 @@ Route::post('/admin/tahun_ajar/create',  [App\Http\Controllers\tahun_ajarControl
 
 Route::get('/pembelian',  [App\Http\Controllers\produkController::class, 'shop']);
 Route::get('/keranjang',  [App\Http\Controllers\keranjangController::class, 'index']);
-Route::post('/keranjang/create/{id}',  [App\Http\Controllers\keranjangController::class, 'store']);
-Route::post('/pembelian/store',  [App\Http\Controllers\pembelianController::class, 'store']);
+Route::get('/keranjang/create/{id}',  [App\Http\Controllers\keranjangController::class, 'store']);
+Route::get('/pembelian/store/{id}',  [App\Http\Controllers\pembelianController::class, 'store']);
 Route::post('/pembelian/konfirmasibukti',  [App\Http\Controllers\pembelianController::class, 'konfirmasibukti']);
 Route::get('/pembelian/konfirmasikirim',  [App\Http\Controllers\pembelianController::class, 'konfirmasikirim']);
