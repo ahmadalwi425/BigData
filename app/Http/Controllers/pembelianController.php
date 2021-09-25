@@ -54,6 +54,7 @@ class pembelianController extends Controller
             'tanggal'     => Carbon::now(),
             'status'     => 'menunggu konfirmasi',
         ]);
+        $data2->delete();
         return redirect('/konfirmasi');
     }
 
