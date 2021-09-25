@@ -24,7 +24,7 @@ class pembelianController extends Controller
     {
         $data = keranjang::with('User','produk')->get();
         $produk = produk::with('User','jenis_produk')->get();
-        $pembelian = pembelian::('User','produk')->where('id_pembeli',Auth::User()->id)->get();
+        $pembelian = pembelian::with('User','produk')->where('id_pembeli',Auth::User()->id)->get();
         return view('konfirmasi', compact('data','produk','pembelian'));
     }
 

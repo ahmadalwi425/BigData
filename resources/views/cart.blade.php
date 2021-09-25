@@ -137,6 +137,7 @@
 							<td class="price">Price</td>
 							<td class="quantity">Quantity</td>
 							<td class="total">Total</td>
+							<td class="action">Action</td>
 							<td></td>
 						</tr>
 					</thead>
@@ -174,15 +175,18 @@
 								@endforeach
 								
 							</td>
+							<td class="cart_price">
+								<a class="btn btn-default check_out" href="{{ url('/konfirmasi') }}"><strong>CHECK OUT</strong></a>
+								<a class="btn btn-default check_out" href="{{ url('/keranjang/hapus', $row->id) }}"><i class="fa fa-times"></i></a>
+							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href="{{ url('/keranjang/hapus', $row->id) }}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						@endforeach
 
 						<tr>
 							<td colspan="5">
-								<a class="btn btn-default check_out" href="{{ url('/pembelian') }}"><strong>CHECK OUT</strong></a>
+								
 							</td>
 						</tr>
 
