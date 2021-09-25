@@ -79,87 +79,64 @@ else if ($link == "shop") {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        @php
-                            if($navActive == "home") {
-                                echo '
-                                <a class="nav-link active" href="home">HOME</a>
-                                <a class="nav-link" href="about">ABOUT</a>
-                                <a class="nav-link" href="bigdata">BIG DATA</a>
-                                <a class="nav-link" href="buletin">BULETIN</a>
-                                <a class="nav-link" href="calender">CALENDER</a>
-                                <a class="nav-link" href="shop">SHOP</a>
-                                <a class="nav-link" href="findus">FIND US</a>
-                                ';
-                            } 
-                            else if ($navActive == "about") {
-                                echo '
-                                <a class="nav-link" href="home">HOME</a>
-                                <a class="nav-link active" href="about">ABOUT</a>
-                                <a class="nav-link" href="bigdata">BIG DATA</a>
-                                <a class="nav-link" href="buletin">BULETIN</a>
-                                <a class="nav-link" href="calender">CALENDER</a>
-                                <a class="nav-link" href="shop">SHOP</a>
-                                <a class="nav-link" href="findus">FIND US</a>
-                                ';
-                            }
-                            else if ($navActive == "bigdata") {
-                                echo '
-                                <a class="nav-link" href="home">HOME</a>
-                                <a class="nav-link" href="about">ABOUT</a>
-                                <a class="nav-link active" href="bigdata">BIG DATA</a>
-                                <a class="nav-link" href="buletin">BULETIN</a>
-                                <a class="nav-link" href="calender">CALENDER</a>
-                                <a class="nav-link" href="shop">SHOP</a>
-                                <a class="nav-link" href="findus">FIND US</a>
-                                ';
-                            }
-                            else if ($navActive == "buletin") {
-                                echo '
-                                <a class="nav-link" href="home">HOME</a>
-                                <a class="nav-link" href="about">ABOUT</a>
-                                <a class="nav-link" href="bigdata">BIG DATA</a>
-                                <a class="nav-link active" href="buletin">BULETIN</a>
-                                <a class="nav-link" href="calender">CALENDER</a>
-                                <a class="nav-link" href="shop">SHOP</a>
-                                <a class="nav-link" href="findus">FIND US</a>
-                                ';
-                            }
-                            else if ($navActive == "findus") {
-                                echo '
-                                <a class="nav-link" href="home">HOME</a>
-                                <a class="nav-link" href="about">ABOUT</a>
-                                <a class="nav-link" href="bigdata">BIG DATA</a>
-                                <a class="nav-link" href="buletin">BULETIN</a>
-                                <a class="nav-link" href="calender">CALENDER</a>
-                                <a class="nav-link" href="shop">SHOP</a>
-                                <a class="nav-link active" href="findus">FIND US</a>
-                                ';
-                            }
-                            else if ($navActive == "calender") {
-                                echo '
-                                <a class="nav-link" href="<?= $base_url ?>home">HOME</a>
-                                <a class="nav-link" href="<?= $base_url ?>about">ABOUT</a>
-                                <a class="nav-link" href="<?= $base_url ?>bigdata">BIG DATA</a>
-                                <a class="nav-link" href="<?= $base_url ?>buletin">BULETIN</a>
-                                <a class="nav-link active" href="<?= $base_url ?>calender">CALENDER</a>
-                                <a class="nav-link" href="<?= $base_url ?>shop">SHOP</a>
-                                <a class="nav-link" href="<?= $base_url ?>findus">FIND US</a>
-                                ';
-                            }
-                            else if ($navActive == "shop") {
-                                echo '
-                                <a class="nav-link" href="<?= $base_url ?>home">HOME</a>
-                                <a class="nav-link" href="<?= $base_url ?>about">ABOUT</a>
-                                <a class="nav-link" href="<?= $base_url ?>bigdata">BIG DATA</a>
-                                <a class="nav-link" href="<?= $base_url ?>buletin">BULETIN</a>
-                                <a class="nav-link" href="<?= $base_url ?>calender">CALENDER</a>
-                                <a class="nav-link active" href="<?= $base_url ?>shop">SHOP</a>
-                                <a class="nav-link" href="<?= $base_url ?>findus">FIND US</a>
-                                ';
-                            }
-                        @endphp
+                        @if($navActive == "home")
+                            <a class="nav-link active" href="{{ url("home") }}">HOME</a>
+                            <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
+                            <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>
+                            <a class="nav-link" href="{{ url("buletin") }}">BULETIN</a>
+                            <a class="nav-link" href="{{ url("calender") }}">CALENDER</a>
+                            <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
+                            <a class="nav-link" href="{{ url("findus") }}">FIND US</a>
+                        @elseif ($navActive == "about")
+                            <a class="nav-link" href="{{ url("home") }}">HOME</a>
+                            <a class="nav-link active" href="{{ url("about") }}">ABOUT</a>
+                            <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>
+                            <a class="nav-link" href="{{ url("buletin") }}">BULETIN</a>
+                            <a class="nav-link" href="{{ url("calender") }}">CALENDER</a>
+                            <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
+                            <a class="nav-link" href="{{ url("findus") }}">FIND US</a>
+                        @elseif ($navActive == "bigdata")
+                            <a class="nav-link" href="{{ url("home") }}">HOME</a>
+                            <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
+                            <a class="nav-link active" href="{{ url("bigdata") }}">BIG DATA</a>
+                            <a class="nav-link" href="{{ url("buletin") }}">BULETIN</a>
+                            <a class="nav-link" href="{{ url("calender") }}">CALENDER</a>
+                            <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
+                            <a class="nav-link" href="{{ url("findus") }}">FIND US</a>
+                        @elseif ($navActive == "buletin")
+                            <a class="nav-link" href="{{ url("home") }}">HOME</a>
+                            <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
+                            <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>
+                            <a class="nav-link active" href="{{ url("buletin") }}">BULETIN</a>
+                            <a class="nav-link" href="{{ url("calender") }}">CALENDER</a>
+                            <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
+                            <a class="nav-link" href="{{ url("findus") }}">FIND US</a>
+                        @elseif ($navActive == "findus")
+                            <a class="nav-link" href="{{ url("home") }}">HOME</a>
+                            <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
+                            <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>
+                            <a class="nav-link" href="{{ url("buletin") }}">BULETIN</a>
+                            <a class="nav-link" href="{{ url("calender") }}">CALENDER</a>
+                            <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
+                            <a class="nav-link active" href="{{ url("findus") }}">FIND US</a>
+                        @elseif ($navActive == "calender") {
+                            <a class="nav-link" href="{{ url("home") }}">HOME</a>
+                            <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
+                            <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>
+                            <a class="nav-link" href="{{ url("buletin") }}">BULETIN</a>
+                            <a class="nav-link active" href="{{ url("calender") }}">CALENDER</a>
+                            <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
+                            <a class="nav-link" href="{{ url("findus") }}">FIND US</a>
+                        @elseif ($navActive == "shop") {
+                            <a class="nav-link" href="{{ url("home") }}">HOME</a>
+                            <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
+                            <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>
+                            <a class="nav-link" href="{{ url("buletin") }}">BULETIN</a>
+                            <a class="nav-link" href="{{ url("calender") }}">CALENDER</a>
+                            <a class="nav-link active" href="{{ url("pembelian") }}">SHOP</a>
+                            <a class="nav-link" href="{{ url("findus") }}">FIND US</a>
+                        @endif
                         @guest
-
                         @else
                             @if(Auth::user()->id_level == 1)
                             <a class="nav-link active" href="{{url('admin')}}">Manage Web</a>

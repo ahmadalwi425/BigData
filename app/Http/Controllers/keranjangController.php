@@ -52,13 +52,13 @@ class keranjangController extends Controller
                 'id_produk' => $id,
                 'qty' => 1,
             ]);
-            return redirect('/pembelian')-> with('success', 'Keranjang Berhasil Ditambahkan');
+            return redirect('/pembelian')->with('success', $data2->produk->nama_produk . " berhasil ditambahkan");
         } else {
             $now = $data2->qty;
             $now += 1;
             $data2->qty = $now;
             $data2->save();
-            return redirect('/keranjang');
+            return redirect('/keranjang')->with('success', $data2->produk->nama_produk . " berhasil ditambahkan");
         }
         
     }
@@ -67,13 +67,13 @@ class keranjangController extends Controller
         $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
         if($data2->qty == 1){
             $data2->delete();
-            return redirect('/keranjang');
+            return redirect('/keranjang')->with('success', $data2->produk->nama_produk . " berhasil dikurangi");
         } else {
             $now = $data2->qty;
             $now -= 1;
             $data2->qty = $now;
             $data2->save();
-            return redirect('/keranjang');
+            return redirect('/keranjang')->with('success', $data2->produk->nama_produk . " berhasil dikurangi");
         }
         
     }
@@ -120,8 +120,7 @@ class keranjangController extends Controller
      */
     public function destroy($id)
     {
-        keranjang::find($id)->delete();
-        return redirect('/keranjang')
-        -> with('success', 'keranjang Successfully Deleted');
+        $data2 = keranjang::find($id)->delete();
+        return redirect('/keranjang')->with('success', $data2->produk->nama_produk . " berhasil ditambahkan");
     }
 }
