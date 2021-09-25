@@ -152,17 +152,27 @@
 								<p>Product ID: {{ $row->id_produk }}</p>
 							</td>
 							<td class="cart_price">
-								<p>Rp. {{ number_format($row->harga, 3, ',', '.') }}</p>
+								@foreach($produk as $row2)
+									@if($row2->id == $row->id_produk)
+										<p>Rp. {{ number_format($row2->harga, 3, ',', '.') }}</p>
+									@endif
+								@endforeach
+								
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href="{{ url('/keranjang/create', $row->id) }}"> + </a>
-									<input disabled class="cart_quantity_input" type="text" name="quantity" value="{{ $row->qty }}" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href="{{ url('/keranjang/kurang', $row->id) }}"> - </a>
+									<a class="cart_quantity_up" href="{{ url('/keranjang/create', $row->id_produk) }}"> + </a>
+									<input disabled class="cart_quantity_input" type="text" name="quantity" value="{{$row->qty}}" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href="{{ url('/keranjang/kurang', $row->id_produk) }}"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">{{ $row->harga }}</p>
+								@foreach($produk as $row2)
+									@if($row2->id == $row->id_produk)
+									<p class="cart_total_price">Rp. {{ number_format(($row2->harga * $row->qty), 3, ',', '.') }}</p>
+									@endif
+								@endforeach
+								
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href="{{ url('/keranjang/hapus', $row->id) }}"><i class="fa fa-times"></i></a>
