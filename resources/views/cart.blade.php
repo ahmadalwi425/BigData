@@ -184,9 +184,9 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href="{{ url('/keranjang/create', $row->id) }}"> + </a>
+									<a class="cart_quantity_up" href="{{ url('/keranjang/create', $row->id_produk) }}"> + </a>
 									<input disabled class="cart_quantity_input" type="text" name="quantity" value="{{$row->qty}}" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href="{{ url('/keranjang/kurang', $row->id) }}"> - </a>
+									<a class="cart_quantity_down" href="{{ url('/keranjang/kurang', $row->id_produk) }}"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
