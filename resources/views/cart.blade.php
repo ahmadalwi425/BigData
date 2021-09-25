@@ -176,7 +176,7 @@
 								
 							</td>
 							<td class="cart_price">
-								<a class="btn btn-default check_out" href="{{ url('/konfirmasi') }}"><strong>CHECK OUT</strong></a>
+								<a class="btn btn-default check_out" href="{{ url('/pembelian/store', $row->id) }}"><strong>CHECK OUT</strong></a>
 								<a class="btn btn-default check_out" href="{{ url('/keranjang/hapus', $row->id) }}"><i class="fa fa-times"></i></a>
 							</td>
 							<td class="cart_delete">
