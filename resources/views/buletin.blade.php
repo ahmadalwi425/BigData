@@ -15,7 +15,7 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                 </h1>
             </div>
             <div class="card-body bg-white">
-                <img src="{{asset('storage/'.$last->cover)}}" alt="">
+                <img src="{{asset('storage/'.$last->cover)}}" style="max-width:100%;" alt="">
                 <br><br><br>
             </div>
             <div class="card-footer text-center">
@@ -41,7 +41,7 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
             @if($rowkat->id == $row->id_kategori_buletin)
             <div class="card item align-self-center">
                 <div class="card-body">
-                    tes
+                <img src="{{asset('storage/'.$row->cover)}}" alt="" class="card-img">
                 </div>
                 <div class="card-footer">
                     <h3 class="title-card">{{$row->judul}}</h3>

@@ -37,7 +37,7 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
             @foreach($data as $row)
             <div class="col-sm-12 col-lg-4">
                 <div class="card">
-                    <img src="<?= $img_url ?>{{$row->cover}}" alt="" class="card-img">
+                    <img src="{{asset('storage/'.$row->cover)}}" alt="" class="card-img">
                     <div class="card-img-overlay">
                         <button class="btn btn-primary rounded float-end">
                             SELENGKAPNYA
