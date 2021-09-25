@@ -44,16 +44,13 @@ class pembelianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        $this->validate($request, [
-            'id_produk' => ['required'],
-            'qty' => ['required'],
-        ]);
+        $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
         $pembelian = pembelian::create([
             'id_pembeli'     => Auth::User()->id,
-            'id_produk'     => $request->id_produk,
-            'qty'     => $request->qty,
+            'id_produk'     => $data2->id_produk,
+            'qty'     => $data2->qty,
             'tanggal'     => Carbon::now(),
             'status'     => 'menunggu konfirmasi',
         ]);
