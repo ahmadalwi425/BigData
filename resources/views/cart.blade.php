@@ -63,9 +63,9 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
@@ -92,9 +92,9 @@
 								<li><a href="index.html">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
+										<li><a href="checkout.html">Checkout</a></li> 
                                         <li><a href="shop.html">Products</a></li>
 										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
 										<li><a href="cart.html" class="active">Cart</a></li> 
 										<li><a href="login.html">Login</a></li> 
                                     </ul>
@@ -180,13 +180,19 @@
 						</tr>
 						@endforeach
 
+						<tr>
+							<td colspan="5">
+								<a class="btn btn-default check_out" href="{{ url('/pembelian') }}"><strong>CHECK OUT</strong></a>
+							</td>
+						</tr>
+
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</section> <!--/#cart_items-->
 
-	<section id="do_action">
+	{{-- <section id="do_action">
 		<div class="container">
 			<div class="heading">
 				<h3>What would you like to do next?</h3>
@@ -254,14 +260,14 @@
 							<li>Eco Tax <span>$2</span></li>
 							<li>Shipping Cost <span>Free</span></li>
 							<li>Total <span>$61</span></li>
+							<a class="btn btn-default check_out" href="">Check Out</a>
 						</ul>
 							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section><!--/#do_action-->
+	</section><!--/#do_action--> --}}
 
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
