@@ -47,10 +47,12 @@ class pembelianController extends Controller
     public function store($id)
     {
         $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        $harga = produk::where('id',$data2->id_produk)->first()->harga;
         $pembelian = pembelian::create([
             'id_pembeli'     => Auth::User()->id,
             'id_produk'     => $data2->id_produk,
             'qty'     => $data2->qty,
+            'total_harga' => ($data2->qty * $harga),
             'tanggal'     => Carbon::now(),
             'status'     => 'menunggu konfirmasi',
         ]);
