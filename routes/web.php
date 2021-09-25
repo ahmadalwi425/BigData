@@ -129,6 +129,7 @@ Route::post('/admin/tahun_ajar/create',  [App\Http\Controllers\tahun_ajarControl
 
 Route::get('/pembelian',  [App\Http\Controllers\produkController::class, 'shop']);
 Route::get('/keranjang',  [App\Http\Controllers\keranjangController::class, 'index']);
+Route::get('/konfirmasi',  [App\Http\Controllers\pembelianController::class, 'index']);
 Route::get('/keranjang/create/{id}',  [App\Http\Controllers\keranjangController::class, 'store']);
 Route::get('/keranjang/kurang/{id}',  [App\Http\Controllers\keranjangController::class, 'kurangkeranjang']);
 Route::get('/keranjang/hapus/{id}',  [App\Http\Controllers\keranjangController::class, 'destroy']);

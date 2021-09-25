@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\pembelian;
+use App\Models\keranjang;
 use App\Models\produk;
 use Carbon\Carbon;
 
@@ -21,7 +22,10 @@ class pembelianController extends Controller
      */
     public function index()
     {
-        
+        $data = keranjang::with('User','produk')->get();
+        $produk = produk::with('User','jenis_produk')->get();
+        $pembelian = pembelian::('User','produk')->where('id_pembeli',Auth::User()->id)->get();
+        return view('konfirmasi', compact('data','produk','pembelian'));
     }
 
     /**
