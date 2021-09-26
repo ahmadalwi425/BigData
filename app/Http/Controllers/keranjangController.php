@@ -43,8 +43,8 @@ class keranjangController extends Controller
      */
     public function store($id)
     {
-        $data = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->get();
-        $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        $data = keranjang::with('User','produk')->where('id_user',Auth::User()->id)->where('id_produk',$id)->get();
+        $data2 = keranjang::with('User','produk')->where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
         $ck = count($data);
         if($ck == 0){
             $keranjang = keranjang::create([
@@ -64,7 +64,7 @@ class keranjangController extends Controller
     }
     public function kurangkeranjang($id)
     {
-        $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        $data2 = keranjang::with('User','produk')->where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
         if($data2->qty == 1){
             $data2->delete();
             return redirect('/keranjang')->with('success', $data2->produk->nama_produk . " berhasil dikurangi");

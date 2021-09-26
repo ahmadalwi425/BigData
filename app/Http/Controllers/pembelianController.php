@@ -46,11 +46,13 @@ class pembelianController extends Controller
      */
     public function store($id)
     {
-        $data2 = keranjang::where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
-        $harga = produk::where('id',$data2->id_produk)->first()->harga;
+        $data2 = keranjang::with('User','produk')->where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+        $harga2 = produk::where('id',$id)->first();
+        $harga = $harga2->harga;
+        // dd($data2);
         $pembelian = pembelian::create([
             'id_pembeli'     => Auth::User()->id,
-            'id_produk'     => $data2->id_produk,
+            'id_produk'     => $id,
             'qty'     => $data2->qty,
             'total_harga' => ($data2->qty * $harga),
             'tanggal'     => Carbon::now(),
@@ -125,6 +127,8 @@ class pembelianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        pembelian::find($id)->delete();
+        return redirect('/konfirmasi')
+        -> with('success', 'CheckOut Successfully Deleted');
     }
 }

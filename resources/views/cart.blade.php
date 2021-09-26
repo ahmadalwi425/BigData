@@ -169,15 +169,15 @@
 							</td>
 							<td class="cart_total">
 								@foreach($produk as $row2)
-									@if($row2->id == $row->id_produk`)
+									@if($row2->id == $row->id_produk)
 									<p class="cart_total_price">Rp. {{ number_format(($row2->harga * $row->qty), 3, ',', '.') }}</p>
 									@endif
 								@endforeach
 								
 							</td>
 							<td class="cart_price">
-								<a class="btn btn-default check_out" href="{{ url('/pembelian/store', $row->id) }}"><strong>CHECK OUT</strong></a>
-								<a class="btn btn-default check_out" href="{{ url('/keranjang/hapus', $row->id) }}"><i class="fa fa-times"></i></a>
+								<a class="btn btn-default check_out" href="{{ url('/pembelian/store', $row->id_produk) }}"><strong>CHECK OUT</strong></a>
+								<a class="btn btn-default check_out" href="{{ url('/keranjang/hapus', $row->id_produk) }}"><i class="fa fa-times"></i></a>
 							</td>
 							<td class="cart_delete">
 							</td>
