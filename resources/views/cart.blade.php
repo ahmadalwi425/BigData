@@ -169,7 +169,7 @@
 							</td>
 							<td class="cart_total">
 								@foreach($produk as $row2)
-									@if($row2->id == $row->id_produk)
+									@if($row2->id == $row->id_produk`)
 									<p class="cart_total_price">Rp. {{ number_format(($row2->harga * $row->qty), 3, ',', '.') }}</p>
 									@endif
 								@endforeach
