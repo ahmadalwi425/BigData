@@ -143,7 +143,7 @@
                         <td class="price">Price</td>
                         <td class="quantity">Quantity</td>
                         <td class="total">Total</td>
-                        <td></td>
+                        <td>Action</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -186,11 +186,30 @@
                     </tr>
                     <tr>
                         <td>
-                            <a class="btn btn-default check_out text-right" href="{{ url('/pembelian/store', $row->id_produk) }}"><strong>CONFIRM</strong></a>
+                            
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="container-shop">
+            <div class="card col-12">
+                <div class="card-header">Upload Your Payment</div>
+                <div class="card-body">
+                    <div id="drop-zone">
+                        <h3 class="text-center">Drop Here ...</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-12">
+                <div id="content">
+                    Your image to appear here..
+                </div>
+            </div>
+            <form action="" method="post">
+                <input type="file" name="" id="imgPayment" class="d-none">
+                <button class="text-center mx-auto btn btn-default check_out text-right mb-1" href="{{ url('/pembelian/store', $row->id_produk) }}"><strong>CONFIRM</strong></button>
+            </form>
         </div>
         @endforeach
         
@@ -356,5 +375,53 @@
     </div>
     
 </footer><!--/Footer-->
+<script>
+    const dropZone = document.getElementById('drop-zone');
+const content = document.getElementById('content');
+const payment = document.getElementById('imgPayment');
 
+const reader = new FileReader();
+
+if (window.FileList && window.File) {
+  dropZone.addEventListener('dragover', event => {
+    event.stopPropagation();
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
+  });
+  
+  dropZone.addEventListener('drop', event => {
+    content.innerHTML = '';
+    event.stopPropagation();
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    console.log(files);
+    
+    reader.readAsDataURL(files[0]);
+  
+    reader.addEventListener('load', (event) => {
+      content.innerHTML = '';
+      const img = document.createElement('img');
+    //   img.style.height = '400px';
+      img.style.width = '700px';
+      content.appendChild(img);
+      img.src = event.target.result;
+    //   img.alt = file.name;
+
+      var reader = new FileReader();
+        let input = $('#imgPayment');
+        reader.onload = function(e) {
+            $('#content img')
+                .attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+            
+        input.files[0] = $('#content img')
+                .attr('src');
+    });
+  }); 
+}
+
+
+</script>
 @endsection

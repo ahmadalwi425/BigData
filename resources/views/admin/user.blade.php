@@ -9,7 +9,7 @@
       <div class="header-body">
         <div class="row align-items-center py-4">
           <div class="col-lg-6 col-7">
-            <h6 class="h2 text-white d-inline-block mb-0">User</h6>
+            <h6 class="h2 text-white d-inline-block mb-3">User</h6>
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item">
@@ -34,9 +34,9 @@
           <!-- Card header -->
           <div class="card-header border-0 pb-0">
             <div class="mb-0 pb-0 row justify-content-between">
-              <h3 class="mb-0 col-2">Tabel</h3>
-              <div class="search-place"></div>
-              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-2 mb-0">
+              <h3 class="mb-0 col-5 col-lg-2 text-lg-left">Tables</h3>
+              <div class="search-place col-7 text-lg-left text-center"></div>
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-lg-2 col-12 mt-3 mt-lg-0 mb-0">
                 <div class="row justify-content-center align-items-center">
                   
                   <div class="col-1 ml--2">

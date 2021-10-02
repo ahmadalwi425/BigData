@@ -55,7 +55,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Big Data - <?= $navActive ?></title>
+  <title>Big Data - {{$navActive}}</title>
   <!-- Favicon -->
   <link rel="icon" href="" type="image/png">
   <!-- Fonts -->
@@ -74,6 +74,7 @@
   <!-- <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script> -->
   {{-- CKEditor --}}
   <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script> --}}
   <script>
     const reader = new FileReader();
 
@@ -140,7 +141,7 @@
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-dark bg-default" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
-      <div class="pt-4 pb-5 sidenav-header  align-items-center">
+      <div class="pt-4 pb-5 mb-3 sidenav-header  align-items-center">
         <a class="avatar avatar-lg rounded-circle" href="javascript:void(0)">
           <img src="{{ $img_url }}default.png" class="" alt="...">
         </a>
@@ -151,848 +152,811 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
 @if(Auth::User()->id_level == 1)
-@php
 
-if($navActive == 'Dashboard') {
-  echo '
-  <li class="nav-item">
-    <a class="nav-link active" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text text-dark">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Buletin') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text text-dark">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Buletin') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text text-dark">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'User') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text text-dark">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Ormawa') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text text-dark">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Data Kampus') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-yellow"></i>
-      <span class="nav-link-text text-dark">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Kalender') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-textk">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text text-dark">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Divisi') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text text-dark">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Jurusan') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text text-dark">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Peminjaman') {
-    echo '
-  <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text text-dark">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }elseif ($navActive == 'Sub Divisi') {
-    echo '
+  @if($navActive == 'Dashboard')
     <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text text-dark">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }
-  elseif ($navActive == 'Sub Menu') {
-    echo '
+      <a class="nav-link active" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text text-dark">Dashboard</span>
+      </a>
+    </li>
     <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text text-dark">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-    ';
-  }elseif ($navActive == 'Produk') {
-    echo '
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
     <li class="nav-item">
-    <a class="nav-link" href=' . $base_url .'>
-      <i class="ni ni-tv-2 text-primary"></i>
-      <span class="nav-link-text">Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/user">
-      <i class="ni ni-single-02 text-yellow"></i>
-      <span class="nav-link-text">User</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/buletin">
-      <i class="ni ni-books text-green"></i>
-      <span class="nav-link-text">Buletin</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/ormawa">
-      <i class="ni ni-circle-08 text-red"></i>
-      <span class="nav-link-text">Ormawa</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/data_kampus">
-      <i class="ni ni-hat-3 text-grey"></i>
-      <span class="nav-link-text">Data Kampus</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/divisi">
-      <i class="ni ni-chart-pie-35 text-blue"></i>
-      <span class="nav-link-text">Divisi</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/jurusan">
-      <i class="ni ni-building text-orange"></i>
-      <span class="nav-link-text">Jurusan</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/kalender">
-      <i class="ni ni-calendar-grid-58 text-green"></i>
-      <span class="nav-link-text">Kalender</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="' . $base_url .'/peminjaman">
-      <i class="ni ni-folder-17 text-primary"></i>
-      <span class="nav-link-text">Peminjaman</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="' . $base_url .'/produk/">
-      <i class="ni ni-bag-17 text-red"></i>
-      <span class="nav-link-text text-dark">Produk</span>
-    </a>
-  </li>
-    ';
-  }
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+      
+  @elseif ($navActive == 'Buletin')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text text-dark">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Buletin') 
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text text-dark">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'User')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text text-dark">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Ormawa')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text text-dark">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Data Kampus')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-yellow"></i>
+        <span class="nav-link-text text-dark">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Kalender')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-textk">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text text-dark">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Divisi')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text text-dark">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Jurusan')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text text-dark">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Peminjaman')
+    <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text text-dark">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Sub Divisi')
+      <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text text-dark">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Sub Menu')
+      <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text text-dark">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @elseif ($navActive == 'Produk')
+      <li class="nav-item">
+      <a class="nav-link" href='{{url('admin')}}'>
+        <i class="ni ni-tv-2 text-primary"></i>
+        <span class="nav-link-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin/user')}}">
+        <i class="ni ni-single-02 text-yellow"></i>
+        <span class="nav-link-text">User</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
+        <i class="ni ni-books text-green"></i>
+        <span class="nav-link-text">Buletin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
+        <i class="ni ni-circle-08 text-red"></i>
+        <span class="nav-link-text">Ormawa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
+        <i class="ni ni-hat-3 text-grey"></i>
+        <span class="nav-link-text">Data Kampus</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
+        <i class="ni ni-chart-pie-35 text-blue"></i>
+        <span class="nav-link-text">Divisi</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
+        <i class="ni ni-building text-orange"></i>
+        <span class="nav-link-text">Jurusan</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
+        <i class="ni ni-calendar-grid-58 text-green"></i>
+        <span class="nav-link-text">Kalender</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
+        <i class="ni ni-folder-17 text-primary"></i>
+        <span class="nav-link-text">Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{url('admin')}}/produk/">
+        <i class="ni ni-bag-17 text-red"></i>
+        <span class="nav-link-text text-dark">Produk</span>
+      </a>
+    </li>
 
-@endphp
-@else
-  <li class="nav-item">
-    <a class="nav-link" href="' .{{$base_url}}.'/produk2/">
-    <i class="ni ni-bag-17 text-grey"></i>
-      <span class="nav-link-text">Produk</span>
-    </a>
-  </li>
-@endif
+  @else
+    <li class="nav-item">
+      <a class="nav-link" href="' .{{$base_url}}.'/produk2/">
+      <i class="ni ni-bag-17 text-grey"></i>
+        <span class="nav-link-text">Produk</span>
+      </a>
+    </li>
+  @endif
+  @endif
             {{-- <li class="nav-item">
               <a class="nav-link" href="icons.html">
                 <i class="ni ni-planet text-orange"></i>
@@ -1184,13 +1148,13 @@ if($navActive == 'Dashboard') {
                         </span>
                         <small>Divisi</small>
                       </a>
-                      <a href="{{ url('admin/jurusan')}}" class="col-4 mb-2 shortcut-item">
+                      <a href="{{ url('admin/jurusan') }}" class="col-4 mb-2 shortcut-item">
                         <span class="shortcut-media avatar rounded-circle bg-gradient-info">
                           <i class="ni ni-building"></i>
                         </span>
                         <small>Jurusan</small>
                       </a>
-                      <a href="{{ url('admin/jurusan')}}" class="col-4 mb-2 shortcut-item">
+                      <a href="{{ url('admin/peminjaman') }}" class="col-4 mb-2 shortcut-item">
                         <span class="shortcut-media avatar rounded-circle bg-gradient-green">
                           <i class="ni ni-folder-17"></i>
                         </span>
@@ -1308,7 +1272,7 @@ if($navActive == 'Dashboard') {
           'success'
         )
     </script>
-  @endif
+    @endif
   @isset($errors)
     @foreach ($errors->all() as $message)
       <script>let errMsg += '{{$message}}';</script>  
@@ -1321,6 +1285,8 @@ if($navActive == 'Dashboard') {
       })
     </script>
   @endisset
+
+  @yield('script')
   </body>
 
 </html>

@@ -1,0 +1,17 @@
+   div#drop-zone {
+    height: 100px;
+    border: 2px dotted #ebebeb;
+  }
+  
+  div#drop-zone:hover {
+    background-color: gray;
+    border: 1px dotted #000000;
+    cursor: move;
+  }
+  
+  div#content {
+    border: 1px solid #FFF;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
