@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\daftar_ormawa;
 use App\Models\ormawa;
 use App\Models\jurusan;
+use Carbon\Carbon;
 use App\Models\User;
 
 class daftar_ormawaController extends Controller
@@ -24,7 +25,7 @@ class daftar_ormawaController extends Controller
         $ormawa = ormawa::get();
         $data = array(
             array(
-               
+            
             )
         );
         $start = 0;
@@ -33,8 +34,33 @@ class daftar_ormawaController extends Controller
             $data[$start][1]=daftar_ormawa::where('id_ormawa',$i->id)->count();
             $start++;
         }
-        $link = "dashboard";
-        return view('admin.dashboard',compact('data','link'));
+        //=========================================
+        $dataperormawa = array(
+            array(
+                array(
+            
+                    )
+            )
+        );
+        $datenow = Carbon::now();
+        $startx = 0;
+        foreach($ormawa as $i){
+            for($start2 = 0;$start2 <= 3; $start2++){
+                $from = date('2021-08-11');
+                $to = $datenow->toDateString();
+                $dataperormawa[$startx][$start2][0]=$from;
+                $dataperormawa[$startx][$start2][1]=$to;
+                $dataperormawa[$startx][$start2][2]=daftar_ormawa::whereBetween('created_at',[$from,$to])->where('id_ormawa',$i->id)->get()->count();
+                $dataperormawa[$startx][$start2][3]=$i->nama_ormawa;
+                $to = $datenow->subDays(7)->toDateString();
+            }
+            $startx++;
+        }
+        //==========================================
+        // $dataUser = User::with('level')->whereBetween('created_at',[$from,$to])->get();
+        dd($dataperormawa);
+        // $link = "dashboard";
+        // return view('admin.dashboard',compact('data','link'));
     }
 
     /**
