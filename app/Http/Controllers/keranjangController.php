@@ -52,7 +52,8 @@ class keranjangController extends Controller
                 'id_produk' => $id,
                 'qty' => 1,
             ]);
-            return redirect('/pembelian')->with('success', $data2->produk->nama_produk . " berhasil ditambahkan");
+            $data2 = keranjang::with('User','produk')->where('id_user',Auth::User()->id)->where('id_produk',$id)->first();
+            return redirect('/keranjang')->with('success', $data2->produk->nama_produk . " berhasil ditambahkan");
         } else {
             $now = $data2->qty;
             $now += 1;
