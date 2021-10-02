@@ -48,9 +48,10 @@ class daftar_ormawaController extends Controller
             $datenow = Carbon::now();
             for($start2 = 0;$start2 <= 3; $start2++){
                 $from = date('2021-08-11');
-                $to = $datenow->toDateString();
+                $to = $datenow->addDay()->toDateString();
+                $to2 = $datenow->toDateString();
                 $dataperormawa[$startx][$start2][0]=$from;
-                $dataperormawa[$startx][$start2][1]=$to;
+                $dataperormawa[$startx][$start2][1]=$to2;
                 $dataperormawa[$startx][$start2][2]=daftar_ormawa::whereBetween('created_at',[$from,$to])->where('id_ormawa',$i->id)->get()->count();
                 $dataperormawa[$startx][$start2][3]=$i->nama_ormawa;
                 $to = $datenow->subDays(7)->toDateString();
@@ -89,6 +90,7 @@ class daftar_ormawaController extends Controller
         $daftar_ormawa = daftar_ormawa::create([
             'id_user'     => $request->id_user,
             'id_ormawa'     => $request->id_ormawa,
+            'created_at' => Carbon::now(),
         ]);
         return redirect('/admin/ormawa/'.$request->id_ormawa)-> with('success', 'Anggota ormawa berhasil ditambahkan');
     }
@@ -101,7 +103,7 @@ class daftar_ormawaController extends Controller
      */
     public function show($id)
     {
-        $data = daftar_ormawa::with('User','ormawa')->orderBy('id_ormawa','ASC')->get();
+        $data = daftar_ormawa::with('User','ormawa')->where('id_ormawa',$id)->orderBy('id_ormawa','ASC')->get();
         $user = User::with('jurusan','level')->get();
         $ormawa = ormawa::get();
         $jurusan = jurusan::get();
