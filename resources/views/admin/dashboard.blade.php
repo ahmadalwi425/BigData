@@ -87,9 +87,23 @@
           </div>
           <div class="card-body">
             <!-- Chart -->
-            <div class="chart">
+            <!-- <div class="chart"> -->
               <!-- Chart wrapper -->
-              <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
+              <!-- <canvas id="chart-sales-dark" class="chart-canvas"></canvas> -->
+              @foreach($data as $row)
+                {{$row[0]}} -
+                {{$row[1]}}
+                <br>
+              @endforeach
+              @foreach($dataperormawa as $row)
+                @foreach($row as $row2)
+                  {{$row2[0]}} -
+                  {{$row2[1]}} -
+                  {{$row2[2]}} -
+                  {{$row2[3]}}
+                  <br>
+                @endforeach
+              @endforeach
             </div>
           </div>
         </div>
