@@ -141,7 +141,7 @@
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-dark bg-default" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
-      <div class="pt-4 pb-5 sidenav-header  align-items-center">
+      <div class="pt-4 pb-5 mb-3 sidenav-header  align-items-center">
         <a class="avatar avatar-lg rounded-circle" href="javascript:void(0)">
           <img src="{{ $img_url }}default.png" class="" alt="...">
         </a>
@@ -155,61 +155,61 @@
 
   @if($navActive == 'Dashboard')
     <li class="nav-item">
-      <a class="nav-link active" href=' . $base_url .'>
+      <a class="nav-link active" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text text-dark">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
@@ -217,732 +217,732 @@
       
   @elseif ($navActive == 'Buletin')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/buletin">
+      <a class="nav-link active" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text text-dark">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Buletin') 
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/buletin">
+      <a class="nav-link active" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text text-dark">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'User')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/user">
+      <a class="nav-link active" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text text-dark">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Ormawa')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/ormawa">
+      <a class="nav-link active" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text text-dark">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Data Kampus')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/data_kampus">
+      <a class="nav-link active" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-yellow"></i>
         <span class="nav-link-text text-dark">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Kalender')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-textk">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/kalender">
+      <a class="nav-link active" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text text-dark">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Divisi')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/divisi">
+      <a class="nav-link active" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text text-dark">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Jurusan')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/jurusan">
+      <a class="nav-link active" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text text-dark">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Peminjaman')
     <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/peminjaman">
+      <a class="nav-link active" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text text-dark">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Sub Divisi')
       <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/divisi">
+      <a class="nav-link active" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text text-dark">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Sub Menu')
       <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/divisi">
+      <a class="nav-link active" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text text-dark">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/produk/">
+      <a class="nav-link" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-grey"></i>
         <span class="nav-link-text">Produk</span>
       </a>
     </li>
   @elseif ($navActive == 'Produk')
       <li class="nav-item">
-      <a class="nav-link" href=' . $base_url .'>
+      <a class="nav-link" href='{{url('admin')}}'>
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/user">
+      <a class="nav-link" href="{{url('admin/user')}}">
         <i class="ni ni-single-02 text-yellow"></i>
         <span class="nav-link-text">User</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/buletin">
+      <a class="nav-link" href="{{url('admin')}}/buletin">
         <i class="ni ni-books text-green"></i>
         <span class="nav-link-text">Buletin</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/ormawa">
+      <a class="nav-link" href="{{url('admin')}}/ormawa">
         <i class="ni ni-circle-08 text-red"></i>
         <span class="nav-link-text">Ormawa</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/data_kampus">
+      <a class="nav-link" href="{{url('admin')}}/data_kampus">
         <i class="ni ni-hat-3 text-grey"></i>
         <span class="nav-link-text">Data Kampus</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/divisi">
+      <a class="nav-link" href="{{url('admin')}}/divisi">
         <i class="ni ni-chart-pie-35 text-blue"></i>
         <span class="nav-link-text">Divisi</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/jurusan">
+      <a class="nav-link" href="{{url('admin')}}/jurusan">
         <i class="ni ni-building text-orange"></i>
         <span class="nav-link-text">Jurusan</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/kalender">
+      <a class="nav-link" href="{{url('admin')}}/kalender">
         <i class="ni ni-calendar-grid-58 text-green"></i>
         <span class="nav-link-text">Kalender</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="' . $base_url .'/peminjaman">
+      <a class="nav-link" href="{{url('admin')}}/peminjaman">
         <i class="ni ni-folder-17 text-primary"></i>
         <span class="nav-link-text">Peminjaman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="' . $base_url .'/produk/">
+      <a class="nav-link active" href="{{url('admin')}}/produk/">
         <i class="ni ni-bag-17 text-red"></i>
         <span class="nav-link-text text-dark">Produk</span>
       </a>

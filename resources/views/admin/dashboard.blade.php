@@ -65,7 +65,7 @@
             <div class="row align-items-center">
               <div class="col">
                 <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                <h5 class="h3 text-white mb-0">Sales value</h5>
+                <h5 class="h3 text-white mb-0">Amount of Transaction</h5>
               </div>
               <div class="col">
                 <ul class="nav nav-pills justify-content-end">
