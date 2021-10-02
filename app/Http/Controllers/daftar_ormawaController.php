@@ -42,9 +42,10 @@ class daftar_ormawaController extends Controller
                     )
             )
         );
-        $datenow = Carbon::now();
+        
         $startx = 0;
         foreach($ormawa as $i){
+            $datenow = Carbon::now();
             for($start2 = 0;$start2 <= 3; $start2++){
                 $from = date('2021-08-11');
                 $to = $datenow->toDateString();
@@ -58,9 +59,9 @@ class daftar_ormawaController extends Controller
         }
         //==========================================
         // $dataUser = User::with('level')->whereBetween('created_at',[$from,$to])->get();
-        dd($dataperormawa);
-        // $link = "dashboard";
-        // return view('admin.dashboard',compact('data','link'));
+        // dd($data);
+        $link = "dashboard";
+        return view('admin.dashboard',compact('data','dataperormawa','link'));
     }
 
     /**
