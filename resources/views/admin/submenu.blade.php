@@ -34,8 +34,8 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-0 pb-0 row justify-content-between">
-                <h3 class="mb-0 col-2">Isi Menu <strong>{{ $data->judul }}</strong></h3>
-                <button type="submit" disabled class="btn-simpan btn col-2 mb-0">Simpan</button>
+                <h3 class="mb-0 col-lg-2 col-12">Isi Menu <strong>{{ $data->judul }}</strong></h3>
+                <button type="submit" disabled class="btn-simpan btn col-lg-2 col-12 mb-0 mt-3 mt-lg-0">Simpan</button>
                 </div>
             </div>
             <div class="card-body">

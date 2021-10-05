@@ -67,7 +67,7 @@
                     {{$row->nama_ormawa}}
                   </th>
                   <td scope="row">
-                    <a class="btn btn-primary" href="{{ url('admin/ormawa',$row->id) }}"><i class="ni ni-image text-white mt--2 mr-3"></i>Lihat</a>
+                    <a class="btn btn-primary" href="{{ url('admin/ormawa',$row->id) }}"><i class="ni ni-zoom-split-in text-white mt--2 mr-3"></i>Lihat</a>
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">

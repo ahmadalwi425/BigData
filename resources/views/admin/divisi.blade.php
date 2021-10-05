@@ -81,7 +81,7 @@
                   </th>
                   <td>
                     <a href="{{ url('admin/subdivisi', $row->id) }}" class="badge badge-dot mr-4">
-                      <button class="btn btn-primary" type="button"><i class="ni ni-image text-white mt--2 mr-3"></i>Lihat</button>
+                      <button class="btn btn-primary" type="button"><i class="ni ni-zoom-split-in text-white mt--2 mr-3"></i>Lihat</button>
                     </a>
                   </td>
                   <td>

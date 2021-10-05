@@ -63,13 +63,17 @@
         <div class="card bg-default">
           <div class="card-header bg-transparent">
             <div class="row align-items-center">
-              <div class="col">
+              <div class="col-12">
                 <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                <h5 class="h3 text-white mb-0">Amount of Transaction</h5>
+                <h5 class="h3 text-white mb-5">Amount of Transaction</h5>
               </div>
-              <div class="col">
-                <ul class="nav nav-pills justify-content-end">
-                  <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+              <div class="col-12">
+                {{-- <ul class="nav nav-pills justify-content-end">
+                  <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[
+                      @foreach($data as $row)
+                        {{$row[1]}},
+                        @endforeach
+                      ]}]}}' data-prefix="$" data-suffix="k">
                     <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
                       <span class="d-none d-md-block">Month</span>
                       <span class="d-md-none">M</span>
@@ -81,23 +85,25 @@
                       <span class="d-md-none">W</span>
                     </a>
                   </li>
-                </ul>
+                </ul> --}}
+                <div class="chart3">
+                  <canvas id="chart-line" class="chart-canvas"></canvas>
+                </div>
               </div>
             </div>
           </div>
-          <div class="card-body">
+          {{-- <div class="card-body">
             <!-- Chart -->
             <!-- <div class="chart"> -->
               <!-- Chart wrapper -->
               <!-- <canvas id="chart-sales-dark" class="chart-canvas"></canvas> -->
               @foreach($data as $row)
-                {{$row[0]}} -
-                {{$row[1]}}
+                {{$row[0]}} - //NAMA
+                {{$row[1]}}   //JUMLAH
                 <br>
               @endforeach
-              @foreach($dataperormawa as $row)
                 @foreach($row as $row2)
-                  {{$row2[0]}} -
+                  {{$row2[0]}} - 
                   {{$row2[1]}} -
                   {{$row2[2]}} -
                   {{$row2[3]}}
@@ -105,7 +111,7 @@
                 @endforeach
               @endforeach
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
       <div class="col-xl-4">
@@ -127,8 +133,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xl-8">
+    {{-- <div class="row"> --}}
+      {{-- <div class="col-xl-8">
         <div class="card">
           <div class="card-header border-0">
             <div class="row align-items-center">
@@ -344,7 +350,7 @@
             </table>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
     <!-- Footer -->
     <footer class="footer pt-0">
@@ -384,8 +390,10 @@
   // var ctx2.innerHTML = '&nbsp;';
   // var ctx2.innerHTML = '<canvas id="chart-bars"></canvas>;';
   $('.chart2').empty();
+  $('.chart3').empty();
     
     $('.chart2').html('<canvas id="chart-bars" class="chart-canvas"></canvas>'); // then load chart.
+    $('.chart3').html('<canvas id="chart-line" class="chart-canvas"></canvas>'); // then load chart.
         
   var ctx = document.getElementById("chart-bars");
     var myChart = new Chart(ctx, {
@@ -405,6 +413,33 @@
                 ],
                 backgroundColor: '#5e72e4',
                 borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            },events:[]
+        }
+    });
+  var ctx2 = document.getElementById("chart-line");
+    var myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: [
+              @foreach($data as $row)
+              '{{ $row[0] }}', 
+              @endforeach
+            ],
+            datasets: [{
+                label: 'member',
+                data: [
+                  @foreach($data as $row)
+                    {{ $row[1] }}, 
+                  @endforeach
+                ],
+                borderWidth: 3
             }]
         },
         options: {

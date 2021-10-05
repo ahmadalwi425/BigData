@@ -8,24 +8,23 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
 @section('content')
 
 
-    <div class="container mt-4">
+    <div class="container mt-5">
         <div class="card rounded bg-dark">
             <div class="card-header text-white text-center">
                 <h3 class="title-content">KALENDER AKADEMIK</h3>
             </div>
             <div class="card-body bg-dark px-4 m-1">
                 <div class="card px-1">
-                    <table id="myTable" class="table">
+                    <table class="table table-responsive myTable">
                         <thead>
                             <tr>
-                                <td>NO</td>
-                                <td>TANGGAL MULAI</td>
-                                <td>TANGGAL SELESAI</td>
-                                <td>JENIS</td>
-                                <td>KETERANGAN</td>
-                                <td>SEMESTER</td>
-                                <td>TAHUN AJAR</td>
-                                <td>AKSI</td>
+                                <th>NO</th>
+                                <th>TANGGAL MULAI</th>
+                                <th>TANGGAL SELESAI</th>
+                                <th>JENIS</th>
+                                <th>KETERANGAN</th>
+                                <th>SEMESTER</th>
+                                <th>TAHUN AJAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,12 +35,8 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                                 <td>{{$row->tgl_selesai}}</td>
                                 <td>{{$row->jenis_kal->nama_jenis_kal}}</td>
                                 <td>{{$row->nama_kegiatan}}</td>
-                                <td>{{$row->semester}}</td>
+                                <td>{{$row->semester->semester}}</td>
                                 <td>{{$row->tahun_ajar->tahun_ajar}}</td>
-                                <td>
-                                    <button class="btn btn-danger btn-action">Del</button>
-                                    <button class="btn btn-warning btn-action">Edit</button>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -55,17 +50,16 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
             </div>
             <div class="card-body bg-dark px-4 m-1">
                 <div class="card px-1">
-                    <table id="myTable" class="table">
+                    <table class="table table-responsive myTable">
                         <thead>
                             <tr>
-                                <td>NO</td>
-                                <td>TANGGAL MULAI</td>
-                                <td>TANGGAL SELESAI</td>
-                                <td>JENIS</td>
-                                <td>KETERANGAN</td>
-                                <td>SEMESTER</td>
-                                <td>TAHUN AJAR</td>
-                                <td>AKSI</td>
+                                <th>NO</th>
+                                <th>TANGGAL MULAI</th>
+                                <th>TANGGAL SELESAI</th>
+                                <th>JENIS</th>
+                                <th>KETERANGAN</th>
+                                <th>SEMESTER</th>
+                                <th>TAHUN AJAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,10 +71,6 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                                 <td>Hari Raya Pancasila</td>
                                 <td>Genap</td>
                                 <td>2020/2021</td>
-                                <td>
-                                    <button class="btn btn-danger btn-action">Del</button>
-                                    <button class="btn btn-warning btn-action">Edit</button>
-                                </td>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -90,10 +80,6 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                                 <td>Hari Raya Pancasila</td>
                                 <td>Genap</td>
                                 <td>2020/2021</td>
-                                <td>
-                                    <button class="btn btn-danger btn-action">Del</button>
-                                    <button class="btn btn-warning btn-action">Edit</button>
-                                </td>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -103,10 +89,6 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                                 <td>Hari Raya Pancasila</td>
                                 <td>Genap</td>
                                 <td>2020/2021</td>
-                                <td>
-                                    <button class="btn btn-danger btn-action">Del</button>
-                                    <button class="btn btn-warning btn-action">Edit</button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -119,17 +101,16 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
             </div>
             <div class="card-body bg-dark px-4 m-1">
                 <div class="card px-1">
-                    <table id="myTable" class="table">
+                    <table class="table table-responsive myTable">
                         <thead>
                             <tr>
-                                <td>NO</td>
-                                <td>TANGGAL MULAI</td>
-                                <td>TANGGAL SELESAI</td>
-                                <td>JENIS</td>
-                                <td>KETERANGAN</td>
-                                <td>SEMESTER</td>
-                                <td>TAHUN AJAR</td>
-                                <td>AKSI</td>
+                                <th>NO</th>
+                                <th>TANGGAL MULAI</th>
+                                <th>TANGGAL SELESAI</th>
+                                <th>JENIS</th>
+                                <th>KETERANGAN</th>
+                                <th>SEMESTER</th>
+                                <th>TAHUN AJAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -141,10 +122,6 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                                 <td>Hari Raya Pancasila</td>
                                 <td>Genap</td>
                                 <td>2020/2021</td>
-                                <td>
-                                    <button class="btn btn-danger btn-action">Del</button>
-                                    <button class="btn btn-warning btn-action">Edit</button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -155,7 +132,7 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
 
 <script>
     $(document).ready( function () {
-        $('#myTable').DataTable();
+        $('.myTable').DataTable();
     } );
 </script>
 

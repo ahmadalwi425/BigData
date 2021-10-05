@@ -119,7 +119,7 @@ else if ($link == "shop") {
                             <a class="nav-link" href="{{ url("calender") }}">CALENDER</a>
                             <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
                             <a class="nav-link active" href="{{ url("findus") }}">FIND US</a>
-                        @elseif ($navActive == "calender") {
+                        @elseif ($navActive == "calender") 
                             <a class="nav-link" href="{{ url("home") }}">HOME</a>
                             <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
                             <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>
@@ -127,7 +127,7 @@ else if ($link == "shop") {
                             <a class="nav-link active" href="{{ url("calender") }}">CALENDER</a>
                             <a class="nav-link" href="{{ url("pembelian") }}">SHOP</a>
                             <a class="nav-link" href="{{ url("findus") }}">FIND US</a>
-                        @elseif ($navActive == "shop") {
+                        @elseif ($navActive == "shop") 
                             <a class="nav-link" href="{{ url("home") }}">HOME</a>
                             <a class="nav-link" href="{{ url("about") }}">ABOUT</a>
                             <a class="nav-link" href="{{ url("bigdata") }}">BIG DATA</a>

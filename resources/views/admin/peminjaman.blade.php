@@ -41,7 +41,7 @@
             <div class="mb-0 pb-0 row justify-content-between">
               <h3 class="mb-0 col-5 col-lg-2 text-lg-left">Tables</h3>
               <div class="search-place col-7 text-lg-left text-center"></div>
-              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-lg-2 col-12 mt-3 mt-lg-0 mb-0">
+              <button type="button" data-toggle="modal" data-target="#create" class="btn-success btn col-lg-2 col-12 mt-3 mt-lg-0 mb-0 mb-lg-2">
                 <div class="row justify-content-center align-items-center">
                   
                   <div class="col-1 ml--2">
@@ -113,7 +113,7 @@
                         </div>
                       </div></a>
                     @else
-                      <a class="btn btn-secondary" style="pointer-events: none" id="link-{{$row->id}}" href="#"><div class="row justify-content-center align-items-center">
+                      <a class="btn btn-secondary" aria-disabled="true" style="pointer-events: none" id="link-{{$row->id}}" href=""><div class="row justify-content-center align-items-center">
                         <div class="col-1">
                           <i class="ni ni-box-2 text-dark mt--1 ml--3 text-md"></i> 
                         </div>
