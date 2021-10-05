@@ -121,7 +121,7 @@ class produkController extends Controller
         $user = User::with('level')->get();
         $link = 'produk';
         $jenis_produk = jenis_produk::get();
-        return view('admin.produkDetail', compact('data','user','jenis_produk','link'));
+        return view('shopDetail', compact('data','user','jenis_produk','link'));
     }
 
     /**
