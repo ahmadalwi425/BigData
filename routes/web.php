@@ -63,6 +63,7 @@ Route::get('/admin/buletin',  [App\Http\Controllers\buletinController::class, 'i
 Route::post('/admin/buletin/create',  [App\Http\Controllers\buletinController::class, 'store']);
 Route::get('/admin/buletin/destroy/{id}', [App\Http\Controllers\buletinController::class,'destroy']); 
 Route::put('/admin/buletin/update/{id}', [App\Http\Controllers\buletinController::class,'update']); 
+Route::put('/buletinDetail/{id}', [App\Http\Controllers\buletinController::class,'show']); 
 
 Route::post('/admin/kategori_buletin/store',  [App\Http\Controllers\kategori_buletinController::class, 'store']);
 Route::get('/admin/kategori_buletin/destroy/{id}', [App\Http\Controllers\kategori_buletinController::class,'destroy']); 

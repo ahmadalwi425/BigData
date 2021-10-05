@@ -92,7 +92,9 @@ class buletinController extends Controller
     
     public function show($id)
     {
-        //
+        $data = buletin::where('id',$id)->first();
+        return view('buletinDetail', compact('data'));
+
     }
 
     /**
