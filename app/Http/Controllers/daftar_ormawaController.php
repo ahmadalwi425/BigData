@@ -8,6 +8,7 @@ use App\Models\ormawa;
 use App\Models\jurusan;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\pembelian;
 
 class daftar_ormawaController extends Controller
 {
@@ -58,11 +59,28 @@ class daftar_ormawaController extends Controller
             }
             $startx++;
         }
+        //=========================================
+        $datapembelian = array(
+            array(
+                array(
+            
+                    )
+            )
+        );
+        $datenow = Carbon::now();
+        for($start2 = 0;$start2 <= 3; $start2++){
+            $from = date('2021-08-11');
+            $to = $datenow->addDay()->toDateString();
+            $to2 = $datenow->toDateString();
+            $datapembelian[$start2][0]=$to2;
+            $datapembelian[$start2][1]=pembelian::whereBetween('tanggal',[$from,$to])->get()->count();
+            $to = $datenow->subDays(7)->toDateString();
+        }
         //==========================================
         // $dataUser = User::with('level')->whereBetween('created_at',[$from,$to])->get();
         // dd($data);
         $link = "dashboard";
-        return view('admin.dashboard',compact('data','dataperormawa','link'));
+        return view('admin.dashboard',compact('data','dataperormawa','link','datapembelian'));
     }
 
     /**
