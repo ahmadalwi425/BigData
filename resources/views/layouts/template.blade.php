@@ -67,8 +67,8 @@ else if ($link == "shop") {
         <div class="container-fluid bg-white">
             <div class="col-12 p-1">
                 <a class="navbar-brand" href="#">
-                    <img src="<?= $img_url ?>logo-navbar.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                    <img src="<?= $img_url ?>logo-navbar.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                    <img src="{{asset('storage/assets/img/index.jpg')}}" alt="" width="52" height="52" class="d-inline-block align-text-top">
+                    <img src="{{asset('storage/assets/img/LO GO.png')}}" alt="" width="52" height="52" class="d-inline-block align-text-top">
                 </a>
             </div>
         </div>
