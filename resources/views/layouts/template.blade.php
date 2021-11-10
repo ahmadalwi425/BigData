@@ -156,8 +156,15 @@ else if ($link == "shop") {
 
 
     <!-- FOOTER -->
-    <div class="container-fluid my-bg py-3 text-white">
-        <div class="row my-bg justify-content-center text-center">
+    <div class="container-fluid py-3 pt-5 text-white footer" style="background: hsla(191, 68%, 12%, 1);
+
+    background: linear-gradient(0deg, hsla(191, 68%, 12%, 1) 81%, hsla(206, 75%, 15%, 1) 93%, hsla(206, 75%, 15%, 1) 100%);
+    
+    background: -moz-linear-gradient(0deg, hsla(191, 68%, 12%, 1) 81%, hsla(206, 75%, 15%, 1) 93%, hsla(206, 75%, 15%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(191, 68%, 12%, 1) 57%, hsla(206, 75%, 15%, 1) 93%, hsla(206, 75%, 15%, 1) 100%);
+    ">
+        <div class="row justify-content-center text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-2 mb-1 col-12"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                     width="24" height="24"

@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+h1 {
+    margin: 0;
+}
+
 /* ROOT */
 .my-bg{
     background-color:#0a2d35 !important;
@@ -65,14 +69,29 @@
 
 /* HALAMAN ABOUT */
 .dedikasi-milenial {
-    margin-top: 150px;
+    padding-top: 395px;
+    margin-top: -319px;
 }
+.vl {
+    border-left: 4px solid white;
+    height: 97px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    bottom:10;
+  }
 
 /* HALAMAN BIGDATA */
 .jumbotron-bigdata {
     background-color: white;
     opacity: .5;
     margin: 0;
+}
+.about-title {
+    font-family: Calibri;
+    font-weight: 700;
+    color: rgb(248, 109, 17);
+    text-shadow: 2px 2px 2px #181818;
 }
 
 .btn-bigdata-2 {
@@ -81,6 +100,11 @@
 
 .btn-bigdata-3 {
     width: 220px
+}
+
+.footer {
+    background: hsla(191, 68%, 12%, 1);
+background: linear-gradient(0deg, hsla(191, 68%, 12%, 1) 87%, hsla(206, 75%, 15%, 1) 93%, hsla(206, 75%, 15%, 1) 100%);
 }
 
 
