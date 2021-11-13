@@ -18,6 +18,9 @@ h1 {
     background-color: rgba(99,184,167,255)
     ;
 }
+.text-prime {
+    font-family: Calibri;
+}
 
 
 /* NAVBAR */
@@ -69,6 +72,14 @@ h1 {
     font-family: Calibri;
     text-decoration: underline;
     color: orange;
+}
+.title-bigdata {
+    font-family: Calibri;
+    color: orange;
+    font-weight: 700;
+}
+.title-table {
+    font-weight: 700;
 }
 .isi-content {
     font-size: larger;

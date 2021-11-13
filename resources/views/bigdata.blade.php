@@ -9,31 +9,31 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
 
 {{-- JUMBOTRON --}}
 <div class="container-fluid">
-    <div class="mt-5 jumbotron jumbotron-bigdata text-center row justify-content-center" style="background-image: url(<?= $img_url ?>IMG_6877.JPG);">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="mt-5 jumbotron jumbotron-bigdata text-center row justify-content-center" style="background-image: url({{asset('storage/assets/img/home.jpeg')}}); background-size: cover; background-repeat: no-repeat;">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class="jumbotron-text align-self-center text-dark">
-            <h1>BIG DATA</h1>
-            <h3>BEM KBM IT-PLN</h3>
+            <h1 class="display-3 text-white title-bigdata">BIG DATA</h1>
+            <h3 class="h3 text-warning title-bigdata">BEM KBM IT-PLN</h3>
         </div>
     </div>
 </div>
 
 {{-- TABEL --}}
 <div class="container-fluid bg-white">
-    <div class="card rounded-3 p-3 my-5 card-table">
-        <h3>TABEL BIG DATA IT - PLN</h3>
-        <table class="table table-light table-striped table-hover">
-            <thead class="fw-bold">
-                <tr>
-                    <td>Kategori</td>
-                    <td>Total</td>
+    <div class="card rounded-3 p-3 my-5 card-table text-prime">
+        <h3 class="text-prime title-table">TABEL BIG DATA IT - PLN</h3>
+        <table class="table table-light table-striped table-hover text-prime">
+            <thead class="fw-bold text-prime">
+                <tr >
+                    <td class="text-prime">Kategori</td>
+                    <td class="text-prime">Total</td>
                 </tr>
             </thead>
             <tbody>
                 @foreach($data as $row)
                 <tr>
-                    <td>{{$row->kategori}}</td>
-                    <td>{{$row->total}}</td>
+                    <td class="text-prime">{{$row->kategori}}</td>
+                    <td class="text-prime">{{$row->total}}</td>
                 </tr>
                 @endforeach
             </tbody>
