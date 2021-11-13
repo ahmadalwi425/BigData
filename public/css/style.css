@@ -21,9 +21,17 @@ h1 {
 
 
 /* NAVBAR */
+.navbar {
+    background-color: rgba(0,0,0, .5);
+    transition: background-color .2s;
+}
 .nav-second {
     color: white;
     background-color: rgba(0,0,0, .5);
+}
+
+.nav-scrolled {
+    background-color: rgb(0, 0, 0, .7);
 }
 
 .nav-link {
