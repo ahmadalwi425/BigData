@@ -206,9 +206,10 @@
                     Your image to appear here..
                 </div>
             </div>
-            <form action="" method="post">
-                <input type="file" name="" id="imgPayment" class="d-none">
-                <button class="text-center mx-auto btn btn-default check_out text-right mb-1" href="{{ url('/pembelian/store', $row->id_produk) }}"><strong>CONFIRM</strong></button>
+            <form action="{{ url('/pembelian/konfirmasibukti', $row->id_produk) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="bukti" id="imgPayment" class="d-none">
+                <input class="text-center mx-auto btn btn-default check_out text-right mb-1" type="submit" value="CONFIRM">
             </form>
         </div>
         @endforeach

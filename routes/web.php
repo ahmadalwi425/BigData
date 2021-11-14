@@ -136,5 +136,5 @@ Route::get('/keranjang/kurang/{id}',  [App\Http\Controllers\keranjangController:
 Route::get('/keranjang/hapus/{id}',  [App\Http\Controllers\keranjangController::class, 'destroy']);
 Route::get('/pembelian/store/{id}',  [App\Http\Controllers\pembelianController::class, 'store']);
 Route::get('/pembelian/delete/{id}',  [App\Http\Controllers\pembelianController::class, 'destroy']);
-Route::post('/pembelian/konfirmasibukti',  [App\Http\Controllers\pembelianController::class, 'konfirmasibukti']);
+Route::post('/pembelian/konfirmasibukti/{id}',  [App\Http\Controllers\pembelianController::class, 'konfirmasibukti']);
 Route::get('/pembelian/konfirmasikirim',  [App\Http\Controllers\pembelianController::class, 'konfirmasikirim']);
