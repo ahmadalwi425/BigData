@@ -75,6 +75,7 @@
                 </tbody>
             </table>
         </div>
+        @if($row->status == "menunggu konfirmasi")
         <div class="container-shop">
             <form action="{{ url('/pembelian/konfirmasibukti', $row->id_produk) }}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -82,6 +83,7 @@
                 <input class="text-center mx-auto btn btn-default check_out text-right mb-1" type="submit" value="CONFIRM">
             </form>
         </div>
+        @endif
         @endforeach
         
     </div>
