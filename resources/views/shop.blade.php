@@ -58,7 +58,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{asset('storage/'.$row->gambar)}}" alt="" />
+										<img src="{{asset('storage/assets/'.$row->gambar)}}" alt="" />
 										<h2>Rp. {{ number_format($row->harga, 3, ',', '.') }}</h2>
 										<p>{{ $row->nama_produk }}</p>
 										<a href="{{ url('/keranjang/create', $row->id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
