@@ -121,6 +121,11 @@ h1 {
     width: 220px
 }
 
+/* calender */
+td, th {
+    font-family: Calibri;
+}
+
 .footer {
     background: hsla(191, 68%, 12%, 1);
 background: linear-gradient(0deg, hsla(191, 68%, 12%, 1) 87%, hsla(206, 75%, 15%, 1) 93%, hsla(206, 75%, 15%, 1) 100%);

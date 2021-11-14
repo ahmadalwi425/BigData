@@ -57,7 +57,7 @@ else if ($link == "shop") {
     <script src="<?= $base_url ?>js/owl.carousel.min.js"></script>
 
     
-    <title>Big Data</title>
+    <title>Big Data - {{$navActive}}</title>
   </head>
   <body>
 

@@ -7,31 +7,30 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
 
 @section('content')
     
-    <div class="container mt-5">
-        <div class="card bg-dark my-5 text-white rounded border-1">
+    <div class="container mt-5 pt-3">
+        <div class="card bg-light my-5 text-white rounded border-1">
             <div class="card-header">
-                <h1>
+                <h1 class="text-prime h3 text-dark title-table">
                     BULETIN TERBARU
                 </h1>
             </div>
-            <div class="card-body bg-white">
-                <img src="{{asset('storage/'.$last->cover)}}" style="max-width:100%;" alt="">
-                <br><br><br>
+            <div class="card-body bg-white text-center">
+                <img src="{{asset('storage/assets/img/home.jpeg')}}" style="width:70%; max-height:30%;" alt="" height="150" class="text-center">
             </div>
             <div class="card-footer text-center">
-                <button class="btn btn-primary btn-next">
+                <button class="btn btn-warning text-prime text-white btn-next">
                     SELANJUTNYA
                 </button>
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container mt-3">
         @foreach($kategori as $rowkat)
 
 
         <hr>
-        <h1 class="title-content text-center">
+        <h1 class="text-prime title-table text-center">
             {{$rowkat->nama_kategori}}
         </h1>
         <hr>

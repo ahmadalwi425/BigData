@@ -8,10 +8,10 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
 @section('content')
 
 
-    <div class="container mt-5">
-        <div class="card rounded bg-dark">
+    <div class="container my-5 py-5">
+        <div class="card rounded bg-dark mb-5">
             <div class="card-header text-white text-center">
-                <h3 class="title-content">KALENDER AKADEMIK</h3>
+                <h3 class="title-content title-table text-white">KALENDER AKADEMIK</h3>
             </div>
             <div class="card-body bg-dark px-4 m-1">
                 <div class="card px-1">
@@ -44,9 +44,9 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
                 </div>
             </div>
         </div>
-        <div class="card rounded bg-dark mt-5">
+        <div class="card rounded bg-dark my-5">
             <div class="card-header text-white text-center">
-                <h3 class="title-content">KALENDER PEMINJAMAN</h3>
+                <h3 class="title-content  title-table text-white">KALENDER PEMINJAMAN</h3>
             </div>
             <div class="card-body bg-dark px-4 m-1">
                 <div class="card px-1">
@@ -97,7 +97,7 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
         </div>
         <div class="card rounded bg-dark my-5">
             <div class="card-header text-white text-center">
-                <h3 class="title-content">KALENDER KEGIATAN</h3>
+                <h3 class="title-content title-table text-white">KALENDER KEGIATAN</h3>
             </div>
             <div class="card-body bg-dark px-4 m-1">
                 <div class="card px-1">
