@@ -38,12 +38,12 @@ h1 {
 }
 
 .nav-link {
-    color: white;
+    color: white !important;
 }
 
 .active {
-    color: black !important;
-    background-color: rgba(37, 109, 204, 0.2);
+    color: white !important;
+    background-color: rgba(76, 150, 247, 0.2);
 }
 
 .nav-link:hover {
@@ -179,6 +179,6 @@ background: linear-gradient(0deg, hsla(191, 68%, 12%, 1) 87%, hsla(206, 75%, 15%
 
 /* MAP GOOGLE */
 #map {
-    height: 500px;
+    height: 550px;
     width: 100%;
   }  

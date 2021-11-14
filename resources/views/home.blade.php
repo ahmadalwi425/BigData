@@ -11,7 +11,7 @@ $img_url = 'http://127.0.0.1:8000/storage/assets/img/';
  <div class="container-fluid">
     <div class=" mt-5 jumbotron text-end" style="background-image: url({{asset('storage/assets/img/home.jpeg')}}); background-size: cover; background-repeat: no-repeat;">
         <!-- <img src="<?= $img_url ?>IMG_6877.JPG" alt="" class="img-fluid mt-5"> -->
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <div class="jumbotron-text align-self-center m-5 pb-4">
             <h1 class="home-title">WELCOME TO</h1>
             <h3 class="home-subtitle">MOBILE BEM</h3>
