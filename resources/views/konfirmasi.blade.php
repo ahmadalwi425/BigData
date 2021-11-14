@@ -2,129 +2,12 @@
 
 @section('content') 
 
-<header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="contactinfo">
-                        <ul class="nav nav-pills">
-                            <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="social-icons pull-right">
-                        <ul class="nav navbar-nav">
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/header_top-->
-    
-    <div class="header-middle"><!--header-middle-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="logo pull-left">
-                        <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-                    </div>
-                    <div class="btn-group pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Canada</a></li>
-                                <li><a href="">UK</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                DOLLAR
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Canadian Dollar</a></li>
-                                <li><a href="">Pound</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="shop-menu pull-right">
-                        <ul class="nav navbar-nav">
-                            <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html" class="active"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/header-middle-->
-
-    <div class="header-bottom"><!--header-bottom-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="mainmenu pull-left">
-                        <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Products</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li> 
-                                    <li><a href="checkout.html" class="active">Checkout</a></li> 
-                                    <li><a href="cart.html">Cart</a></li> 
-                                    <li><a href="login.html">Login</a></li> 
-                                </ul>
-                            </li> 
-                            <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Blog List</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                </ul>
-                            </li> 
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/header-bottom-->
-</header><!--/header-->
-
 <section id="cart_items">
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumb">
               <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
               <li class="active">Check out</li>
             </ol>
         </div><!--/breadcrums-->
@@ -194,20 +77,13 @@
         </div>
         <div class="container-shop">
             <div class="card col-12">
-                <div class="card-header">Upload Your Payment</div>
-                <div class="card-body">
-                    <div id="drop-zone">
-                        <h3 class="text-center">Drop Here ...</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12">
                 <div id="content">
-                    Your image to appear here..
+                    Your image appear here..
+                    <img src="" alt="" id="preview">
                 </div>
             </div>
-            <form action="" method="post">
-                <input type="file" name="" id="imgPayment" class="d-none">
+            <form  action="" method="post">
+                <input class="upload-image d-none" type="file" name="" id="imgPayment" >
                 <button class="text-center mx-auto btn btn-default check_out text-right mb-1" href="{{ url('/pembelian/store', $row->id_produk) }}"><strong>CONFIRM</strong></button>
             </form>
         </div>
@@ -378,48 +254,62 @@
 <script>
     const dropZone = document.getElementById('drop-zone');
 const content = document.getElementById('content');
+const preview = document.getElementById('preview');
 const payment = document.getElementById('imgPayment');
 
 const reader = new FileReader();
 
-if (window.FileList && window.File) {
-  dropZone.addEventListener('dragover', event => {
-    event.stopPropagation();
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'copy';
-  });
+// if (window.FileList && window.File) {
+//   dropZone.addEventListener('dragover', event => {
+//     event.stopPropagation();
+//     event.preventDefault();
+//     event.dataTransfer.dropEffect = 'copy';
+//   });
   
-  dropZone.addEventListener('drop', event => {
-    content.innerHTML = '';
-    event.stopPropagation();
-    event.preventDefault();
-    const files = event.dataTransfer.files;
-    console.log(files);
+//   dropZone.addEventListener('drop', event => {
+//     content.innerHTML = '';
+//     event.stopPropagation();
+//     event.preventDefault();
+//     const files = event.dataTransfer.files;
+//     console.log(files);
     
-    reader.readAsDataURL(files[0]);
+//     reader.readAsDataURL(files[0]);
   
-    reader.addEventListener('load', (event) => {
-      content.innerHTML = '';
+//     reader.addEventListener('load', (event) => {
+//       content.innerHTML = '';
+//       const img = document.createElement('img');
+//     //   img.style.height = '400px';
+//       img.style.width = '700px';
+//       content.appendChild(img);
+//       img.src = event.target.result;
+//     //   img.alt = file.name;
+
+//       var reader = new FileReader();
+//         let input = $('#imgPayment');
+//         reader.onload = function(e) {
+//             $('#content img')
+//                 .attr('src', e.target.result);
+//         };
+
+//         reader.readAsDataURL(input.files[0]);
+            
+//         input.files[0] = $('#content img')
+//                 .attr('src');
+//     });
+//   }); 
+// }
+
+let imgup = document.querySelector('.upload-image')
+imgup.onchange = function(event) {
+    let file = event.target.files
+    content.innerHTML = '';
       const img = document.createElement('img');
     //   img.style.height = '400px';
-      img.style.width = '700px';
+      img.style.width = '100%';
       content.appendChild(img);
-      img.src = event.target.result;
-    //   img.alt = file.name;
-
-      var reader = new FileReader();
-        let input = $('#imgPayment');
-        reader.onload = function(e) {
-            $('#content img')
-                .attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-            
-        input.files[0] = $('#content img')
-                .attr('src');
-    });
-  }); 
+      preview.src = file;
+      console.log(event)
+      console.log("tes")
 }
 
 
