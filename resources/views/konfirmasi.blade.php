@@ -76,15 +76,10 @@
             </table>
         </div>
         <div class="container-shop">
-            <div class="card col-12">
-                <div id="content">
-                    Your image appear here..
-                    <img src="" alt="" id="preview">
-                </div>
-            </div>
-            <form  action="" method="post">
-                <input class="upload-image d-none" type="file" name="" id="imgPayment" >
-                <button class="text-center mx-auto btn btn-default check_out text-right mb-1" href="{{ url('/pembelian/store', $row->id_produk) }}"><strong>CONFIRM</strong></button>
+            <form action="{{ url('/pembelian/konfirmasibukti', $row->id_produk) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="bukti" id="imgPayment" class="d-none">
+                <input class="text-center mx-auto btn btn-default check_out text-right mb-1" type="submit" value="CONFIRM">
             </form>
         </div>
         @endforeach

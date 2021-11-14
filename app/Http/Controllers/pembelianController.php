@@ -107,7 +107,7 @@ class pembelianController extends Controller
         $tmpstok = $data->qty;
         $data2 = produk::where('id',$data->id_produk)->first();
         $newstok = $data2->stok - $data->qty;
-        $data2 = $newstok;
+        $data2->stok = $newstok;
         $data2->save();
         return redirect('konfirmasi');
     }
