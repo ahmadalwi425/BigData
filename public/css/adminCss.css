@@ -1,0 +1,36 @@
+.dataTables_info {
+    text-align: end;
+    margin-right: 20px;
+}
+
+#DataTables_Table_0_paginate {
+    margin: 20px;
+    display: flex;
+    align-content:center;
+    justify-content: center;
+}
+
+#DataTables_Table_0_previous {
+    margin: auto;
+    margin-left: auto;
+}
+
+#DataTables_Table_0_next {
+    margin:auto
+}
+
+#DataTables_Table_1_paginate {
+    margin: 20px;
+    display: flex;
+    align-content:center;
+    justify-content: center;
+}
+
+#DataTables_Table_1_previous {
+    margin: auto;
+    margin-left: auto;
+}
+
+#DataTables_Table_1_next {
+    margin:auto
+}

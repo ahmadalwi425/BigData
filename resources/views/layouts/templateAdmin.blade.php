@@ -57,7 +57,7 @@
   <meta name="author" content="Creative Tim">
   <title>Big Data - {{$navActive}}</title>
   <!-- Favicon -->
-  <link rel="icon" href="" type="image/png">
+  <link rel="shortcut icon" href="{{asset('storage/assets/img/LO GO.png')}}" type="image/x-icon">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
@@ -65,6 +65,10 @@
   <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" type="text/css">
   {{-- <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css"> --}}
   <!-- Page plugins -->
+
+  <!-- Own CSS -->
+  <link rel="stylesheet" href="{{asset('css/adminCss.css')}}">
+
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('css/argon.css')}}" type="text/css">
   {{-- DatePicker --}}

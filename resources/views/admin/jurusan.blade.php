@@ -42,17 +42,16 @@
                 </div>
               </button>
             </div>
-          </div>
+            
           </div>
           <!-- Light table -->
           <div class="table-responsive">
-            <table class="table align-items-center table-flush">
+            <table class="table align-items-center table-flush datatables">
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort" data-sort="name">No</th>
                   <th scope="col" class="sort" data-sort="name">Jurusan</th>
                   <th scope="col" class="sort" data-sort="name">Aksi</th>
-                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody class="list">
@@ -91,7 +90,7 @@
             </table>
           </div>
           <!-- Card footer -->
-          <div class="card-footer py-4">
+          <!-- <div class="card-footer py-4">
             <nav aria-label="...">
               <ul class="pagination justify-content-end mb-0">
                 <li class="page-item disabled">
@@ -115,7 +114,7 @@
                 </li>
               </ul>
             </nav>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

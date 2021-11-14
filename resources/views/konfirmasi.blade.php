@@ -32,7 +32,7 @@
                 <tbody>
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="{{ asset($row->produk->nama_produk) }}" alt=""></a>
+                            <img style="margin-left:-25px; width: 100px;height: 100px;" src="{{ asset('storage/assets/'.$row->produk->gambar) }}" alt="">
                         </td>
                         <td class="cart_description">
                             <h4><a href="">{{ $row->produk->nama_produk }}</a></h4>
